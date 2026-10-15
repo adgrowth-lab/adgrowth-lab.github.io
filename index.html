@@ -217,6 +217,31 @@
       font-weight: 500;
     }
 
+    .hero-trust-badge {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--surface);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-size: var(--step-small);
+    }
+
+    .trust-badge-pill {
+      background-color: var(--brand-green);
+      color: #ffffff;
+      font-size: var(--step-small);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .trust-badge-text {
+      color: var(--ink-secondary);
+      font-weight: 500;
+    }
+
     /* Live Interactive Terminal Fragment (data-ui) */
     .calculator-stage[data-ui] {
       background-color: var(--surface);
@@ -586,6 +611,60 @@
       line-height: 1.6;
     }
 
+    /* Preflight Advisory Box (data-ui) */
+    .preflight-card[data-ui] {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 36px;
+    }
+
+    .preflight-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .preflight-pill {
+      background-color: var(--ink);
+      color: #ffffff;
+      font-size: var(--step-small);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .preflight-title {
+      font-size: var(--step-lead);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .preflight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .preflight-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .preflight-key {
+      font-size: var(--step-body);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .preflight-desc {
+      font-size: var(--step-small);
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
     /* Benefits & Official Appeals Cards */
     .perks-section {
       background-color: var(--bg);
@@ -593,9 +672,6 @@
 
     .perks-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
       grid-template-columns: 1fr 1fr;
       gap: 32px;
       min-width: 320px;
@@ -800,6 +876,15 @@
       display: block;
     }
 
+    .dialog-reassurance {
+      display: block;
+      margin-top: 14px;
+      font-size: var(--step-small);
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
     /* Footer */
     .site-footer {
       padding: 40px var(--margin-desktop);
@@ -859,11 +944,11 @@
         padding: 12px 16px;
       }
       .brand-wordmark {
-        font-size: 16px;
+        font-size: var(--step-body);
       }
       #nav-cta-btn {
         padding: 8px 14px;
-        font-size: 13px;
+        font-size: var(--step-small);
         font-weight: 700;
         white-space: nowrap;
       }
@@ -890,7 +975,7 @@
       .hero-actions .btn {
         width: 100%;
         padding: 16px;
-        font-size: 16px;
+        font-size: var(--step-body);
         text-align: center;
         justify-content: center;
       }
@@ -903,7 +988,14 @@
         flex-direction: column;
         gap: 8px;
         margin-top: 24px;
-        font-size: 13px;
+        font-size: var(--step-small);
+      }
+      .hero-trust-badge {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+        margin-top: 16px;
       }
       .calculator-stage[data-ui] {
         padding: 20px 16px;
@@ -925,10 +1017,10 @@
         min-height: 48px;
       }
       .tier-option-spend {
-        font-size: 13px;
+        font-size: var(--step-small);
       }
       .tier-option-credit {
-        font-size: 18px;
+        font-size: var(--step-lead);
       }
       .calc-result-panel {
         padding: 16px;
@@ -942,17 +1034,17 @@
         padding: 8px 16px;
       }
       .calc-label {
-        font-size: 13px;
+        font-size: var(--step-small);
       }
       .calc-value {
-        font-size: 15px;
+        font-size: var(--step-body);
       }
       .calc-value-large {
-        font-size: 26px;
+        font-size: var(--step-head);
       }
       .calc-claim-btn {
         padding: 16px;
-        font-size: 16px;
+        font-size: var(--step-body);
         min-height: 52px;
         display: flex;
         align-items: center;
@@ -979,7 +1071,7 @@
         min-height: auto;
       }
       .tier-main-credit {
-        font-size: 32px;
+        font-size: var(--step-head);
       }
       .tier-specs-list {
         margin-bottom: 20px;
@@ -990,7 +1082,7 @@
         padding: 14px;
         text-align: center;
         justify-content: center;
-        font-size: 15px;
+        font-size: var(--step-small);
       }
       .dashboard-preview[data-ui] {
         padding: 20px 16px;
@@ -1004,7 +1096,7 @@
         margin-bottom: 16px;
       }
       .dash-amount {
-        font-size: 28px;
+        font-size: var(--step-head);
       }
       .dash-stats-row {
         grid-template-columns: 1fr;
@@ -1020,6 +1112,23 @@
         background-color: var(--surface);
         border-radius: var(--radius);
       }
+      .preflight-card[data-ui] {
+        padding: 20px 16px;
+        margin-top: 24px;
+      }
+      .preflight-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .preflight-title {
+        font-size: var(--step-body);
+      }
+      .preflight-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
       .perks-grid {
         gap: 20px;
       }
@@ -1034,7 +1143,7 @@
       }
       .faq-btn {
         padding: 14px 16px;
-        font-size: 14px;
+        font-size: var(--step-small);
         text-align: left;
       }
       .faq-display-card {
@@ -1051,13 +1160,13 @@
         padding: 24px 18px;
       }
       .dialog-select {
-        font-size: 14px;
+        font-size: var(--step-small);
         padding: 14px 12px;
         width: 100%;
       }
       .dialog-submit-btn {
         padding: 16px;
-        font-size: 16px;
+        font-size: var(--step-body);
         width: 100%;
         text-align: center;
         justify-content: center;
@@ -1104,6 +1213,10 @@
           </a>
           <a href="#tiers" class="text-link">Compare 4 spend tiers →</a>
         </div>
+        <div class="hero-trust-badge">
+          <span class="trust-badge-pill">NO CODE NEEDED</span>
+          <span class="trust-badge-text">Direct Partner Token Embedded · Auto-Applied At ads.tiktok.com</span>
+        </div>
         <div class="hero-benefits-list">
           <span>Direct balance deposit</span>
           <span>Shop & web traffic</span>
@@ -1115,7 +1228,7 @@
       <div class="calculator-stage animate-hero-right" data-ui>
         <div class="calc-header">
           <span class="calc-title">Incentive Match Calculator</span>
-          <span class="calc-status">Live Partner Terms</span>
+          <span class="calc-status">October 2026 Quota Active</span>
         </div>
 
         <div class="spend-tier-selector">
@@ -1340,6 +1453,28 @@
         </div>
       </div>
     </div>
+
+    <!-- Preflight Advisory Card (data-ui) -->
+    <div class="preflight-card" data-ui>
+      <div class="preflight-top">
+        <span class="preflight-pill">PRE-FLIGHT ADVISORY</span>
+        <span class="preflight-title">Three requirements to guarantee full voucher eligibility</span>
+      </div>
+      <div class="preflight-grid">
+        <div class="preflight-col">
+          <span class="preflight-key">Clean Business Email</span>
+          <p class="preflight-desc">Register with an email address never previously linked to TikTok Ads Manager or Business Center.</p>
+        </div>
+        <div class="preflight-col">
+          <span class="preflight-key">Matching Jurisdiction</span>
+          <p class="preflight-desc">Ensure your registration connection country aligns with the billing address of your commercial payment card.</p>
+        </div>
+        <div class="preflight-col">
+          <span class="preflight-key">Direct Link Binding</span>
+          <p class="preflight-desc">Open the partner portal directly. Partner token attaches automatically upon loading the official TikTok registration form.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Section 4: Stackable Benefits & Official Appeal -->
@@ -1437,6 +1572,7 @@
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn dialog-submit-btn" id="dialog-submit-btn">
           Claim $3,000 Voucher Now →
         </a>
+        <span class="dialog-reassurance">Official partner redirect to ads.tiktok.com · Zero intermediary fees · Instant token attachment</span>
       </div>
     </div>
   </section>
