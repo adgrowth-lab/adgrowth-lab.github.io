@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="320" height="220" fill="none">
+  <rect width="320" height="220" rx="16" fill="#161823"/>
+  <rect x="16" y="16" width="70" height="70" rx="12" fill="#222533"/>
+  <polygon points="46,36 62,51 46,66" fill="#25f4ee"/>
+
+  <rect x="98" y="18" width="80" height="18" rx="4" fill="#0b0f19"/>
+  <text x="104" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#fe2c55">SPARK ADS</text>
+  <text x="98" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Creator UGC Direct Boost</text>
+  <text x="98" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Authentic Feed Integration</text>
+
+  <!-- Metrics row -->
+  <rect x="16" y="102" width="288" height="48" rx="8" fill="#222533"/>
+  <text x="32" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Engagement Lift</text>
+  <text x="32" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#25f4ee">+142% ER</text>
+  <text x="140" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">CTR Performance</text>
+  <text x="140" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#ffffff">3.1% CTR</text>
+  <text x="248" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Milestone</text>
+  <text x="248" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#fe2c55">$3,000</text>
+
+  <!-- Action button -->
+  <rect x="16" y="162" width="288" height="42" rx="8" fill="#1e293b"/>
+  <text x="160" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Amplify Creator Videos →</text>
+</svg>
