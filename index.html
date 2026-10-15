@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>TikTok Offers Hub · Official Ad Credit & Partner Incentive Registry</title>
   <meta name="description" content="Official TikTok ad credits up to $6,000 matched across 4 verified advertiser tiers. Includes stackable 50% discount coupons and direct Ads Manager balance deposit.">
   <meta property="og:title" content="TikTok Offers Hub · Up to $6,000 Ad Credit Match">
@@ -29,7 +30,14 @@
       --brand-blue: #1d4ed8;
       --brand-green: #15803d;
       --brand-green-bg: #dcfce7;
-      --radius: 6px;
+      --table-border: #e5e7eb;
+      --table-th-bg: #f8fafc;
+      --table-highlight-bg: #f8fafc;
+      --table-highlight-th: #1e293b;
+      --tier-opt-bg: #ffffff;
+      --tier-opt-selected-bg: #111827;
+      --tier-opt-selected-ink: #ffffff;
+      --radius: 8px;
       --margin-desktop: clamp(24px, 5vw, 64px);
       --font-body: 'Clash Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
@@ -39,6 +47,32 @@
       --step-lead: clamp(1.15rem, 1.4vw, 1.25rem);
       --step-body: 17px;
       --step-small: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090b10;
+        --surface: #141722;
+        --surface-dark: #05070a;
+        --surface-card: #1c2030;
+        --surface-accent: #2e2616;
+        --ink: #ffffff;
+        --ink-secondary: #cbd5e1;
+        --muted: #94a3b8;
+        --accent: #ff8a00;
+        --accent-hover: #ffa12e;
+        --accent-ink: #000000;
+        --brand-blue: #60a5fa;
+        --brand-green: #4ade80;
+        --brand-green-bg: #14532d;
+        --table-border: #242c3d;
+        --table-th-bg: #1c2030;
+        --table-highlight-bg: #1e2538;
+        --table-highlight-th: #0f172a;
+        --tier-opt-bg: #1c2030;
+        --tier-opt-selected-bg: #ffffff;
+        --tier-opt-selected-ink: #000000;
+      }
     }
 
     * {
@@ -338,7 +372,8 @@
     }
 
     .tier-option {
-      background-color: var(--bg);
+      background-color: var(--tier-opt-bg);
+      color: var(--ink);
       padding: 12px 6px;
       text-align: center;
       border-radius: var(--radius);
@@ -351,8 +386,24 @@
     }
 
     .tier-option.selected {
-      background-color: var(--ink);
-      color: #ffffff;
+      background-color: var(--tier-opt-selected-bg);
+      color: var(--tier-opt-selected-ink);
+    }
+
+    .calc-step-hint {
+      font-size: var(--step-small);
+      color: var(--muted);
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .cta-direct-hint {
+      display: block;
+      font-size: var(--step-small);
+      color: var(--muted);
+      margin-top: 10px;
+      font-weight: 500;
     }
 
     .tier-option-spend {
@@ -453,13 +504,13 @@
       padding: 20px 24px;
       font-size: var(--step-small);
       font-weight: 700;
-      background-color: #f8fafc;
-      border-bottom: 1px solid #e5e7eb;
+      background-color: var(--table-th-bg);
+      border-bottom: 1px solid var(--table-border);
       color: var(--ink);
     }
 
     .comparison-table th.highlight-col {
-      background-color: #1e293b;
+      background-color: var(--table-highlight-th);
       color: #ffffff;
     }
 
@@ -479,7 +530,7 @@
     .comparison-table td {
       padding: 18px 24px;
       font-size: var(--step-small);
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--table-border);
       color: var(--ink-secondary);
       line-height: 1.4;
     }
@@ -489,7 +540,7 @@
     }
 
     .comparison-table td.highlight-col {
-      background-color: #f8fafc;
+      background-color: var(--table-highlight-bg);
       font-weight: 600;
       color: var(--brand-green);
     }
@@ -499,7 +550,83 @@
     }
 
     .table-dim {
-      color: #4b5563;
+      color: var(--muted);
+    }
+
+    /* Mobile Comparison Card */
+    .mobile-comparison-card {
+      display: none;
+    }
+
+    .mcomp-item {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .mcomp-title {
+      font-size: var(--step-body);
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .mcomp-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mcomp-box {
+      padding: 12px;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mcomp-box.direct {
+      background-color: var(--bg);
+    }
+
+    .mcomp-box.partner {
+      background-color: var(--surface-dark);
+      color: #ffffff;
+    }
+
+    .mcomp-tag {
+      font-size: var(--step-small);
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .mcomp-box.partner .mcomp-tag {
+      color: #94a3b8;
+    }
+
+    .mcomp-val {
+      font-size: var(--step-small);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .mcomp-val.dim {
+      color: var(--muted);
+    }
+
+    .mcomp-val.green {
+      color: #34d399;
+    }
+
+    .mcomp-cta-btn {
+      width: 100%;
+      margin-top: 16px;
+      padding: 16px;
+      text-align: center;
+      justify-content: center;
+      font-size: var(--step-body);
     }
 
     /* Section 1: 4 Spend Tiers Overview */
@@ -1160,6 +1287,12 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+      .comparison-table-wrapper {
+        display: none;
+      }
+      .mobile-comparison-card {
+        display: block;
+      }
     }
 
     @media (max-width: 600px) {
@@ -1196,7 +1329,7 @@
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 8px;
       }
       .hero-actions .btn {
         width: 100%;
@@ -1204,11 +1337,6 @@
         font-size: var(--step-body);
         text-align: center;
         justify-content: center;
-      }
-      .hero-actions .text-link {
-        text-align: center;
-        display: block;
-        padding: 6px 0;
       }
       .hero-trust-badge {
         flex-direction: column;
@@ -1218,10 +1346,11 @@
         margin-top: 16px;
       }
       .hero-stats-strip {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 24px;
-        padding-top: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 20px;
+        padding: 14px 10px;
+        text-align: center;
       }
       .calculator-stage[data-ui] {
         padding: 20px 16px;
@@ -1460,9 +1589,9 @@
         </p>
         <div class="hero-actions">
           <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="hero-main-cta">
-            Claim $3,000 Voucher →
+            Claim $3,000 Voucher Now →
           </a>
-          <a href="#comparison" class="text-link">View comparison matrix →</a>
+          <span class="cta-direct-hint">Official TikTok Portal Route · Zero Promo Code Required · Instant Token Applied</span>
         </div>
         <div class="hero-trust-badge">
           <img src="assets/tiktok-mark.svg" alt="TikTok" class="trust-badge-logo" width="18" height="18">
@@ -1492,6 +1621,7 @@
           <span class="calc-status">October 2026 Quota Active</span>
         </div>
 
+        <span class="calc-step-hint">1. Select your target ad spend budget:</span>
         <div class="spend-tier-selector">
           <div class="tier-option" onclick="selectTier(200, 200, '100% Match', this)">
             <span class="tier-option-spend">Spend $200</span>
@@ -1511,6 +1641,7 @@
           </div>
         </div>
 
+        <span class="calc-step-hint">2. Your matching ad credit voucher:</span>
         <div class="calc-result-panel">
           <div class="calc-row">
             <span class="calc-label">Free Ad Credit Voucher</span>
@@ -1535,8 +1666,9 @@
         </div>
 
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent calc-claim-btn" id="calc-claim-button">
-          Claim $3,000 Voucher Now →
+          Activate &amp; Claim $3,000 Voucher →
         </a>
+        <span class="cta-direct-hint" style="text-align: center;">Direct TikTok partner route · Auto-applied at ads.tiktok.com</span>
       </div>
     </div>
   </section>
@@ -1549,52 +1681,117 @@
     </p>
 
     <div class="comparison-container" data-ui>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Incentive Feature</th>
-            <th>Standard Direct Registration</th>
-            <th class="highlight-col">
-              <span class="table-th-brand">
-                <img src="assets/tiktok-mark.svg" alt="TikTok" class="table-th-icon" width="18" height="18">
-                Authorized Partner Portal Route
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Ad Credit Milestone Match</strong></td>
-            <td><span class="table-dim">$0 (Standard Rates)</span></td>
-            <td class="highlight-col">Up to $6,000 Direct Balance Match</td>
-          </tr>
-          <tr>
-            <td><strong>Introductory Spend Coupon</strong></td>
-            <td><span class="table-dim">Not Included</span></td>
-            <td class="highlight-col">50% Off First Week (Stackable)</td>
-          </tr>
-          <tr>
-            <td><strong>$4,000 Spend Purchasing Power</strong></td>
-            <td><span class="table-dim">$4,000 Delivery Budget</span></td>
-            <td class="highlight-col">$7,000 Delivery Budget (1.75× Multiplier)</td>
-          </tr>
-          <tr>
-            <td><strong>Promo Code Input Requirement</strong></td>
-            <td><span class="table-dim">Manual Search (High Failure Rate)</span></td>
-            <td class="highlight-col">Zero Code Needed (Token Pre-Baked)</td>
-          </tr>
-          <tr>
-            <td><strong>Qualification Appeal Access</strong></td>
-            <td><span class="table-dim">Standard Ticket Helpdesk</span></td>
-            <td class="highlight-col">Official Payment Promotion Appeal Portal</td>
-          </tr>
-          <tr>
-            <td><strong>Registration Destination</strong></td>
-            <td>ads.tiktok.com</td>
-            <td class="highlight-col">ads.tiktok.com (100% Direct Official Route)</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Incentive Feature</th>
+              <th>Standard Direct Registration</th>
+              <th class="highlight-col">
+                <span class="table-th-brand">
+                  <img src="assets/tiktok-mark.svg" alt="TikTok" class="table-th-icon" width="18" height="18">
+                  Authorized Partner Portal Route
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ad Credit Milestone Match</strong></td>
+              <td><span class="table-dim">$0 (Standard Rates)</span></td>
+              <td class="highlight-col">Up to $6,000 Direct Balance Match</td>
+            </tr>
+            <tr>
+              <td><strong>Introductory Spend Coupon</strong></td>
+              <td><span class="table-dim">Not Included</span></td>
+              <td class="highlight-col">50% Off First Week (Stackable)</td>
+            </tr>
+            <tr>
+              <td><strong>$4,000 Spend Purchasing Power</strong></td>
+              <td><span class="table-dim">$4,000 Delivery Budget</span></td>
+              <td class="highlight-col">$7,000 Delivery Budget (1.75× Multiplier)</td>
+            </tr>
+            <tr>
+              <td><strong>Promo Code Input Requirement</strong></td>
+              <td><span class="table-dim">Manual Search (High Failure Rate)</span></td>
+              <td class="highlight-col">Zero Code Needed (Token Pre-Baked)</td>
+            </tr>
+            <tr>
+              <td><strong>Qualification Appeal Access</strong></td>
+              <td><span class="table-dim">Standard Ticket Helpdesk</span></td>
+              <td class="highlight-col">Official Payment Promotion Appeal Portal</td>
+            </tr>
+            <tr>
+              <td><strong>Registration Destination</strong></td>
+              <td>ads.tiktok.com</td>
+              <td class="highlight-col">ads.tiktok.com (100% Direct Official Route)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Native Comparison Card -->
+      <div class="mobile-comparison-card">
+        <div class="mcomp-item">
+          <span class="mcomp-title">Ad Credit Milestone Match</span>
+          <div class="mcomp-split">
+            <div class="mcomp-box direct">
+              <span class="mcomp-tag">Standard Direct</span>
+              <span class="mcomp-val dim">$0 (No Bonus)</span>
+            </div>
+            <div class="mcomp-box partner">
+              <span class="mcomp-tag">Authorized Partner</span>
+              <span class="mcomp-val green">Up to +$6,000 Match</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcomp-item">
+          <span class="mcomp-title">First-Week Spend Coupon</span>
+          <div class="mcomp-split">
+            <div class="mcomp-box direct">
+              <span class="mcomp-tag">Standard Direct</span>
+              <span class="mcomp-val dim">Not Included</span>
+            </div>
+            <div class="mcomp-box partner">
+              <span class="mcomp-tag">Authorized Partner</span>
+              <span class="mcomp-val green">50% Off (Stackable)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcomp-item">
+          <span class="mcomp-title">$4,000 Spend Purchasing Power</span>
+          <div class="mcomp-split">
+            <div class="mcomp-box direct">
+              <span class="mcomp-tag">Standard Direct</span>
+              <span class="mcomp-val dim">$4,000 Budget (1.0×)</span>
+            </div>
+            <div class="mcomp-box partner">
+              <span class="mcomp-tag">Authorized Partner</span>
+              <span class="mcomp-val green">$7,000 Budget (1.75×)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcomp-item">
+          <span class="mcomp-title">Promo Code Requirement</span>
+          <div class="mcomp-split">
+            <div class="mcomp-box direct">
+              <span class="mcomp-tag">Standard Direct</span>
+              <span class="mcomp-val dim">Manual Search</span>
+            </div>
+            <div class="mcomp-box partner">
+              <span class="mcomp-tag">Authorized Partner</span>
+              <span class="mcomp-val green">Zero Code (Auto-Token)</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent mcomp-cta-btn">
+          Claim Official Partner Privileges →
+        </a>
+      </div>
     </div>
   </section>
 
