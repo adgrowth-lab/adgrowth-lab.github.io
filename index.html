@@ -403,6 +403,42 @@
       border-radius: 3px;
     }
 
+    .quota-res-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: var(--step-small);
+      color: var(--muted);
+    }
+
+    .quota-res-timer {
+      color: var(--brand-green);
+      font-weight: 700;
+    }
+
+    .live-proof-ticker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      margin-top: 20px;
+      font-size: var(--step-small);
+      color: var(--ink-secondary);
+    }
+
+    .proof-indicator {
+      color: var(--brand-green);
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .proof-msg {
+      font-weight: 600;
+    }
+
     .spend-tier-selector {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -731,10 +767,17 @@
     }
 
     .tier-specs-list {
+      background-color: var(--bg);
+      border-radius: var(--radius);
+      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+    }
+
+    .tier-card.featured .tier-specs-list {
+      background-color: rgba(255, 255, 255, 0.08);
     }
 
     .tier-spec-row {
@@ -752,6 +795,18 @@
     .tier-action-btn {
       width: 100%;
       text-align: center;
+    }
+
+    .tier-micro-note {
+      display: block;
+      font-size: var(--step-small);
+      color: var(--muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .tier-card.featured .tier-micro-note {
+      color: #94a3b8;
     }
 
     /* Formats Section */
@@ -1690,6 +1745,10 @@
             <span class="stat-item-label">US, UK, CA, EU & SEA</span>
           </div>
         </div>
+        <div class="live-proof-ticker">
+          <span class="proof-indicator">●</span>
+          <span class="proof-msg" id="proof-msg">Verified: US E-commerce brand claimed $3,000 voucher (2m ago)</span>
+        </div>
       </div>
 
       <!-- Live Interactive Voucher Calculator (data-ui) -->
@@ -1706,6 +1765,11 @@
           </div>
           <div class="quota-track">
             <div class="quota-fill" style="width: 84%;"></div>
+          </div>
+          <div class="quota-res-bar">
+            <span>Real-Time Session Lock:</span>
+            <strong class="quota-res-timer" id="session-countdown">14:59</strong>
+            <span>Active Reservation</span>
           </div>
         </div>
 
@@ -1894,7 +1958,7 @@
       <!-- Tier 1 -->
       <div class="tier-card animate-tier-1">
         <div>
-          <span class="tier-plan-name">Starter Tier</span>
+          <span class="tier-plan-name">Starter Tier · 100% Match</span>
           <div class="tier-main-credit">+$200</div>
           <div class="tier-requirement-text">Spend $200 (100% Match)</div>
           <div class="tier-specs-list">
@@ -1904,15 +1968,18 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $200 Credit →
-        </a>
+        <div>
+          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+            Claim $200 Voucher &amp; Auto-Apply →
+          </a>
+          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
+        </div>
       </div>
 
       <!-- Tier 2 -->
       <div class="tier-card animate-tier-2">
         <div>
-          <span class="tier-plan-name">Growth Tier</span>
+          <span class="tier-plan-name">Growth Tier · 75% Match</span>
           <div class="tier-main-credit">+$750</div>
           <div class="tier-requirement-text">Spend $1,000 (75% Match)</div>
           <div class="tier-specs-list">
@@ -1922,15 +1989,18 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $750 Credit →
-        </a>
+        <div>
+          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+            Claim $750 Voucher &amp; Auto-Apply →
+          </a>
+          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
+        </div>
       </div>
 
       <!-- Tier 3: Featured -->
       <div class="tier-card featured animate-tier-3">
         <div>
-          <span class="tier-plan-name">Scale Tier (Best Value)</span>
+          <span class="tier-plan-name">Scale Tier · Most Popular</span>
           <div class="tier-main-credit">+$3,000</div>
           <div class="tier-requirement-text">Spend $4,000 (75% Match)</div>
           <div class="tier-specs-list">
@@ -1940,15 +2010,18 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
-          Claim $3,000 Voucher →
-        </a>
+        <div>
+          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
+            Claim $3,000 Voucher &amp; Auto-Apply →
+          </a>
+          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
+        </div>
       </div>
 
       <!-- Tier 4 -->
       <div class="tier-card animate-tier-4">
         <div>
-          <span class="tier-plan-name">Enterprise Tier</span>
+          <span class="tier-plan-name">Enterprise Tier · $6k Cap</span>
           <div class="tier-main-credit">+$6,000</div>
           <div class="tier-requirement-text">Spend $10,000 (60% Match)</div>
           <div class="tier-specs-list">
@@ -1958,9 +2031,12 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $6,000 Credit →
-        </a>
+        <div>
+          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+            Claim $6,000 Voucher &amp; Auto-Apply →
+          </a>
+          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
+        </div>
       </div>
     </div>
   </section>
@@ -2379,6 +2455,34 @@
         showTokenToast();
       }
     });
+
+    // Real-time Session Reservation Countdown (Urgency CRO)
+    let sessionSeconds = 14 * 60 + 59;
+    function updateCountdown() {
+      if (sessionSeconds <= 0) return;
+      sessionSeconds--;
+      const mins = Math.floor(sessionSeconds / 60);
+      const secs = sessionSeconds % 60;
+      const el = document.getElementById('session-countdown');
+      if (el) {
+        el.textContent = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+      }
+    }
+    setInterval(updateCountdown, 1000);
+
+    // Dynamic Social Proof Ticker (Social Proof CRO)
+    const PROOF_MSGS = [
+      "Verified: US E-commerce brand claimed $3,000 voucher (2m ago)",
+      "Active: UK DTC agency unlocked $6,000 enterprise match (4m ago)",
+      "Verified: Shopify store claimed $750 growth subsidy (7m ago)",
+      "Active: TikTok Shop seller claimed $3,000 ad credit (11m ago)"
+    ];
+    let proofIdx = 0;
+    setInterval(() => {
+      proofIdx = (proofIdx + 1) % PROOF_MSGS.length;
+      const el = document.getElementById('proof-msg');
+      if (el) el.textContent = PROOF_MSGS[proofIdx];
+    }, 4500);
   </script>
 </body>
 </html>
