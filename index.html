@@ -883,7 +883,7 @@
 <body>
 
   <!-- Top Sticky Navigation -->
-  <header class="top-nav">
+  <header class="top-nav" id="top-sticky-nav">
     <a href="#" class="brand-wordmark">TikTok Offers Hub</a>
     <nav class="nav-links">
       <a href="#calculator" class="nav-link">Credit Calculator</a>
@@ -892,7 +892,7 @@
       <a href="#steps" class="nav-link">Claim Protocol</a>
       <a href="#faq" class="nav-link">Eligibility</a>
     </nav>
-    <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Claim Ad Credit</a>
+    <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent" id="nav-cta-btn">Claim $3,000 Credit →</a>
   </header>
 
   <!-- Hero Section -->
@@ -905,7 +905,7 @@
         </p>
         <div class="hero-actions">
           <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="hero-main-cta">
-            Claim $3,000 Voucher
+            Claim $3,000 Voucher →
           </a>
           <a href="#tiers" class="text-link">Compare 4 spend tiers →</a>
         </div>
@@ -962,7 +962,7 @@
         </div>
 
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent calc-claim-btn" id="calc-claim-button">
-          Claim $3,000 Voucher Now
+          Claim $3,000 Voucher Now →
         </a>
       </div>
     </div>
@@ -1261,8 +1261,11 @@
       const gross = spend + credit;
       document.getElementById('display-power-val').textContent = '$' + gross.toLocaleString() + ' Ad Spend';
       document.getElementById('display-match-val').textContent = match;
-      document.getElementById('calc-claim-button').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now';
-      document.getElementById('hero-main-cta').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher';
+      document.getElementById('calc-claim-button').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
+      document.getElementById('hero-main-cta').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher →';
+
+      const navBtn = document.getElementById('nav-cta-btn');
+      if (navBtn) navBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Credit →';
 
       if (element) {
         document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
