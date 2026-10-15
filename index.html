@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TikTok Offers Hub · Official Ad Credit & Partner Incentive Registry</title>
+  <meta name="description" content="Official TikTok ad credits up to $6,000 matched across 4 verified advertiser tiers. Includes stackable 50% discount coupons and direct Ads Manager balance deposit.">
+  <meta property="og:title" content="TikTok Offers Hub · Up to $6,000 Ad Credit Match">
+  <meta property="og:description" content="Claim up to $6,000 in official TikTok ad credits across 4 verified advertiser milestones. Stackable with 50% introductory discount coupons.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hanshan0228.github.io/tiktok-offers-hub/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
@@ -952,6 +958,10 @@
             <span class="calc-value" id="display-power-val">$7,000 Ad Spend</span>
           </div>
           <div class="calc-row">
+            <span class="calc-label">Purchasing Multiplier</span>
+            <span class="calc-value" id="display-multiplier-val">1.75× Purchasing Power</span>
+          </div>
+          <div class="calc-row">
             <span class="calc-label">Effective Subsidy Ratio</span>
             <span class="calc-value" id="display-match-val">75% Match</span>
           </div>
@@ -990,7 +1000,7 @@
           </div>
         </div>
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Select $200 Tier
+          Claim $200 Credit →
         </a>
       </div>
 
@@ -1008,7 +1018,7 @@
           </div>
         </div>
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Select $750 Tier
+          Claim $750 Credit →
         </a>
       </div>
 
@@ -1026,7 +1036,7 @@
           </div>
         </div>
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
-          Claim $3,000 Voucher
+          Claim $3,000 Voucher →
         </a>
       </div>
 
@@ -1044,7 +1054,7 @@
           </div>
         </div>
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Select $6,000 Tier
+          Claim $6,000 Credit →
         </a>
       </div>
     </div>
@@ -1075,8 +1085,8 @@
 
         <div class="dash-balance-box">
           <span class="dash-label">Promotional Credit Balance</span>
-          <div class="dash-amount">+$6,000.00 USD</div>
-          <span class="dash-voucher-desc">Automated Spend Match Voucher · Active</span>
+          <div class="dash-amount" id="dash-sim-amount">+$3,000.00 USD</div>
+          <span class="dash-voucher-desc" id="dash-sim-desc">Automated Spend Match Voucher · Active</span>
         </div>
 
         <div class="dash-stats-row">
@@ -1235,8 +1245,8 @@
           Selected allocation will grant $3,000 in promotional credit upon completing qualifying campaign spend in TikTok Ads Manager.
         </div>
 
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn dialog-submit-btn">
-          Enroll In TikTok For Business
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn dialog-submit-btn" id="dialog-submit-btn">
+          Claim $3,000 Voucher Now →
         </a>
       </div>
     </div>
@@ -1261,11 +1271,24 @@
       const gross = spend + credit;
       document.getElementById('display-power-val').textContent = '$' + gross.toLocaleString() + ' Ad Spend';
       document.getElementById('display-match-val').textContent = match;
+
+      const mult = (gross / spend).toFixed(2);
+      const multEl = document.getElementById('display-multiplier-val');
+      if (multEl) multEl.textContent = mult + '× Purchasing Power';
+
       document.getElementById('calc-claim-button').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
       document.getElementById('hero-main-cta').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher →';
 
       const navBtn = document.getElementById('nav-cta-btn');
       if (navBtn) navBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Credit →';
+
+      const dashAmt = document.getElementById('dash-sim-amount');
+      if (dashAmt) dashAmt.textContent = '+$' + credit.toLocaleString() + '.00 USD';
+      const dashDesc = document.getElementById('dash-sim-desc');
+      if (dashDesc) dashDesc.textContent = 'Automated ' + match + ' Voucher · Active';
+
+      const submitBtn = document.getElementById('dialog-submit-btn');
+      if (submitBtn) submitBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
 
       if (element) {
         document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
@@ -1281,6 +1304,7 @@
 
     function updateDialogSummary(spendVal) {
       const summaryEl = document.getElementById('dialog-summary-text');
+      const submitBtn = document.getElementById('dialog-submit-btn');
       const val = parseInt(spendVal, 10);
       let credit = 3000;
       if (val === 200) credit = 200;
@@ -1288,6 +1312,9 @@
       else if (val === 4000) credit = 3000;
       else if (val === 10000) credit = 6000;
       summaryEl.textContent = 'Selected allocation will grant $' + credit.toLocaleString() + ' in promotional credit upon completing qualifying campaign spend in TikTok Ads Manager.';
+      if (submitBtn) {
+        submitBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
+      }
     }
 
     const FAQS = [
