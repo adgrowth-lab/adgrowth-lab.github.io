@@ -856,25 +856,214 @@
 
     @media (max-width: 600px) {
       .top-nav {
-        padding: 16px 20px;
+        padding: 12px 16px;
+      }
+      .brand-wordmark {
+        font-size: 16px;
+      }
+      #nav-cta-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
       }
       .nav-links {
         display: none;
       }
       .hero-section {
-        padding: 24px 20px 56px;
+        padding: 16px 16px 44px;
+      }
+      .hero-headline {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+      .hero-subhead {
+        font-size: var(--step-body);
+        margin-bottom: 24px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-actions .text-link {
+        text-align: center;
+        display: block;
+        padding: 6px 0;
       }
       .hero-benefits-list {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+        margin-top: 24px;
+        font-size: 13px;
+      }
+      .calculator-stage[data-ui] {
+        padding: 20px 16px;
+        min-width: 0;
+      }
+      .calc-header {
+        margin-bottom: 16px;
+      }
+      .calc-title {
+        font-size: var(--step-body);
+      }
+      .spend-tier-selector {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .tier-option {
+        padding: 12px 8px;
+        min-height: 48px;
+      }
+      .tier-option-spend {
+        font-size: 13px;
+      }
+      .tier-option-credit {
+        font-size: 18px;
+      }
+      .calc-result-panel {
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .calc-row {
+        padding: 8px 0;
+      }
+      .calc-row + .calc-row {
+        margin: 4px -16px 0;
+        padding: 8px 16px;
+      }
+      .calc-label {
+        font-size: 13px;
+      }
+      .calc-value {
+        font-size: 15px;
+      }
+      .calc-value-large {
+        font-size: 26px;
+      }
+      .calc-claim-btn {
+        padding: 16px;
+        font-size: 16px;
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .section {
+        padding: 56px 16px;
+      }
+      .section-title {
+        font-size: clamp(1.6rem, 6.5vw, 2rem);
+        line-height: 1.15;
+        margin-bottom: 12px;
+      }
+      .section-subhead {
+        font-size: var(--step-body);
+        margin-bottom: 28px;
       }
       .tiers-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .tier-card {
+        padding: 24px 20px;
+        min-height: auto;
+      }
+      .tier-main-credit {
+        font-size: 32px;
+      }
+      .tier-specs-list {
+        margin-bottom: 20px;
+        gap: 8px;
+      }
+      .tier-action-btn {
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+      .dashboard-preview[data-ui] {
+        padding: 20px 16px;
+        min-width: 0;
+      }
+      .dash-topbar {
+        margin-bottom: 20px;
+      }
+      .dash-balance-box {
+        padding: 18px 16px;
+        margin-bottom: 16px;
+      }
+      .dash-amount {
+        font-size: 28px;
+      }
+      .dash-stats-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
       .steps-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .step-unit {
+        min-height: auto;
+        padding: 18px 16px;
+        background-color: var(--surface);
+        border-radius: var(--radius);
+      }
+      .perks-grid {
+        gap: 20px;
+      }
+      .perk-panel[data-ui] {
+        padding: 24px 18px;
+      }
+      .faq-split {
+        gap: 20px;
+      }
+      .faq-menu {
+        gap: 8px;
+      }
+      .faq-btn {
+        padding: 14px 16px;
+        font-size: 14px;
+        text-align: left;
+      }
+      .faq-display-card {
+        padding: 20px 16px;
+      }
+      .cta-stage-section {
+        padding: 56px 16px;
+      }
+      .cta-closing-headline {
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+        line-height: 1.15;
+      }
+      .cta-action-panel[data-ui] {
+        padding: 24px 18px;
+      }
+      .dialog-select {
+        font-size: 14px;
+        padding: 14px 12px;
+        width: 100%;
+      }
+      .dialog-submit-btn {
+        padding: 16px;
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
       }
       .site-footer {
+        padding: 32px 16px;
         flex-direction: column;
         gap: 16px;
         align-items: flex-start;
@@ -1207,7 +1396,7 @@
         </button>
       </div>
 
-      <div class="faq-display-card animate-faq-card">
+      <div class="faq-display-card animate-faq-card" id="faq-card-display">
         <h3 class="faq-card-title" id="faq-title">Eligibility requires a new ad account.</h3>
         <p class="faq-card-answer" id="faq-answer">
           Offers apply to first-time corporate or individual advertisers registering through an authorized partner portal. Ensure you access the registration page from an authorized jurisdiction and link a valid commercial payment instrument.
@@ -1362,6 +1551,12 @@
 
       document.querySelectorAll('.faq-btn').forEach(btn => btn.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
+      if (window.innerWidth <= 600) {
+        const card = document.getElementById('faq-card-display');
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
     }
   </script>
 </body>
