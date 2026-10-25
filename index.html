@@ -9,8 +9,25 @@
   <meta property="og:title" content="TikTok Offers Hub · Up to $6,000 Ad Credit Match">
   <meta property="og:description" content="Claim up to $6,000 in official TikTok ad credits across 4 verified advertiser milestones. Stackable with 50% introductory discount coupons.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hanshan0228.github.io/tiktok-offers-hub/">
+  <meta property="og:url" content="https://adgrowth-lab.github.io/">
+  <link rel="canonical" href="https://adgrowth-lab.github.io/">
+  <link rel="icon" type="image/svg+xml" href="assets/tiktok-mark.svg">
+  <link rel="apple-touch-icon" href="assets/tiktok-mark.svg">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TikTok Offers Hub",
+    "url": "https://adgrowth-lab.github.io/",
+    "description": "Official TikTok ad credits up to $6,000 matched across 4 verified advertiser tiers. Includes stackable 50% discount coupons and direct Ads Manager balance deposit.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AdGrowth Lab",
+      "url": "https://adgrowth-lab.github.io/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
@@ -1326,6 +1343,31 @@
       line-height: 1.4;
     }
 
+    .dialog-enterprise-support {
+      display: block;
+      margin-top: 10px;
+      font-size: var(--step-small);
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .dialog-enterprise-support a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .dialog-enterprise-support a:hover {
+      color: var(--accent-hover);
+    }
+
+    .footer-vip-link {
+      color: var(--accent) !important;
+      font-weight: 600;
+    }
+
     /* Footer */
     .site-footer {
       padding: 48px var(--margin-desktop);
@@ -1755,7 +1797,7 @@
       <div class="calculator-stage animate-hero-right" data-ui>
         <div class="calc-header">
           <span class="calc-title">Incentive Match Calculator</span>
-          <span class="calc-status">October 2026 Quota Active</span>
+          <span class="calc-status" id="calc-status">Active Quota Verified</span>
         </div>
 
         <div class="quota-bar-wrapper">
@@ -2307,6 +2349,10 @@
           Claim Official Offer: $3,000 Voucher →
         </a>
         <span class="dialog-reassurance">Official partner redirect to ads.tiktok.com · Zero intermediary fees · Instant token attachment</span>
+        <div class="dialog-enterprise-support">
+          Planning spend &gt; $10,000 or need custom agency-managed whitelisting? 
+          <a href="https://t.me/adgrowth_lab" target="_blank" rel="noopener noreferrer">Connect with VIP Concierge on Telegram ↗</a>
+        </div>
       </div>
     </div>
   </section>
@@ -2329,6 +2375,7 @@
       <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="footer-link">Claim Incentive</a>
       <a href="https://ads.tiktok.com/i18n/account/payment_promotion" target="_blank" rel="noopener noreferrer" class="footer-link">Payment Appeal</a>
       <a href="#tiers" class="footer-link">Tier Matrix</a>
+      <a href="https://t.me/adgrowth_lab" target="_blank" rel="noopener noreferrer" class="footer-link footer-vip-link">VIP Support (Telegram) ↗</a>
     </div>
     <span>© 2026 Independent Resource</span>
   </footer>
@@ -2483,6 +2530,17 @@
       const el = document.getElementById('proof-msg');
       if (el) el.textContent = PROOF_MSGS[proofIdx];
     }, 4500);
+
+    // Dynamic Monthly Quota Date
+    (function initQuotaStatus() {
+      const now = new Date();
+      const month = now.toLocaleString('en-US', { month: 'long' });
+      const year = now.getFullYear();
+      const statusEl = document.getElementById('calc-status');
+      if (statusEl) {
+        statusEl.textContent = `${month} ${year} Quota Active`;
+      }
+    })();
   </script>
 </body>
 </html>
