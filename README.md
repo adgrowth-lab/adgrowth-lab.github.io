@@ -184,6 +184,47 @@ python3 audit.py spend-match 4500
 
 ---
 
+### 6.4 Creative Compliance & Sensitive Word Linter (Scheme A)
+Scans ad text, captions, and hook scripts for TikTok Advertising Policy violations:
+
+```bash
+python3 audit.py compliance --text "Get 100% cure for belly fat and make $5,000 overnight!"
+```
+👉 Detailed Guide: [`CREATIVE-COMPLIANCE-GUIDE.md`](CREATIVE-COMPLIANCE-GUIDE.md)
+
+---
+
+### 6.5 VCC BIN & Payment Risk Evaluator (Scheme B)
+Inspects credit/debit card BIN prefixes against the 2026 empirical survival database:
+
+```bash
+python3 audit.py bin 405081
+python3 audit.py bin --list
+```
+👉 Detailed Database: [`vcc-bin-database.md`](vcc-bin-database.md)
+
+---
+
+### 6.6 Account Suspension Appeal Field Kit (Scheme C)
+Generates battle-tested, customized 4-Pillar appeal letters for unexpected account suspensions:
+
+```bash
+python3 audit.py appeal --type payment --brand "EcoNest Goods" --account-id "ADV-883921"
+```
+👉 Full Template Library: [`appeal-templates/`](appeal-templates/)
+
+---
+
+### 6.7 All-in-One Comprehensive Defense Suite (Integrated Scan)
+Combines Creative Compliance (35%), Cold-Start Viability (30%), Payment VCC Risk (25%), and Traffic Integrity (10%):
+
+```bash
+python3 audit.py full-audit --budget 200 --target-cpa 25 --bin 405081 --ad-text "Botanical gentle hydration."
+```
+👉 Master Blueprint: [`COMPREHENSIVE-DEFENSE-SUITE.md`](COMPREHENSIVE-DEFENSE-SUITE.md)
+
+---
+
 ## 🔒 7. Security & URL Architecture: Why `partnerlinks.io`?
 
 A common question among security-conscious media buyers is: *Why does the official route use a `partnerlinks.io` domain?*

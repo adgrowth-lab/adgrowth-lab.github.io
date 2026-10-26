@@ -15,7 +15,13 @@ from audit import (
     parse_traffic_csv,
     evaluate_cold_start,
     evaluate_spend_match,
-    TIERS
+    audit_creative_compliance,
+    evaluate_vcc_bin,
+    generate_appeal,
+    run_comprehensive_defense_suite,
+    TIERS,
+    VCC_BIN_DATABASE,
+    APPEAL_CATALOG
 )
 
 
@@ -189,6 +195,199 @@ class TestCliExecution(unittest.TestCase):
         ], cwd=repo_dir)
         data = json.loads(out)
         self.assertEqual(data["credit_match"], 3000.0)
+
+    def test_cli_compliance_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
+        out = subprocess.check_output([
+            sys.executable,
+            "audit.py",
+            "compliance",
+            "--text", "Natural soothing botanical moisture for daily skincare.",
+            "--json"
+        ], cwd=repo_dir)
+        data = json.loads(out)
+        self.assertEqual(data["compliance_score"], 100)
+        self.assertEqual(data["risk_tier"], "CLEAN")
+
+    def test_cli_bin_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
+        out = subprocess.check_output([
+            sys.executable,
+            "audit.py",
+            "bin",
+            "405081",
+            "--json"
+        ], cwd=repo_dir)
+        data = json.loads(out)
+        self.assertEqual(data["risk_tier"], "LOW")
+        self.assertEqual(data["issuer"], "Mercury (Choice Financial Group)")
+
+    def test_cli_appeal_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
+        out = subprocess.check_output([
+            sys.executable,
+            "audit.py",
+            "appeal",
+            "--type", "payment",
+            "--brand", "Test Brand",
+            "--account-id", "ADV-9999",
+            "--json"
+        ], cwd=repo_dir)
+        data = json.loads(out)
+        self.assertIn("Test Brand", data["subject"])
+        self.assertIn("ADV-9999", data["body"])
+
+    def test_cli_full_audit_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
+        out = subprocess.check_output([
+            sys.executable,
+            "audit.py",
+            "full-audit",
+            "--budget", "200",
+            "--target-cpa", "20",
+            "--bin", "405081",
+            "--ad-text", "Hydrating plant-based body wash.",
+            "--json"
+        ], cwd=repo_dir)
+        data = json.loads(out)
+        self.assertGreaterEqual(data["composite_safety_score"], 90)
+        self.assertIn("GREEN LIGHT", data["verdict"])
+
+
+class TestCreativeCompliance(unittest.TestCase):
+    def test_clean_copy_passes(self):
+        res = audit_creative_compliance("Discover our refreshing morning hydration routine. Formulated with green tea extract.")
+        self.assertEqual(res["compliance_score"], 100)
+        self.assertEqual(res["risk_tier"], "CLEAN")
+        self.assertEqual(res["critical_violations"], 0)
+
+    def test_critical_exaggeration_and_body_shaming(self):
+        res = audit_creative_compliance("Get 100% cure for belly fat and lose 15 lbs in 3 days!")
+        self.assertLess(res["compliance_score"], 50)
+        self.assertIn(res["risk_tier"], ("HIGH", "CRITICAL"))
+        self.assertGreaterEqual(res["critical_violations"], 2)
+        flagged_categories = [v["category"] for v in res["violations"]]
+        self.assertTrue(any("Absolute Superlatives" in c for c in flagged_categories))
+        self.assertTrue(any("Weight Loss" in c for c in flagged_categories))
+
+    def test_counterfeit_ip_violation(self):
+        res = audit_creative_compliance("Selling 1:1 replica designer dupe sneakers for cheap!")
+        self.assertLessEqual(res["compliance_score"], 60)
+        self.assertTrue(any("Counterfeit" in v["category"] for v in res["violations"]))
+
+    def test_get_rich_quick_violation(self):
+        res = audit_creative_compliance("Learn the passive income secret to get rich quick and make money while you sleep!")
+        self.assertLess(res["compliance_score"], 70)
+        self.assertTrue(any("Deceptive Financial" in v["category"] for v in res["violations"]))
+
+
+class TestVccBinEvaluator(unittest.TestCase):
+    def test_mercury_bin_low_risk(self):
+        res = evaluate_vcc_bin("405081")
+        self.assertTrue(res["recognized"])
+        self.assertEqual(res["risk_tier"], "LOW")
+        self.assertAlmostEqual(res["pass_rate_pct"], 96.0)
+        self.assertTrue(res["supports_3ds"])
+        self.assertIn("Mercury", res["issuer"])
+
+    def test_stripe_bin_low_risk(self):
+        res = evaluate_vcc_bin("414328")
+        self.assertTrue(res["recognized"])
+        self.assertEqual(res["risk_tier"], "LOW")
+        self.assertIn("Stripe", res["issuer"])
+
+    def test_capitalist_bin_critical(self):
+        res = evaluate_vcc_bin("486555")
+        self.assertTrue(res["recognized"])
+        self.assertEqual(res["risk_tier"], "CRITICAL")
+        self.assertFalse(res["supports_3ds"])
+
+    def test_unindexed_bin_fallback(self):
+        res = evaluate_vcc_bin("499999")
+        self.assertFalse(res["recognized"])
+        self.assertEqual(res["brand"], "Visa")
+        self.assertIn("anti_ban_checklist", res)
+        self.assertEqual(len(res["anti_ban_checklist"]), 5)
+
+
+class TestAppealGenerator(unittest.TestCase):
+    def test_unusual_activity_appeal(self):
+        res = generate_appeal(
+            appeal_type="unusual-activity",
+            brand="Peak Alpha LLC",
+            account_id="ADV-112233",
+            website="peakalpha.io"
+        )
+        self.assertIn("Peak Alpha LLC", res["subject"])
+        self.assertIn("ADV-112233", res["body"])
+        self.assertIn("peakalpha.io", res["body"])
+        self.assertEqual(len(res["required_documents"]), 4)
+
+    def test_payment_appeal(self):
+        res = generate_appeal(
+            appeal_type="payment",
+            brand="Nova Commerce",
+            account_id="ADV-445566"
+        )
+        self.assertEqual(res["appeal_type"], "payment")
+        self.assertIn("PAYMENT VERIFICATION APPEAL", res["subject"])
+        self.assertIn("Nova Commerce", res["body"])
+
+    def test_save_to_file(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as f:
+            temp_path = f.name
+
+        try:
+            res = generate_appeal(
+                appeal_type="creative",
+                brand="Glow Beauty",
+                output_path=temp_path
+            )
+            self.assertEqual(res["saved_file"], temp_path)
+            with open(temp_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            self.assertIn("Glow Beauty", content)
+            self.assertIn("SUBJECT:", content)
+        finally:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+
+
+class TestComprehensiveDefenseSuite(unittest.TestCase):
+    def test_full_suite_clean(self):
+        res = run_comprehensive_defense_suite(
+            daily_budget=250.0,
+            target_cpa=25.0,
+            objective="purchase",
+            placement="tiktok_only",
+            format_type="spark_ads",
+            hook_type="creator_face_direct",
+            sound="voiceover_trending",
+            ad_text="Organic botanical tea for gentle morning hydration.",
+            bin_number="405081"
+        )
+        self.assertGreaterEqual(res["composite_safety_score"], 90.0)
+        self.assertIn("GREEN LIGHT", res["verdict"])
+        self.assertEqual(res["risk_level"], "LOW RISK")
+        self.assertEqual(res["pillar_scores"]["creative_compliance"], 100)
+        self.assertEqual(res["pillar_scores"]["campaign_cold_start"], 100)
+
+    def test_full_suite_critical_flaws(self):
+        res = run_comprehensive_defense_suite(
+            daily_budget=15.0,
+            target_cpa=30.0,
+            objective="atc",
+            placement="automatic",
+            format_type="dark_post",
+            hook_type="product_static",
+            sound="muted",
+            ad_text="100% cure for belly fat!",
+            bin_number="486555"
+        )
+        self.assertLess(res["composite_safety_score"], 40.0)
+        self.assertIn("RED LIGHT", res["verdict"])
+        self.assertEqual(res["fallback_appeal_type"], "creative")
+        self.assertGreater(len(res["priority_action_plan"]), 3)
 
 
 if __name__ == "__main__":
