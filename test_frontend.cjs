@@ -17,6 +17,13 @@ const { chromium } = require('playwright');
       assert.equal(await page.locator('#display-power-val').innerText(), money(spend + credit) + ' Ad Spend');
       assert.equal(await page.locator('#display-multiplier-val').innerText(), ((spend + credit) / spend).toFixed(2) + '×');
       assert.equal(await page.locator('#display-match-val').innerText(), match);
+      assert.equal(await page.locator('#display-spend-val').innerText(), money(spend));
+      assert.equal(await page.locator('#bar-credit-val').innerText(), money(credit));
+      const share = await page.locator('#budget-credit-bar').evaluate(async el => {
+        await Promise.all(el.getAnimations().map(animation => animation.finished));
+        return el.getBoundingClientRect().width / el.parentElement.getBoundingClientRect().width;
+      });
+      assert.ok(Math.abs(share - credit / (spend + credit)) < .002, 'budget bar must match credit share');
       assert.equal(await page.locator('#tier-select-input').inputValue(), String(spend));
       assert.equal(await page.locator('.tier-option[aria-pressed="true"]').count(), 1);
       assert.equal(await page.locator('.tier-option').nth(index).getAttribute('aria-pressed'), 'true');
@@ -59,6 +66,6 @@ const { chromium } = require('playwright');
     await page.locator('.faq-btn').nth(0).click();
     assert.equal(await page.locator('.faq-btn').nth(0).getAttribute('aria-pressed'), 'true');
     assert.deepEqual(errors, []);
-    console.log('PASS: four tiers, two-way sync, keyboard, FAQs, links, nine widths, reduced motion, dark appearance, no JS errors.');
+    console.log('PASS: proportional budget visualization, four tiers, two-way sync, keyboard, FAQs, links, nine widths, reduced motion, dark appearance, no JS errors.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
