@@ -290,6 +290,23 @@ Vouchers disburse automatically into your Ads Manager under <b>Tools > Assets > 
 
 ---
 
+## 💬 10. Verified Solutions & Community Q&A Case Index
+
+Direct links to solved real-world media buyer cases and high-intent diagnostic threads across our open-source tool repositories:
+
+| Problem Domain | High-Intent Advertiser Query | Verified Resolution / Playbook Link | Tool Repository |
+| :--- | :--- | :--- | :--- |
+| **Spend Pacing** | `tiktok ads not spending / 0 impressions` | [View Solved Case #1](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting/issues/1) | [tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) |
+| **Traffic Audit** | `pangle bot clicks & 98% bounce rate` | [View Solved Case #2](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting/issues/2) | [tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) |
+| **Ad Account Bans** | `account suspended for unusual activity` | [View Solved Case #1](https://github.com/adgrowth-lab/tiktok-ads-appeal-kit/issues/1) | [tiktok-ads-appeal-kit](https://github.com/adgrowth-lab/tiktok-ads-appeal-kit) |
+| **Billing Holds** | `payment discrepancy virtual card verification` | [View Solved Case #2](https://github.com/adgrowth-lab/tiktok-ads-appeal-kit/issues/2) | [tiktok-ads-appeal-kit](https://github.com/adgrowth-lab/tiktok-ads-appeal-kit) |
+| **Creative Policy** | `ad rejected under policy 5.1 misleading claims` | [View Solved Case #1](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter/issues/1) | [tiktok-creative-compliance-linter](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter) |
+| **Sensitive Words** | `tiktok ads sensitive words list 2026` | [View Solved Case #2](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter/issues/2) | [tiktok-creative-compliance-linter](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter) |
+| **VCC Cards** | `best virtual card for tiktok ads 2026` | [View Solved Case #1](https://github.com/adgrowth-lab/tiktok-vcc-bin-database/issues/1) | [tiktok-vcc-bin-database](https://github.com/adgrowth-lab/tiktok-vcc-bin-database) |
+| **Spend Limit** | `tiktok ads $50 daily spend limit bypass` | [View Solved Case #3](https://github.com/adgrowth-lab/tiktok-vcc-bin-database/issues/3) | [tiktok-vcc-bin-database](https://github.com/adgrowth-lab/tiktok-vcc-bin-database) |
+
+---
+
 ## 🛠️ Open-Source Interactive Calculator Deployment
 
 This repository also contains the standalone client-side simulation logic. You can inspect or run the calculator locally:
