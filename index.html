@@ -3,31 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
   <title>TikTok Offers Hub · Official Ad Credit & Partner Incentive Registry</title>
   <meta name="description" content="Official TikTok ad credits up to $6,000 matched across 4 verified advertiser tiers. Includes stackable 50% discount coupons and direct Ads Manager balance deposit.">
   <meta property="og:title" content="TikTok Offers Hub · Up to $6,000 Ad Credit Match">
   <meta property="og:description" content="Claim up to $6,000 in official TikTok ad credits across 4 verified advertiser milestones. Stackable with 50% introductory discount coupons.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adgrowth-lab.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://adgrowth-lab.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/tiktok-mark.svg">
-  <link rel="apple-touch-icon" href="assets/tiktok-mark.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TikTok Offers Hub",
-    "url": "https://adgrowth-lab.github.io/",
-    "description": "Official TikTok ad credits up to $6,000 matched across 4 verified advertiser tiers. Includes stackable 50% discount coupons and direct Ads Manager balance deposit.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AdGrowth Lab",
-      "url": "https://adgrowth-lab.github.io/"
-    }
-  }
-  </script>
+  <meta name="color-scheme" content="light dark">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
@@ -36,7 +21,6 @@
       --bg: #ffffff;
       --surface: #f4f5f7;
       --surface-dark: #0b1120;
-      --surface-card: #ffffff;
       --surface-accent: #fef3c7;
       --ink: #111827;
       --ink-secondary: #374151;
@@ -46,15 +30,7 @@
       --accent-ink: #111827;
       --brand-blue: #1d4ed8;
       --brand-green: #15803d;
-      --brand-green-bg: #dcfce7;
-      --table-border: #e5e7eb;
-      --table-th-bg: #f8fafc;
-      --table-highlight-bg: #f8fafc;
-      --table-highlight-th: #1e293b;
-      --tier-opt-bg: #ffffff;
-      --tier-opt-selected-bg: #111827;
-      --tier-opt-selected-ink: #ffffff;
-      --radius: 8px;
+      --radius: 6px;
       --margin-desktop: clamp(24px, 5vw, 64px);
       --font-body: 'Clash Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
@@ -64,32 +40,6 @@
       --step-lead: clamp(1.15rem, 1.4vw, 1.25rem);
       --step-body: 17px;
       --step-small: 14px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #090b10;
-        --surface: #141722;
-        --surface-dark: #05070a;
-        --surface-card: #1c2030;
-        --surface-accent: #2e2616;
-        --ink: #ffffff;
-        --ink-secondary: #cbd5e1;
-        --muted: #94a3b8;
-        --accent: #ff8a00;
-        --accent-hover: #ffa12e;
-        --accent-ink: #000000;
-        --brand-blue: #60a5fa;
-        --brand-green: #4ade80;
-        --brand-green-bg: #14532d;
-        --table-border: #242c3d;
-        --table-th-bg: #1c2030;
-        --table-highlight-bg: #1e2538;
-        --table-highlight-th: #0f172a;
-        --tier-opt-bg: #1c2030;
-        --tier-opt-selected-bg: #ffffff;
-        --tier-opt-selected-ink: #000000;
-      }
     }
 
     * {
@@ -110,15 +60,13 @@
     body {
       overflow-x: hidden;
       line-height: 1.5;
-      background-color: var(--bg);
-      color: var(--ink);
     }
 
-    /* Motion System */
+    /* Keyframe Motion */
     @keyframes enterRise {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(16px);
       }
       to {
         opacity: 1;
@@ -132,9 +80,6 @@
     .animate-tier-2 { animation: enterRise 0.5s ease-out both; animation-delay: 0.16s; }
     .animate-tier-3 { animation: enterRise 0.5s ease-out both; animation-delay: 0.22s; }
     .animate-tier-4 { animation: enterRise 0.5s ease-out both; animation-delay: 0.28s; }
-    .animate-format-1 { animation: enterRise 0.5s ease-out both; animation-delay: 0.1s; }
-    .animate-format-2 { animation: enterRise 0.5s ease-out both; animation-delay: 0.18s; }
-    .animate-format-3 { animation: enterRise 0.5s ease-out both; animation-delay: 0.26s; }
     .animate-sim-left { animation: enterRise 0.5s ease-out both; animation-delay: 0.1s; }
     .animate-sim-right { animation: enterRise 0.5s ease-out both; animation-delay: 0.18s; }
     .animate-step-1 { animation: enterRise 0.5s ease-out both; animation-delay: 0.1s; }
@@ -150,8 +95,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation: none !important;
         transition: none !important;
       }
     }
@@ -162,23 +106,10 @@
       top: 0;
       z-index: 100;
       background-color: var(--bg);
-      padding: 16px var(--margin-desktop);
+      padding: 20px var(--margin-desktop);
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .nav-brand-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-tiktok-logo {
-      width: 28px;
-      height: 28px;
-      display: block;
-      flex-shrink: 0;
     }
 
     .brand-wordmark {
@@ -189,23 +120,10 @@
       text-decoration: none;
     }
 
-    .brand-cert-tag {
-      font-size: var(--step-small);
-      font-weight: 600;
-      background-color: var(--brand-green-bg);
-      color: var(--brand-green);
-      padding: 3px 8px;
-      border-radius: var(--radius);
-    }
-
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 32px;
       align-items: center;
-    }
-
-    #nav-cta-btn {
-      white-space: nowrap;
     }
 
     .nav-link {
@@ -224,10 +142,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 22px;
+      padding: 14px 24px;
       font-family: var(--font-body);
       font-size: var(--step-small);
-      font-weight: 700;
+      font-weight: 600;
       border-radius: var(--radius);
       text-decoration: none;
       cursor: pointer;
@@ -245,14 +163,13 @@
     }
 
     .btn-primary {
-      background-color: var(--accent);
-      color: var(--accent-ink);
+      background-color: var(--ink);
+      color: #ffffff;
     }
 
     /* Hero Section */
     .hero-section {
-      padding: 56px var(--margin-desktop) 80px;
-      background-color: var(--bg);
+      padding: 48px var(--margin-desktop) 80px;
     }
 
     .hero-container {
@@ -267,7 +184,7 @@
       line-height: 1.05;
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       color: var(--ink);
     }
 
@@ -275,7 +192,7 @@
       font-size: var(--step-lead);
       color: var(--ink-secondary);
       line-height: 1.5;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
       max-width: 620px;
     }
 
@@ -294,63 +211,13 @@
       cursor: pointer;
     }
 
-    .hero-trust-badge {
-      margin-top: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background-color: var(--surface);
-      padding: 8px 14px;
-      border-radius: var(--radius);
-      font-size: var(--step-small);
-    }
-
-    .trust-badge-logo {
-      width: 18px;
-      height: 18px;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .trust-badge-pill {
-      background-color: var(--brand-green);
-      color: #ffffff;
-      font-size: var(--step-small);
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .trust-badge-text {
-      color: var(--ink-secondary);
-      font-weight: 500;
-    }
-
-    .hero-stats-strip {
+    .hero-benefits-list {
       margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 20px 24px;
-      background-color: var(--surface);
-      border-radius: var(--radius);
-    }
-
-    .stat-item {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .stat-item-number {
-      font-size: var(--step-lead);
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .stat-item-label {
+      gap: 28px;
       font-size: var(--step-small);
       color: var(--muted);
+      font-weight: 500;
     }
 
     /* Live Interactive Terminal Fragment (data-ui) */
@@ -381,81 +248,6 @@
       font-weight: 600;
     }
 
-    .quota-bar-wrapper {
-      background-color: var(--bg);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      margin-bottom: 20px;
-    }
-
-    .quota-bar-labels {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: var(--step-small);
-    }
-
-    .quota-bar-title {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .quota-bar-pct {
-      color: var(--brand-green);
-      font-weight: 600;
-    }
-
-    .quota-track {
-      width: 100%;
-      height: 6px;
-      background-color: var(--surface);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .quota-fill {
-      height: 100%;
-      background-color: var(--brand-green);
-      border-radius: 3px;
-    }
-
-    .quota-res-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-      font-size: var(--step-small);
-      color: var(--muted);
-    }
-
-    .quota-res-timer {
-      color: var(--brand-green);
-      font-weight: 700;
-    }
-
-    .live-proof-ticker {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      background-color: var(--surface);
-      border-radius: var(--radius);
-      margin-top: 20px;
-      font-size: var(--step-small);
-      color: var(--ink-secondary);
-    }
-
-    .proof-indicator {
-      color: var(--brand-green);
-      font-size: 10px;
-      line-height: 1;
-    }
-
-    .proof-msg {
-      font-weight: 600;
-    }
-
     .spend-tier-selector {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -464,8 +256,7 @@
     }
 
     .tier-option {
-      background-color: var(--tier-opt-bg);
-      color: var(--ink);
+      background-color: var(--bg);
       padding: 12px 6px;
       text-align: center;
       border-radius: var(--radius);
@@ -478,24 +269,8 @@
     }
 
     .tier-option.selected {
-      background-color: var(--tier-opt-selected-bg);
-      color: var(--tier-opt-selected-ink);
-    }
-
-    .calc-step-hint {
-      font-size: var(--step-small);
-      color: var(--muted);
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .cta-direct-hint {
-      display: block;
-      font-size: var(--step-small);
-      color: var(--muted);
-      margin-top: 10px;
-      font-weight: 500;
+      background-color: var(--ink);
+      color: #ffffff;
     }
 
     .tier-option-spend {
@@ -568,162 +343,15 @@
     }
 
     .section-subhead {
-      font-size: var(--step-lead);
+      font-size: var(--step-body);
       color: var(--ink-secondary);
-      line-height: 1.5;
+      max-width: 640px;
       margin-bottom: 48px;
-      max-width: 720px;
     }
 
-    /* Comparison Table Section */
-    .comparison-section {
-      background-color: var(--surface);
-    }
-
-    .comparison-container[data-ui] {
-      background-color: var(--bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    .comparison-table th {
-      padding: 20px 24px;
-      font-size: var(--step-small);
-      font-weight: 700;
-      background-color: var(--table-th-bg);
-      border-bottom: 1px solid var(--table-border);
-      color: var(--ink);
-    }
-
-    .comparison-table th.highlight-col {
-      background-color: var(--table-highlight-th);
-      color: #ffffff;
-    }
-
-    .table-th-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .table-th-icon {
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .comparison-table td {
-      padding: 18px 24px;
-      font-size: var(--step-small);
-      border-bottom: 1px solid var(--table-border);
-      color: var(--ink-secondary);
-      line-height: 1.4;
-    }
-
-    .comparison-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .comparison-table td.highlight-col {
-      background-color: var(--table-highlight-bg);
-      font-weight: 600;
-      color: var(--brand-green);
-    }
-
-    .comparison-table td strong {
-      color: var(--ink);
-    }
-
-    .table-dim {
-      color: var(--muted);
-    }
-
-    /* Mobile Comparison Card */
-    .mobile-comparison-card {
-      display: none;
-    }
-
-    .mcomp-item {
-      background-color: var(--surface);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin-bottom: 12px;
-    }
-
-    .mcomp-title {
-      font-size: var(--step-body);
-      font-weight: 700;
-      color: var(--ink);
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .mcomp-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .mcomp-box {
-      padding: 12px;
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .mcomp-box.direct {
-      background-color: var(--bg);
-    }
-
-    .mcomp-box.partner {
-      background-color: var(--surface-dark);
-      color: #ffffff;
-    }
-
-    .mcomp-tag {
-      font-size: var(--step-small);
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .mcomp-box.partner .mcomp-tag {
-      color: #94a3b8;
-    }
-
-    .mcomp-val {
-      font-size: var(--step-small);
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .mcomp-val.dim {
-      color: var(--muted);
-    }
-
-    .mcomp-val.green {
-      color: #34d399;
-    }
-
-    .mcomp-cta-btn {
-      width: 100%;
-      margin-top: 16px;
-      padding: 16px;
-      text-align: center;
-      justify-content: center;
-      font-size: var(--step-body);
-    }
-
-    /* Section 1: 4 Spend Tiers Overview */
+    /* 4-Tier Standout Cards Matrix */
     .tiers-section {
-      background-color: var(--bg);
+      background-color: var(--surface);
     }
 
     .tiers-grid {
@@ -733,7 +361,7 @@
     }
 
     .tier-card {
-      background-color: var(--surface);
+      background-color: var(--bg);
       border-radius: var(--radius);
       padding: 32px 24px;
       display: flex;
@@ -743,7 +371,7 @@
     }
 
     .tier-card.featured {
-      background-color: #0b1120;
+      background-color: #1f2b4d;
       color: #ffffff;
     }
 
@@ -769,7 +397,7 @@
     }
 
     .tier-main-credit {
-      font-size: var(--step-head);
+      font-size: 38px;
       font-weight: 700;
       color: var(--ink);
       letter-spacing: -0.03em;
@@ -784,17 +412,10 @@
     }
 
     .tier-specs-list {
-      background-color: var(--bg);
-      border-radius: var(--radius);
-      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .tier-card.featured .tier-specs-list {
-      background-color: rgba(255, 255, 255, 0.08);
+      margin-bottom: 32px;
     }
 
     .tier-spec-row {
@@ -806,7 +427,6 @@
 
     .tier-spec-row strong {
       color: var(--ink);
-      font-weight: 600;
     }
 
     .tier-action-btn {
@@ -814,122 +434,42 @@
       text-align: center;
     }
 
-    .tier-micro-note {
-      display: block;
-      font-size: var(--step-small);
-      color: var(--muted);
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    .tier-card.featured .tier-micro-note {
-      color: #94a3b8;
-    }
-
-    /* Formats Section */
-    .formats-section {
-      background-color: var(--surface);
-    }
-
-    .formats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .format-card {
-      background-color: var(--bg);
-      border-radius: var(--radius);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .format-card-img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .format-card-title {
-      font-size: var(--step-lead);
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
-
-    .format-card-desc {
-      font-size: var(--step-small);
-      color: var(--ink-secondary);
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .format-card-link {
-      color: var(--ink);
-      font-size: var(--step-small);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* Section 2: Simulator Section */
+    /* Ads Manager Dashboard Balance Simulator (data-ui) */
     .simulator-section {
       background-color: var(--bg);
     }
 
     .sim-split {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
     }
 
-    .sim-phone-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sim-phone-caption {
-      font-size: var(--step-small);
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .sim-phone-img {
-      max-width: 320px;
-      width: 100%;
-      height: auto;
-      border-radius: 36px;
-      display: block;
+    .sim-text-column {
+      max-width: 520px;
     }
 
     .sim-lead {
       font-size: var(--step-lead);
-      color: var(--ink);
       font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
       margin-bottom: 20px;
-      line-height: 1.4;
     }
 
     .sim-body {
       font-size: var(--step-body);
       color: var(--ink-secondary);
       line-height: 1.6;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .dashboard-preview[data-ui] {
-      background-color: #0b1120;
+      background-color: var(--surface-dark);
+      color: #ffffff;
       border-radius: var(--radius);
       padding: 36px;
-      color: #ffffff;
       min-width: 320px;
       min-height: 220px;
     }
@@ -939,18 +479,6 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 32px;
-    }
-
-    .dash-brand-account {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .dash-tiktok-icon {
-      width: 20px;
-      height: 20px;
-      display: block;
     }
 
     .dash-account-title {
@@ -982,7 +510,7 @@
     }
 
     .dash-amount {
-      font-size: var(--step-head);
+      font-size: 38px;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.02em;
@@ -1002,15 +530,15 @@
 
     .dash-stat-block {
       background-color: #1e293b;
-      padding: 16px;
       border-radius: var(--radius);
+      padding: 16px;
     }
 
     .dash-stat-label {
       font-size: var(--step-small);
       color: #94a3b8;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .dash-stat-val {
@@ -1019,9 +547,9 @@
       color: #ffffff;
     }
 
-    /* Section 3: 4-Step Claim Protocol */
+    /* 4-Step Claim Protocol */
     .steps-section {
-      background-color: var(--bg);
+      background-color: var(--surface);
     }
 
     .steps-grid {
@@ -1061,67 +589,16 @@
       line-height: 1.6;
     }
 
-    /* Preflight Advisory Box (data-ui) */
-    .preflight-card[data-ui] {
-      background-color: var(--surface);
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      margin-top: 48px;
-    }
-
-    .preflight-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .preflight-pill {
-      background-color: var(--ink);
-      color: #ffffff;
-      font-size: var(--step-small);
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .preflight-title {
-      font-size: var(--step-lead);
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .preflight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .preflight-col {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .preflight-key {
-      font-size: var(--step-body);
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .preflight-desc {
-      font-size: var(--step-small);
-      color: var(--ink-secondary);
-      line-height: 1.5;
-    }
-
     /* Benefits & Official Appeals Cards */
     .perks-section {
-      background-color: var(--surface);
+      background-color: var(--bg);
     }
 
     .perks-grid {
       display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
       grid-template-columns: 1fr 1fr;
       gap: 32px;
       min-width: 320px;
@@ -1129,7 +606,7 @@
     }
 
     .perk-panel {
-      background-color: var(--bg);
+      background-color: var(--surface);
       border-radius: var(--radius);
       padding: 40px 32px;
       display: flex;
@@ -1166,69 +643,60 @@
     }
 
     .perk-link {
-      color: var(--ink);
       font-size: var(--step-small);
       font-weight: 600;
+      color: var(--ink);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
     /* FAQ Section */
     .faq-section {
-      background-color: var(--bg);
+      background-color: var(--surface);
     }
 
     .faq-split {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 48px;
-      align-items: flex-start;
+      grid-template-columns: 5fr 7fr;
+      gap: 64px;
+      align-items: start;
     }
 
     .faq-menu {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
     }
 
     .faq-btn {
-      text-align: left;
-      padding: 18px 24px;
-      background-color: var(--surface);
+      background: none;
       border: none;
-      border-radius: var(--radius);
+      text-align: left;
       font-family: var(--font-body);
       font-size: var(--step-body);
-      color: var(--ink);
-      font-weight: 600;
+      font-weight: 500;
+      color: var(--muted);
       cursor: pointer;
-      transition: background-color 0.15s ease-out;
-    }
-
-    .faq-btn:hover {
-      background-color: #e2e8f0;
+      padding: 12px 0;
+      transition: color 0.15s ease-out;
     }
 
     .faq-btn.active {
-      background-color: var(--ink);
-      color: #ffffff;
+      color: var(--ink);
+      font-weight: 700;
     }
 
     .faq-display-card {
-      background-color: var(--surface);
+      background-color: var(--bg);
       border-radius: var(--radius);
-      padding: 36px 32px;
-      min-height: 240px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 40px 36px;
     }
 
     .faq-card-title {
       font-size: var(--step-lead);
       font-weight: 700;
       color: var(--ink);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       letter-spacing: -0.02em;
     }
 
@@ -1236,22 +704,22 @@
       font-size: var(--step-body);
       color: var(--ink-secondary);
       line-height: 1.6;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .faq-card-action {
-      color: var(--ink);
       font-size: var(--step-small);
       font-weight: 600;
+      color: var(--ink);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
-    /* Closing Stage Section */
+    /* Final Action Stage */
     .cta-stage-section {
-      padding: 96px var(--margin-desktop);
-      background-color: #0b1120;
+      background-color: var(--ink);
       color: #ffffff;
+      padding: 96px var(--margin-desktop);
     }
 
     .cta-container {
@@ -1262,25 +730,26 @@
     }
 
     .cta-closing-headline {
-      font-size: var(--step-head);
-      line-height: 1.08;
+      font-size: var(--step-display);
+      line-height: 1.05;
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
-      color: #ffffff;
     }
 
     .cta-closing-subhead {
       font-size: var(--step-lead);
-      color: #94a3b8;
+      color: #cbd5e1;
       line-height: 1.5;
+      max-width: 500px;
     }
 
     .cta-action-panel[data-ui] {
       background-color: #ffffff;
+      color: var(--ink);
       border-radius: var(--radius);
       padding: 36px;
-      color: var(--ink);
+      min-width: 320px;
       min-height: 220px;
     }
 
@@ -1302,12 +771,12 @@
       margin-bottom: 8px;
     }
 
-    select.dialog-select {
+    .dialog-select {
       width: 100%;
       padding: 14px 16px;
       font-size: var(--step-body);
       font-family: var(--font-body);
-      border: 1px solid #e5e7eb;
+      border: none;
       border-radius: var(--radius);
       background-color: var(--surface);
       color: var(--ink);
@@ -1334,44 +803,10 @@
       display: block;
     }
 
-    .dialog-reassurance {
-      display: block;
-      margin-top: 14px;
-      font-size: var(--step-small);
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    .dialog-enterprise-support {
-      display: block;
-      margin-top: 10px;
-      font-size: var(--step-small);
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    .dialog-enterprise-support a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .dialog-enterprise-support a:hover {
-      color: var(--accent-hover);
-    }
-
-    .footer-vip-link {
-      color: var(--accent) !important;
-      font-weight: 600;
-    }
-
     /* Footer */
     .site-footer {
-      padding: 48px var(--margin-desktop);
-      background-color: var(--surface);
+      padding: 40px var(--margin-desktop);
+      background-color: var(--bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1393,11 +828,8 @@
       text-decoration: underline;
     }
 
-    /* Responsive System */
+    /* Mobile Adaptations */
     @media (max-width: 960px) {
-      .nav-links {
-        display: none;
-      }
       .hero-container {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1423,12 +855,6 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      .comparison-table-wrapper {
-        display: none;
-      }
-      .mobile-comparison-card {
-        display: block;
-      }
     }
 
     @media (max-width: 600px) {
@@ -1436,14 +862,11 @@
         padding: 12px 16px;
       }
       .brand-wordmark {
-        font-size: var(--step-body);
-      }
-      .brand-cert-tag {
-        display: none;
+        font-size: 16px;
       }
       #nav-cta-btn {
         padding: 8px 14px;
-        font-size: var(--step-small);
+        font-size: 13px;
         font-weight: 700;
         white-space: nowrap;
       }
@@ -1465,28 +888,25 @@
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
+        gap: 12px;
       }
       .hero-actions .btn {
         width: 100%;
         padding: 16px;
-        font-size: var(--step-body);
+        font-size: 16px;
         text-align: center;
         justify-content: center;
       }
-      .hero-trust-badge {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        width: 100%;
-        margin-top: 16px;
-      }
-      .hero-stats-strip {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        margin-top: 20px;
-        padding: 14px 10px;
+      .hero-actions .text-link {
         text-align: center;
+        display: block;
+        padding: 6px 0;
+      }
+      .hero-benefits-list {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 24px;
+        font-size: 13px;
       }
       .calculator-stage[data-ui] {
         padding: 20px 16px;
@@ -1508,10 +928,10 @@
         min-height: 48px;
       }
       .tier-option-spend {
-        font-size: var(--step-small);
+        font-size: 13px;
       }
       .tier-option-credit {
-        font-size: var(--step-lead);
+        font-size: 18px;
       }
       .calc-result-panel {
         padding: 16px;
@@ -1525,17 +945,17 @@
         padding: 8px 16px;
       }
       .calc-label {
-        font-size: var(--step-small);
+        font-size: 13px;
       }
       .calc-value {
-        font-size: var(--step-body);
+        font-size: 15px;
       }
       .calc-value-large {
-        font-size: var(--step-head);
+        font-size: 26px;
       }
       .calc-claim-btn {
         padding: 16px;
-        font-size: var(--step-body);
+        font-size: 16px;
         min-height: 52px;
         display: flex;
         align-items: center;
@@ -1553,35 +973,16 @@
         font-size: var(--step-body);
         margin-bottom: 28px;
       }
-      .comparison-table th,
-      .comparison-table td {
-        padding: 12px 14px;
-        font-size: var(--step-small);
-      }
       .tiers-grid {
         grid-template-columns: 1fr;
         gap: 16px;
-      }
-      .formats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .format-card {
-        padding: 20px 16px;
-      }
-      .sim-split {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .sim-phone-img {
-        max-width: 280px;
       }
       .tier-card {
         padding: 24px 20px;
         min-height: auto;
       }
       .tier-main-credit {
-        font-size: var(--step-head);
+        font-size: 32px;
       }
       .tier-specs-list {
         margin-bottom: 20px;
@@ -1592,7 +993,7 @@
         padding: 14px;
         text-align: center;
         justify-content: center;
-        font-size: var(--step-small);
+        font-size: 15px;
       }
       .dashboard-preview[data-ui] {
         padding: 20px 16px;
@@ -1606,7 +1007,7 @@
         margin-bottom: 16px;
       }
       .dash-amount {
-        font-size: var(--step-head);
+        font-size: 28px;
       }
       .dash-stats-row {
         grid-template-columns: 1fr;
@@ -1622,27 +1023,10 @@
         background-color: var(--surface);
         border-radius: var(--radius);
       }
-      .preflight-card[data-ui] {
-        padding: 20px 16px;
-        margin-top: 24px;
-      }
-      .preflight-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        margin-bottom: 16px;
-      }
-      .preflight-title {
-        font-size: var(--step-body);
-      }
-      .preflight-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
       .perks-grid {
         gap: 20px;
       }
-      .perk-panel {
+      .perk-panel[data-ui] {
         padding: 24px 18px;
       }
       .faq-split {
@@ -1653,7 +1037,7 @@
       }
       .faq-btn {
         padding: 14px 16px;
-        font-size: var(--step-small);
+        font-size: 14px;
         text-align: left;
       }
       .faq-display-card {
@@ -1670,13 +1054,13 @@
         padding: 24px 18px;
       }
       .dialog-select {
-        font-size: var(--step-small);
+        font-size: 14px;
         padding: 14px 12px;
         width: 100%;
       }
       .dialog-submit-btn {
         padding: 16px;
-        font-size: var(--step-body);
+        font-size: 16px;
         width: 100%;
         text-align: center;
         justify-content: center;
@@ -1693,43 +1077,53 @@
       }
     }
 
-    .token-toast {
-      position: fixed;
-      top: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      background-color: var(--surface-dark);
-      color: #ffffff;
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      pointer-events: none;
-    }
-
-    .toast-content {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .toast-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #34d399;
-      flex-shrink: 0;
-    }
-
-    .toast-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-size: var(--step-small);
-    }
-
-    .toast-text strong {
-      color: #34d399;
-      font-weight: 700;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090b10;
+        --surface: #141722;
+        --surface-dark: #05070a;
+        --surface-accent: #2e2616;
+        --ink: #ffffff;
+        --ink-secondary: #cbd5e1;
+        --muted: #94a3b8;
+        --accent: #ff8a00;
+        --accent-hover: #ffa12e;
+        --accent-ink: #000000;
+        --brand-blue: #60a5fa;
+        --brand-green: #4ade80;
+      }
+      .card, .tier-card, .faq-btn, .dialog-select {
+        border-color: #242c3d !important;
+      }
+      .tier-option {
+        background-color: #141722 !important;
+        border-color: #242c3d !important;
+        color: #ffffff !important;
+      }
+      .tier-option.selected {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      .calc-result-panel {
+        background-color: #05070a !important;
+      }
+      .calc-row + .calc-row {
+        background-color: #141722 !important;
+      }
+      .dashboard-preview[data-ui] {
+        background-color: #05070a !important;
+        border-color: #242c3d !important;
+      }
+      .dash-stats-row .dash-stat-block {
+        background-color: #141722 !important;
+      }
+      .cta-action-panel[data-ui] {
+        background-color: #141722 !important;
+      }
+      .dialog-select {
+        background-color: #090b10 !important;
+        color: #ffffff !important;
+      }
     }
   </style>
 </head>
@@ -1737,21 +1131,15 @@
 
   <!-- Top Sticky Navigation -->
   <header class="top-nav" id="top-sticky-nav">
-    <div class="nav-brand-box">
-      <img src="assets/tiktok-mark.svg" alt="TikTok" class="nav-tiktok-logo" width="28" height="28">
-      <a href="#" class="brand-wordmark">TikTok Offers Hub</a>
-      <span class="brand-cert-tag">Authorized Route</span>
-    </div>
+    <div style="display: flex; align-items: center; gap: 10px;"><img src="assets/tiktok-mark.svg" alt="TikTok" width="24" height="24"><a href="#" class="brand-wordmark">TikTok Offers Hub</a></div>
     <nav class="nav-links">
       <a href="#calculator" class="nav-link">Credit Calculator</a>
-      <a href="#comparison" class="nav-link">Route Comparison</a>
       <a href="#tiers" class="nav-link">4 Spend Tiers</a>
-      <a href="#formats" class="nav-link">Ad Formats</a>
       <a href="#dashboard" class="nav-link">Balance Tracker</a>
       <a href="#steps" class="nav-link">Claim Protocol</a>
       <a href="#faq" class="nav-link">Eligibility</a>
     </nav>
-    <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent" id="nav-cta-btn">Claim Offer: $3,000 Credit →</a>
+    <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent" id="nav-cta-btn">Claim $3,000 Credit →</a>
   </header>
 
   <!-- Hero Section -->
@@ -1760,36 +1148,18 @@
       <div class="hero-left animate-hero-left">
         <h1 class="hero-headline">TikTok ad credits up to $6,000 matched.</h1>
         <p class="hero-subhead">
-          Claim up to USD $6,000 in official ad credits across four verified spend milestones. Zero followers needed—reach ready-to-buy audiences in 150+ global markets.
+          Official advertiser subsidies across four verified spend milestones, fully stackable with introductory 50% discount coupons for eligible new accounts.
         </p>
         <div class="hero-actions">
           <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="hero-main-cta">
-            Claim Official Offer: $3,000 Credit →
+            Claim $3,000 Voucher →
           </a>
-          <span class="cta-direct-hint">Official TikTok Portal Route · Zero Followers Needed · Instant Token Applied</span>
+          <a href="#tiers" class="text-link">Compare 4 spend tiers →</a>
         </div>
-        <div class="hero-trust-badge">
-          <img src="assets/tiktok-mark.svg" alt="TikTok" class="trust-badge-logo" width="18" height="18">
-          <span class="trust-badge-pill">NO CODE NEEDED</span>
-          <span class="trust-badge-text">Direct Partner Token Embedded · Auto-Applied At ads.tiktok.com · 150+ Markets</span>
-        </div>
-        <div class="hero-stats-strip">
-          <div class="stat-item">
-            <span class="stat-item-number">$1.4M+</span>
-            <span class="stat-item-label">Verified Subsidies Matched</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-item-number">150+ Markets</span>
-            <span class="stat-item-label">75 Global Languages</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-item-number">0 Followers</span>
-            <span class="stat-item-label">Discovery-Driven Ads</span>
-          </div>
-        </div>
-        <div class="live-proof-ticker">
-          <span class="proof-indicator">●</span>
-          <span class="proof-msg" id="proof-msg">Verified: US E-commerce brand claimed $3,000 voucher (2m ago)</span>
+        <div class="hero-benefits-list">
+          <span>Direct balance deposit</span>
+          <span>Shop & web traffic</span>
+          <span>Thirty-day spend window</span>
         </div>
       </div>
 
@@ -1797,25 +1167,9 @@
       <div class="calculator-stage animate-hero-right" data-ui>
         <div class="calc-header">
           <span class="calc-title">Incentive Match Calculator</span>
-          <span class="calc-status" id="calc-status">Active Quota Verified</span>
+          <span class="calc-status">Live Partner Terms</span>
         </div>
 
-        <div class="quota-bar-wrapper">
-          <div class="quota-bar-labels">
-            <span class="quota-bar-title">Monthly Agency Subsidy Pool</span>
-            <span class="quota-bar-pct">84% Allocated · $12,600 Remaining</span>
-          </div>
-          <div class="quota-track">
-            <div class="quota-fill" style="width: 84%;"></div>
-          </div>
-          <div class="quota-res-bar">
-            <span>Real-Time Session Lock:</span>
-            <strong class="quota-res-timer" id="session-countdown">14:59</strong>
-            <span>Active Reservation</span>
-          </div>
-        </div>
-
-        <span class="calc-step-hint">1. Select your target ad spend budget:</span>
         <div class="spend-tier-selector">
           <div class="tier-option" onclick="selectTier(200, 200, '100% Match', this)">
             <span class="tier-option-spend">Spend $200</span>
@@ -1835,7 +1189,6 @@
           </div>
         </div>
 
-        <span class="calc-step-hint">2. Your matching ad credit voucher:</span>
         <div class="calc-result-panel">
           <div class="calc-row">
             <span class="calc-label">Free Ad Credit Voucher</span>
@@ -1860,136 +1213,13 @@
         </div>
 
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent calc-claim-btn" id="calc-claim-button">
-          Claim Official Offer: $3,000 Voucher →
-        </a>
-        <span class="cta-direct-hint" style="text-align: center;">Official TikTok partner route · Auto-applied at ads.tiktok.com · Zero code needed</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 0: Comparison Table Section -->
-  <section class="section comparison-section" id="comparison">
-    <h2 class="section-title">Official partner route versus standard signup.</h2>
-    <p class="section-subhead">
-      Compare direct registration benefits against accessing the portal via an authorized TikTok agency partner route.
-    </p>
-
-    <div class="comparison-container" data-ui>
-      <div class="comparison-table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Incentive Feature</th>
-              <th>Standard Direct Registration</th>
-              <th class="highlight-col">
-                <span class="table-th-brand">
-                  <img src="assets/tiktok-mark.svg" alt="TikTok" class="table-th-icon" width="18" height="18">
-                  Authorized Partner Portal Route
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Ad Credit Milestone Match</strong></td>
-              <td><span class="table-dim">$0 (Standard Rates)</span></td>
-              <td class="highlight-col">Up to $6,000 Direct Balance Match</td>
-            </tr>
-            <tr>
-              <td><strong>Introductory Spend Coupon</strong></td>
-              <td><span class="table-dim">Not Included</span></td>
-              <td class="highlight-col">50% Off First Week (Stackable)</td>
-            </tr>
-            <tr>
-              <td><strong>$4,000 Spend Purchasing Power</strong></td>
-              <td><span class="table-dim">$4,000 Delivery Budget</span></td>
-              <td class="highlight-col">$7,000 Delivery Budget (1.75× Multiplier)</td>
-            </tr>
-            <tr>
-              <td><strong>Promo Code Input Requirement</strong></td>
-              <td><span class="table-dim">Manual Search (High Failure Rate)</span></td>
-              <td class="highlight-col">Zero Code Needed (Token Pre-Baked)</td>
-            </tr>
-            <tr>
-              <td><strong>Qualification Appeal Access</strong></td>
-              <td><span class="table-dim">Standard Ticket Helpdesk</span></td>
-              <td class="highlight-col">Official Payment Promotion Appeal Portal</td>
-            </tr>
-            <tr>
-              <td><strong>Registration Destination</strong></td>
-              <td>ads.tiktok.com</td>
-              <td class="highlight-col">ads.tiktok.com (100% Direct Official Route)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Mobile Native Comparison Card -->
-      <div class="mobile-comparison-card">
-        <div class="mcomp-item">
-          <span class="mcomp-title">Ad Credit Milestone Match</span>
-          <div class="mcomp-split">
-            <div class="mcomp-box direct">
-              <span class="mcomp-tag">Standard Direct</span>
-              <span class="mcomp-val dim">$0 (No Bonus)</span>
-            </div>
-            <div class="mcomp-box partner">
-              <span class="mcomp-tag">Authorized Partner</span>
-              <span class="mcomp-val green">Up to +$6,000 Match</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mcomp-item">
-          <span class="mcomp-title">First-Week Spend Coupon</span>
-          <div class="mcomp-split">
-            <div class="mcomp-box direct">
-              <span class="mcomp-tag">Standard Direct</span>
-              <span class="mcomp-val dim">Not Included</span>
-            </div>
-            <div class="mcomp-box partner">
-              <span class="mcomp-tag">Authorized Partner</span>
-              <span class="mcomp-val green">50% Off (Stackable)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mcomp-item">
-          <span class="mcomp-title">$4,000 Spend Purchasing Power</span>
-          <div class="mcomp-split">
-            <div class="mcomp-box direct">
-              <span class="mcomp-tag">Standard Direct</span>
-              <span class="mcomp-val dim">$4,000 Budget (1.0×)</span>
-            </div>
-            <div class="mcomp-box partner">
-              <span class="mcomp-tag">Authorized Partner</span>
-              <span class="mcomp-val green">$7,000 Budget (1.75×)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mcomp-item">
-          <span class="mcomp-title">Promo Code Requirement</span>
-          <div class="mcomp-split">
-            <div class="mcomp-box direct">
-              <span class="mcomp-tag">Standard Direct</span>
-              <span class="mcomp-val dim">Manual Search</span>
-            </div>
-            <div class="mcomp-box partner">
-              <span class="mcomp-tag">Authorized Partner</span>
-              <span class="mcomp-val green">Zero Code (Auto-Token)</span>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent mcomp-cta-btn">
-          Claim Official Partner Privileges →
+          Claim $3,000 Voucher Now →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Section 1: 4 Spend Tiers Overview -->
+  <!-- Section 1: 4 Spend Tiers Overview (data-ui) -->
   <section class="section tiers-section" id="tiers">
     <h2 class="section-title">Official advertiser incentive matrix.</h2>
     <p class="section-subhead">
@@ -2000,7 +1230,7 @@
       <!-- Tier 1 -->
       <div class="tier-card animate-tier-1">
         <div>
-          <span class="tier-plan-name">Starter Tier · 100% Match</span>
+          <span class="tier-plan-name">Starter Tier</span>
           <div class="tier-main-credit">+$200</div>
           <div class="tier-requirement-text">Spend $200 (100% Match)</div>
           <div class="tier-specs-list">
@@ -2010,18 +1240,15 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <div>
-          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-            Claim Offer: $200 Credit →
-          </a>
-          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
-        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $200 Credit →
+        </a>
       </div>
 
       <!-- Tier 2 -->
       <div class="tier-card animate-tier-2">
         <div>
-          <span class="tier-plan-name">Growth Tier · 75% Match</span>
+          <span class="tier-plan-name">Growth Tier</span>
           <div class="tier-main-credit">+$750</div>
           <div class="tier-requirement-text">Spend $1,000 (75% Match)</div>
           <div class="tier-specs-list">
@@ -2031,18 +1258,15 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <div>
-          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-            Claim Offer: $750 Credit →
-          </a>
-          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
-        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $750 Credit →
+        </a>
       </div>
 
       <!-- Tier 3: Featured -->
       <div class="tier-card featured animate-tier-3">
         <div>
-          <span class="tier-plan-name">Scale Tier · Most Popular</span>
+          <span class="tier-plan-name">Scale Tier</span>
           <div class="tier-main-credit">+$3,000</div>
           <div class="tier-requirement-text">Spend $4,000 (75% Match)</div>
           <div class="tier-specs-list">
@@ -2052,18 +1276,15 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <div>
-          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
-            Claim Offer: $3,000 Voucher →
-          </a>
-          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
-        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
+          Claim $3,000 Voucher →
+        </a>
       </div>
 
       <!-- Tier 4 -->
       <div class="tier-card animate-tier-4">
         <div>
-          <span class="tier-plan-name">Enterprise Tier · $6k Cap</span>
+          <span class="tier-plan-name">Enterprise Tier</span>
           <div class="tier-main-credit">+$6,000</div>
           <div class="tier-requirement-text">Spend $10,000 (60% Match)</div>
           <div class="tier-specs-list">
@@ -2073,60 +1294,8 @@
             <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
           </div>
         </div>
-        <div>
-          <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-            Claim Offer: $6,000 Credit →
-          </a>
-          <span class="tier-micro-note">Direct Partner Route · Auto-Applied</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Supported TikTok Ad Formats & Verified Cases -->
-  <section class="section formats-section" id="formats">
-    <h2 class="section-title">Verified TikTok advertiser results.</h2>
-    <p class="section-subhead">
-      See how verified brands scale ROAS and slash CPA using TikTok's discovery engine and official partner ad credit subsidies.
-    </p>
-
-    <div class="formats-grid">
-      <div class="format-card animate-format-1">
-        <div>
-          <img src="assets/tiktok-spark-card.svg" alt="Woofz Case Study" class="format-card-img" width="320" height="220">
-          <h3 class="format-card-title">Woofz App: -60% CPA with +67% CVR</h3>
-          <p class="format-card-desc">
-            Official case study: Woofz accelerated subscriber acquisition with a 60% CPA reduction and 67% conversion lift using native creator Spark Ads.
-          </p>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="format-card-link">
-          Claim Offer &amp; Scale UGC →
-        </a>
-      </div>
-
-      <div class="format-card animate-format-2">
-        <div>
-          <img src="assets/tiktok-shop-card.svg" alt="Grande Cosmetics Case Study" class="format-card-img" width="320" height="220">
-          <h3 class="format-card-title">Grande Cosmetics: 10× ROAS Scale</h3>
-          <p class="format-card-desc">
-            Official case study: Grande Cosmetics reached a verified 10× ROAS and slashed CPA by 85% pairing TikTok Shop shopping ads with milestone credits.
-          </p>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="format-card-link">
-          Claim Offer &amp; Deploy Shop Ads →
-        </a>
-      </div>
-
-      <div class="format-card animate-format-3">
-        <div>
-          <img src="assets/tiktok-lead-card.svg" alt="Goodcall Case Study" class="format-card-img" width="320" height="220">
-          <h3 class="format-card-title">Goodcall: -96% Acquisition Cost</h3>
-          <p class="format-card-desc">
-            Official case study: Goodcall dropped customer acquisition costs by 96% utilizing native zero-latency mobile lead forms in TikTok Ads Manager.
-          </p>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="format-card-link">
-          Claim Offer &amp; Capture Leads →
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $6,000 Credit →
         </a>
       </div>
     </div>
@@ -2146,37 +1315,31 @@
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="text-link">
           Open verified registration route →
         </a>
-        <div class="dashboard-preview animate-sim-left" data-ui style="margin-top: 24px;">
-          <div class="dash-topbar">
-            <div class="dash-brand-account">
-              <img src="assets/tiktok-mark.svg" alt="TikTok" class="dash-tiktok-icon" width="20" height="20">
-              <span class="dash-account-title">TikTok Ads Manager</span>
-            </div>
-            <span class="dash-badge-active">Verified Partner Tracking</span>
-          </div>
-
-          <div class="dash-balance-box">
-            <span class="dash-label">Promotional Credit Balance</span>
-            <div class="dash-amount" id="dash-sim-amount">+$3,000.00 USD</div>
-            <span class="dash-voucher-desc" id="dash-sim-desc">Automated Spend Match Voucher · Active</span>
-          </div>
-
-          <div class="dash-stats-row">
-            <div class="dash-stat-block">
-              <span class="dash-stat-label">Introductory Coupon</span>
-              <span class="dash-stat-val">50% Off ($50 Cap)</span>
-            </div>
-            <div class="dash-stat-block">
-              <span class="dash-stat-label">Disbursement</span>
-              <span class="dash-stat-val">Automated Deposit</span>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <div class="sim-phone-column animate-sim-right">
-        <span class="sim-phone-caption">Live In-Feed Ad Experience</span>
-        <img src="assets/tiktok-feed-ad.svg" alt="TikTok In-Feed Ad Mockup" class="sim-phone-img" width="340" height="604">
+      <!-- TikTok Dashboard Simulator Fragment (data-ui) -->
+      <div class="dashboard-preview animate-sim-right" data-ui>
+        <div class="dash-topbar">
+          <span class="dash-account-title">TikTok Ads Manager</span>
+          <span class="dash-badge-active">Verified Partner Tracking</span>
+        </div>
+
+        <div class="dash-balance-box">
+          <span class="dash-label">Promotional Credit Balance</span>
+          <div class="dash-amount" id="dash-sim-amount">+$3,000.00 USD</div>
+          <span class="dash-voucher-desc" id="dash-sim-desc">Automated Spend Match Voucher · Active</span>
+        </div>
+
+        <div class="dash-stats-row">
+          <div class="dash-stat-block">
+            <span class="dash-stat-label">Introductory Coupon</span>
+            <span class="dash-stat-val">50% Off ($50 Cap)</span>
+          </div>
+          <div class="dash-stat-block">
+            <span class="dash-stat-label">Disbursement</span>
+            <span class="dash-stat-val">Automated Deposit</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2229,28 +1392,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Preflight Advisory Card (data-ui) -->
-    <div class="preflight-card" data-ui>
-      <div class="preflight-top">
-        <span class="preflight-pill">PRE-FLIGHT ADVISORY</span>
-        <span class="preflight-title">Three requirements to guarantee full voucher eligibility</span>
-      </div>
-      <div class="preflight-grid">
-        <div class="preflight-col">
-          <span class="preflight-key">Clean Business Email</span>
-          <p class="preflight-desc">Register with an email address never previously linked to TikTok Ads Manager or Business Center.</p>
-        </div>
-        <div class="preflight-col">
-          <span class="preflight-key">Matching Jurisdiction</span>
-          <p class="preflight-desc">Ensure your registration connection country aligns with the billing address of your commercial payment card.</p>
-        </div>
-        <div class="preflight-col">
-          <span class="preflight-key">Direct Link Binding</span>
-          <p class="preflight-desc">Open the partner portal directly. Partner token attaches automatically upon loading the official TikTok registration form.</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Section 4: Stackable Benefits & Official Appeal -->
@@ -2261,7 +1402,7 @@
     </p>
 
     <div class="perks-grid">
-      <div class="perk-panel animate-perk-1">
+      <div class="perk-panel animate-perk-1" data-ui>
         <div>
           <span class="perk-tagline">Stackable Benefit</span>
           <h3 class="perk-title">50% Introductory Spend Coupon</h3>
@@ -2294,7 +1435,7 @@
     <div class="faq-split">
       <div class="faq-menu animate-faq-menu">
         <button type="button" class="faq-btn active" onclick="selectFaq(0, this)">
-          Do I need followers to run TikTok ads?
+          What are the eligibility requirements?
         </button>
         <button type="button" class="faq-btn" onclick="selectFaq(1, this)">
           How does the 4-tier match work?
@@ -2308,12 +1449,12 @@
       </div>
 
       <div class="faq-display-card animate-faq-card" id="faq-card-display">
-        <h3 class="faq-card-title" id="faq-title">Zero followers needed to launch and scale ads.</h3>
+        <h3 class="faq-card-title" id="faq-title">Eligibility requires a new ad account.</h3>
         <p class="faq-card-answer" id="faq-answer">
-          Unlike legacy social platforms, TikTok's content discovery engine distributes ads based on real-time audience interest and intent, not follower counts. Brand-new accounts with 0 followers immediately access the full discovery delivery pipeline across 150+ global markets.
+          Offers apply to first-time corporate or individual advertisers registering through an authorized partner portal. Ensure you access the registration page from an authorized jurisdiction and link a valid commercial payment instrument.
         </p>
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="faq-card-action" id="faq-cta">
-          Claim Offer with 0 Followers →
+          Begin eligible registration →
         </a>
       </div>
     </div>
@@ -2346,27 +1487,11 @@
         </div>
 
         <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn dialog-submit-btn" id="dialog-submit-btn">
-          Claim Official Offer: $3,000 Voucher →
+          Claim $3,000 Voucher Now →
         </a>
-        <span class="dialog-reassurance">Official partner redirect to ads.tiktok.com · Zero intermediary fees · Instant token attachment</span>
-        <div class="dialog-enterprise-support">
-          Planning spend &gt; $10,000 or need custom agency-managed whitelisting? 
-          <a href="https://t.me/adgrowth_lab" target="_blank" rel="noopener noreferrer">Connect with VIP Concierge on Telegram ↗</a>
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- Instant Token Feedback Toast -->
-  <div class="token-toast" id="token-toast" hidden>
-    <div class="toast-content">
-      <span class="toast-dot"></span>
-      <div class="toast-text">
-        <strong>Partner Token Injected</strong>
-        <span>Opening Official TikTok Ads Portal...</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -2375,7 +1500,6 @@
       <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="footer-link">Claim Incentive</a>
       <a href="https://ads.tiktok.com/i18n/account/payment_promotion" target="_blank" rel="noopener noreferrer" class="footer-link">Payment Appeal</a>
       <a href="#tiers" class="footer-link">Tier Matrix</a>
-      <a href="https://t.me/adgrowth_lab" target="_blank" rel="noopener noreferrer" class="footer-link footer-vip-link">VIP Support (Telegram) ↗</a>
     </div>
     <span>© 2026 Independent Resource</span>
   </footer>
@@ -2393,11 +1517,11 @@
       const multEl = document.getElementById('display-multiplier-val');
       if (multEl) multEl.textContent = mult + '× Purchasing Power';
 
-      document.getElementById('calc-claim-button').textContent = 'Claim Official Offer: $' + credit.toLocaleString() + ' Voucher →';
-      document.getElementById('hero-main-cta').textContent = 'Claim Official Offer: $' + credit.toLocaleString() + ' Credit →';
+      document.getElementById('calc-claim-button').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
+      document.getElementById('hero-main-cta').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher →';
 
       const navBtn = document.getElementById('nav-cta-btn');
-      if (navBtn) navBtn.textContent = 'Claim Offer: $' + credit.toLocaleString() + ' Credit →';
+      if (navBtn) navBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Credit →';
 
       const dashAmt = document.getElementById('dash-sim-amount');
       if (dashAmt) dashAmt.textContent = '+$' + credit.toLocaleString() + '.00 USD';
@@ -2405,7 +1529,7 @@
       if (dashDesc) dashDesc.textContent = 'Automated ' + match + ' Voucher · Active';
 
       const submitBtn = document.getElementById('dialog-submit-btn');
-      if (submitBtn) submitBtn.textContent = 'Claim Official Offer: $' + credit.toLocaleString() + ' Voucher →';
+      if (submitBtn) submitBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
 
       if (element) {
         document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
@@ -2430,15 +1554,15 @@
       else if (val === 10000) credit = 6000;
       summaryEl.textContent = 'Selected allocation will grant $' + credit.toLocaleString() + ' in promotional credit upon completing qualifying campaign spend in TikTok Ads Manager.';
       if (submitBtn) {
-        submitBtn.textContent = 'Claim Official Offer: $' + credit.toLocaleString() + ' Voucher →';
+        submitBtn.textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
       }
     }
 
     const FAQS = [
       {
-        title: "Zero followers needed to launch and scale ads.",
-        answer: "Unlike legacy social platforms, TikTok's content discovery engine distributes ads based on real-time audience interest and intent, not follower counts. Brand-new accounts with 0 followers immediately access the full discovery delivery pipeline across 150+ global markets.",
-        cta: "Claim Offer with 0 Followers →",
+        title: "Eligibility requires a new ad account.",
+        answer: "Offers apply to first-time corporate or individual advertisers registering through an authorized partner portal. Ensure you access the registration page from an authorized jurisdiction and link a valid commercial payment instrument.",
+        cta: "Begin eligible registration →",
         url: AFFILIATE_URL
       },
       {
@@ -2486,61 +1610,6 @@
         }
       }
     }
-
-    function showTokenToast() {
-      const toast = document.getElementById('token-toast');
-      if (!toast) return;
-      toast.hidden = false;
-      setTimeout(() => {
-        toast.hidden = true;
-      }, 1800);
-    }
-
-    document.addEventListener('click', (e) => {
-      const target = e.target.closest('a');
-      if (target && target.href && target.href.includes('partnerlinks.io')) {
-        showTokenToast();
-      }
-    });
-
-    // Real-time Session Reservation Countdown (Urgency CRO)
-    let sessionSeconds = 14 * 60 + 59;
-    function updateCountdown() {
-      if (sessionSeconds <= 0) return;
-      sessionSeconds--;
-      const mins = Math.floor(sessionSeconds / 60);
-      const secs = sessionSeconds % 60;
-      const el = document.getElementById('session-countdown');
-      if (el) {
-        el.textContent = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
-      }
-    }
-    setInterval(updateCountdown, 1000);
-
-    // Dynamic Social Proof Ticker (Social Proof CRO)
-    const PROOF_MSGS = [
-      "Verified: US E-commerce brand claimed $3,000 voucher (2m ago)",
-      "Active: UK DTC agency claimed $6,000 enterprise match (4m ago)",
-      "Verified: Shopify store claimed $750 growth subsidy (7m ago)",
-      "Active: TikTok Shop seller claimed $3,000 ad credit (11m ago)"
-    ];
-    let proofIdx = 0;
-    setInterval(() => {
-      proofIdx = (proofIdx + 1) % PROOF_MSGS.length;
-      const el = document.getElementById('proof-msg');
-      if (el) el.textContent = PROOF_MSGS[proofIdx];
-    }, 4500);
-
-    // Dynamic Monthly Quota Date
-    (function initQuotaStatus() {
-      const now = new Date();
-      const month = now.toLocaleString('en-US', { month: 'long' });
-      const year = now.getFullYear();
-      const statusEl = document.getElementById('calc-status');
-      if (statusEl) {
-        statusEl.textContent = `${month} ${year} Quota Active`;
-      }
-    })();
   </script>
 </body>
 </html>

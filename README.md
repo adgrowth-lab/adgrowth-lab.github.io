@@ -2,12 +2,13 @@
 
 [![Interactive Web Calculator](https://img.shields.io/badge/Live_Web_App-Interactive_Calculator-fe2c55?style=for-the-badge&logo=tiktok&logoColor=white)](https://adgrowth-lab.github.io/)
 [![Official Direct Partner Route](https://img.shields.io/badge/Official_Route-Claim_Up_To_$6,000_Credit-25f4ee?style=for-the-badge&logo=tiktok&logoColor=black)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)
-[![CLI Tool Available](https://img.shields.io/badge/CLI_Tool-calculate.py-blue?style=for-the-badge&logo=python&logoColor=white)](#-6-command-line-interface-cli-tool)
+[![CLI Diagnostic Suite](https://img.shields.io/badge/CLI_Suite-audit.py-blue?style=for-the-badge&logo=python&logoColor=white)](#-6-open-source-diagnostic--cli-suite-auditpy--calculatepy)
+[![Reddit 30-Day Research](https://img.shields.io/badge/Research-Reddit_30_Days-orange?style=for-the-badge&logo=reddit&logoColor=white)](research-tiktok-ads-reddit-30days.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Verification: TikTok Agency Partner](https://img.shields.io/badge/Verified-TikTok_Ads_Manager_Direct-green.svg?style=for-the-badge)](#-7-security--url-architecture-why-partnerlinksio)
 
-> **Public Transparency Repository & Interactive Modeling Tool for Official TikTok Ads Subsidies.**  
-> Designed for DTC founders, e-commerce dropshippers, and media buyers looking to **bypass the $50 daily spend limit**, eliminate secondary broker markups, and claim up to **USD $6,000 in official promotional ad credits**.
+> **Public Transparency Repository, Diagnostic Suite & Interactive Modeling Tool for Official TikTok Ads Subsidies.**  
+> Designed for DTC founders, e-commerce dropshippers, and media buyers looking to **audit Pangle bot traffic leaks**, **evaluate cold-start campaign survival**, bypass the $50 daily spend limit, and claim up to **USD $6,000 in official promotional ad credits**.
 
 ---
 
@@ -17,7 +18,8 @@
 | :--- | :--- | :--- |
 | **🧮 Live Interactive Match Calculator** | [Launch Web Simulator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Simulate exact ad purchasing power across custom spend targets (Zero sign-up required) |
 | **🎁 Official Direct Partner Route** | [Claim Verified Match ($6,000 Cap)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng) | Direct TikTok Ads Manager registration portal with embedded partner verification token |
-| **💻 Local Terminal CLI Simulator** | [`calculate.py`](#-6-command-line-interface-cli-tool) | Instant offline terminal simulation tool (Zero external dependencies) |
+| **🛡️ Anti-Leak & Cold-Start Suite** | [`audit.py`](#-6-open-source-diagnostic--cli-suite-auditpy--calculatepy) | Audit Pangle bot leaks, test campaign viability, and evaluate spend match |
+| **📊 Reddit 30-Day Intel Report** | [`research-tiktok-ads-reddit-30days.md`](research-tiktok-ads-reddit-30days.md) | Empirical analysis of 64 Reddit threads across r/TikTokAds & r/PPC |
 | **💬 High-Volume Enterprise Line** | [Connect on Telegram (@adgrowth_lab)](https://t.me/adgrowth_lab) | Priority whitelisting for accounts spending >$10,000/month |
 
 ---
@@ -78,33 +80,106 @@ Before purchasing or opening an account through third-party brokers, watch for t
 
 ---
 
-## 💻 6. Command-Line Interface (CLI) Tool
+## 🛠️ 6. Open-Source Diagnostic & CLI Suite (`audit.py` & `calculate.py`)
 
-For developers and media buyers who prefer instant terminal calculations without opening a browser, this repository includes [`calculate.py`](calculate.py) (zero external dependencies, runs on any standard Python 3.8+):
+To eliminate the most common failure modes uncovered in our [30-Day Reddit Media Buyer Investigation](research-tiktok-ads-reddit-30days.md), this repository includes zero-dependency command-line tools for offline diagnostics, traffic auditing, and budget simulation.
+
+### 6.1 Pangle Traffic & Budget Leak Detector (`audit.py pangle`)
+*Context*: Reddit advertisers frequently report spending $200–$1,000 on "Automatic Placements" only to find 80–90% of clicks originating from **Pangle** (third-party gaming apps outside TikTok) with ~100% bounce rates and zero conversions.
+
+```bash
+# 1. Audit Pangle leakage from Ads Manager metrics & Shopify sessions
+python3 audit.py pangle --spend 500 --tiktok-clicks 2500 --site-sessions 2200 --pangle-sessions 1950
+
+# 2. Or auto-parse directly from Shopify / GA4 Referrers CSV export
+python3 audit.py pangle --spend 1200 --tiktok-clicks 6000 --csv shopify_traffic_sources.csv
+
+# Output machine-readable JSON for automated reports
+python3 audit.py pangle --spend 500 --tiktok-clicks 2500 --site-sessions 2200 --pangle-sessions 1950 --json
+```
+
+**Diagnostic Output:**
+```text
+========================================================================
+🚨 TIKTOK ADS PANGLE TRAFFIC & BUDGET LEAK AUDIT
+========================================================================
+Overall Verdict:      [CRITICAL HIJACK] (RED)
+Diagnosis:            Extreme budget drain: 88.6% of your visitors are low-intent bot or accidental clicks from 3rd-party gaming apps outside TikTok.
+------------------------------------------------------------------------
+FINANCIAL IMPACT:
+  Total Ad Spend:     $500.00 USD
+  Wasted Spend:       $443.18 USD (88.64% of total budget)
+  Real TikTok Spend:  $56.82 USD
+  Reported CPC:       $0.2000
+  True Effective CPC: $2.0000  (Inflation: +900.0%)
+------------------------------------------------------------------------
+TRAFFIC INTEGRITY:
+  TikTok Reported Clicks:   2,500
+  Actual Site Sessions:     2,200
+  -- Pangle Bot Sessions:   1,950 (88.64%)
+  -- Real TikTok Sessions:  250 (11.36%)
+  Ghost Clicks (Drop-off):  300 (12.0%)
+------------------------------------------------------------------------
+REMEDIATION PROTOCOL:
+  1. In TikTok Ads Manager, navigate to: Campaign -> Ad Group -> Placements.
+  2. Select 'Select Placement' instead of 'Automatic Placement'.
+  3. UNCHECK 'Pangle' (and 'Global App Bundle' if visible).
+  4. Note for Smart+ Campaigns: If Pangle is grayed out, switch to standard 'Custom Web Conversions' campaign to regain granular placement control.
+  5. In Shopify / GA4, verify that 'pangleglobal' referrer traffic drops to 0 within 24 hours.
+========================================================================
+```
+
+---
+
+### 6.2 Cold-Start Campaign Survival Evaluator (`audit.py cold-start`)
+*Context*: Evaluates campaign survival probability before spending ad budget. Penalizes common traps: budget starvation (<10x target CPA), "pixel poisoning" (optimizing ATC/Traffic for e-commerce), muted audio, and non-native creative hooks.
+
+```bash
+# Evaluate a high-risk cold-start campaign
+python3 audit.py cold-start \
+  --budget 25 \
+  --target-cpa 30 \
+  --objective atc \
+  --placement automatic \
+  --hook-type product_static \
+  --sound muted
+
+# Evaluate an optimized cold-start setup
+python3 audit.py cold-start \
+  --budget 300 \
+  --target-cpa 25 \
+  --objective purchase \
+  --placement tiktok_only \
+  --format spark_ads \
+  --hook-type creator_face_direct \
+  --sound voiceover_trending
+```
+
+**Diagnostic Output:**
+```text
+========================================================================
+🎯 TIKTOK ADS COLD-START CAMPAIGN SURVIVAL AUDIT (2026)
+========================================================================
+Survival Score:   100 / 100
+Health Status:    READY TO SCALE [A (High Survival Probability)]
+Budget/CPA Ratio: 12.0x  (Daily: $300.00 | CPA: $25.00)
+------------------------------------------------------------------------
+✅ No critical operational flaws identified in campaign setup!
+------------------------------------------------------------------------
+Web Interactive Hub: https://adgrowth-lab.github.io/
+========================================================================
+```
+
+---
+
+### 6.3 Official Spend Match Estimator (`calculate.py` / `audit.py spend-match`)
+Instant terminal receipt generator for official TikTok Ads Manager spend matching milestones ($200 to $6,000 credit cap):
 
 ```bash
 # Calculate specific 30-day ad budget
 python3 calculate.py --spend 4500
-
-# Output raw JSON for automated budgeting workflows
-python3 calculate.py --spend 10000 --json
-```
-
-**Terminal Output Preview:**
-```text
-==============================================================
- 🎯 TIKTOK ADS SPEND MATCH ESTIMATOR & BENEFIT AUDIT (2026)
-==============================================================
- Target Monthly Budget:     USD $4,500.00
- Qualifying Milestone:      Tier 3: Scale (Most Popular)
---------------------------------------------------------------
- ✅ Promotional Voucher:     +USD $3,000.00 (Direct Ads Manager Match)
- 🚀 Total Ad Buying Power:   USD $7,500.00
- 📈 Purchasing Multiplier:   1.67x Capital Leverage
- 💸 Effective CPA Discount:  ~40.0% Cost Reduction
---------------------------------------------------------------
- 🎯 Strategic Focus:        Winning creative scaling & high-volume dropshipping
-==============================================================
+# Or via the unified suite:
+python3 audit.py spend-match 4500
 ```
 
 ---

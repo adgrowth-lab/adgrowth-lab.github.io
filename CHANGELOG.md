@@ -4,6 +4,15 @@ All notable updates, TikTok Ads policy changes, and milestone verification audit
 
 ---
 
+## [2026.05] - Open-Source Anti-Leak & Cold-Start Diagnostic Suite
+### Added
+* **Pangle Traffic & Budget Leak Detector (`audit.py pangle`)**: Diagnostic engine detecting low-intent bot traffic from third-party gaming apps outside TikTok. Parses live metrics or Shopify/GA4 CSV exports, calculates effective CPC inflation, and provides a 5-step placement remediation protocol.
+* **Cold-Start Campaign Survival Linter (`audit.py cold-start`)**: Algorithmic pre-launch auditor scoring campaign setups (0–100) based on 30-day empirical Reddit media buyer failure data (evaluating budget:CPA ratio, pixel poisoning like ATC/traffic, automatic placements, and hook format friction).
+* **Empirical Reddit Research Dossier**: Added `research-tiktok-ads-reddit-30days.md` analyzing 64 community threads across `r/TikTokAds`, `r/PPC`, `r/dropship`, and `r/shopify`.
+* **Automated Test Suite**: Added `test_audit.py` with 100% pass rate across CLI parsing, financial calculations, and edge cases.
+
+---
+
 ## [2026.04] - Enterprise Cap & VCC Fraud Engine Update
 ### Verified Policy Audit
 * **$6,000 Milestone Cap Maintained**: Confirmed Tier 4 matching holds up to $6,000 for verified agency accounts spending ≥$10,000 in net advertising within 30 days.
