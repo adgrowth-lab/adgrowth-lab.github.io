@@ -1,14 +1,13 @@
-# TikTok Ads Spend Match & Agency Whitelist Audit (2026 Edition) 🛡️
+# TikTok Ads Credit & Promo Code Portal (2026 Edition): Claim Up to $6,000 TikTok Ad Credit + 50% Coupon 🛡️
 
 [![Interactive Web Calculator](https://img.shields.io/badge/Live_Web_App-Interactive_Calculator-fe2c55?style=for-the-badge&logo=tiktok&logoColor=white)](https://adgrowth-lab.github.io/)
 [![Official Direct Partner Route](https://img.shields.io/badge/Official_Route-Claim_Up_To_$6,000_Credit-25f4ee?style=for-the-badge&logo=tiktok&logoColor=black)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)
 [![CLI Diagnostic Suite](https://img.shields.io/badge/CLI_Suite-audit.py-blue?style=for-the-badge&logo=python&logoColor=white)](#-6-open-source-diagnostic--cli-suite-auditpy--calculatepy)
 [![Reddit 30-Day Research](https://img.shields.io/badge/Research-Reddit_30_Days-orange?style=for-the-badge&logo=reddit&logoColor=white)](research-tiktok-ads-reddit-30days.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Verification: TikTok Agency Partner](https://img.shields.io/badge/Verified-TikTok_Ads_Manager_Direct-green.svg?style=for-the-badge)](#-7-security--url-architecture-why-partnerlinksio)
 
-> **Public Transparency Repository, Diagnostic Suite & Interactive Modeling Tool for Official TikTok Ads Subsidies.**  
-> Designed for DTC founders, e-commerce dropshippers, and media buyers looking to **audit Pangle bot traffic leaks**, **evaluate cold-start campaign survival**, bypass the $50 daily spend limit, and claim up to **USD $6,000 in official promotional ad credits**.
+> **Public Transparency Portal, Diagnostic Suite & Interactive Modeling Tool for Official TikTok Ads Credit & Promotional Vouchers.**  
+> Designed for DTC founders, e-commerce dropshippers, and media buyers looking to **claim up to $6,000 in official TikTok ads credit**, activate a stackable **50% TikTok ads coupon code**, **audit Pangle bot traffic leaks**, and bypass the $50 daily spend limit.
 
 ---
 
