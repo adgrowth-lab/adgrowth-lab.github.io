@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adgrowth-lab.github.io/sitemap.xml
