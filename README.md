@@ -18,7 +18,10 @@
 | :--- | :--- | :--- |
 | **🧮 Live Interactive Match Calculator** | [Launch Web Simulator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Simulate exact ad purchasing power across custom spend targets (Zero sign-up required) |
 | **🎁 Official Direct Partner Route** | [Claim Verified Match ($6,000 Cap)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng) | Direct TikTok Ads Manager registration portal with embedded partner verification token |
-| **🛡️ Standalone Troubleshooting Repo** | [adgrowth-lab/tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) | Dedicated open-source repository with full 2026 Field Guide & CLI diagnostic tools |
+| **🌐 Master Troubleshooting Repo** | [adgrowth-lab/tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) | Dedicated open-source repository with full 2026 Field Guide & CLI diagnostic tools |
+| **🛡️ Creative Compliance Linter (Scheme A)** | [adgrowth-lab/tiktok-creative-compliance-linter](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter) | Pre-flight ad copy, transcript & hook sensitive word scanner |
+| **💳 VCC BIN Database (Scheme B)** | [adgrowth-lab/tiktok-vcc-bin-database](https://github.com/adgrowth-lab/tiktok-vcc-bin-database) | 16 verified BIN benchmarks, 3DS behavior & anti-ban billing rules |
+| **📨 Suspension Appeal Kit (Scheme C)** | [adgrowth-lab/tiktok-ads-appeal-kit](https://github.com/adgrowth-lab/tiktok-ads-appeal-kit) | 5 battle-tested legal templates, 4-pillar evidence & clean-slate SOP |
 | **📊 Reddit 30-Day Intel Report** | [`research-tiktok-ads-reddit-30days.md`](research-tiktok-ads-reddit-30days.md) | Empirical analysis of 64 Reddit threads across r/TikTokAds & r/PPC |
 | **💬 High-Volume Enterprise Line** | [Connect on Telegram (@adgrowth_lab)](https://t.me/adgrowth_lab) | Priority whitelisting for accounts spending >$10,000/month |
 
