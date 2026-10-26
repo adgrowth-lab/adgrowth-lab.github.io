@@ -2,8 +2,9 @@
 
 [![Interactive Web Calculator](https://img.shields.io/badge/Live_Web_App-Interactive_Calculator-fe2c55?style=for-the-badge&logo=tiktok&logoColor=white)](https://adgrowth-lab.github.io/)
 [![Official Direct Partner Route](https://img.shields.io/badge/Official_Route-Claim_Up_To_$6,000_Credit-25f4ee?style=for-the-badge&logo=tiktok&logoColor=black)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)
+[![CLI Tool Available](https://img.shields.io/badge/CLI_Tool-calculate.py-blue?style=for-the-badge&logo=python&logoColor=white)](#-6-command-line-interface-cli-tool)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Verification: TikTok Agency Partner](https://img.shields.io/badge/Verified-TikTok_Ads_Manager_Direct-green.svg?style=for-the-badge)](#)
+[![Verification: TikTok Agency Partner](https://img.shields.io/badge/Verified-TikTok_Ads_Manager_Direct-green.svg?style=for-the-badge)](#-7-security--url-architecture-why-partnerlinksio)
 
 > **Public Transparency Repository & Interactive Modeling Tool for Official TikTok Ads Subsidies.**  
 > Designed for DTC founders, e-commerce dropshippers, and media buyers looking to **bypass the $50 daily spend limit**, eliminate secondary broker markups, and claim up to **USD $6,000 in official promotional ad credits**.
@@ -16,6 +17,7 @@
 | :--- | :--- | :--- |
 | **🧮 Live Interactive Match Calculator** | [Launch Web Simulator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Simulate exact ad purchasing power across custom spend targets (Zero sign-up required) |
 | **🎁 Official Direct Partner Route** | [Claim Verified Match ($6,000 Cap)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng) | Direct TikTok Ads Manager registration portal with embedded partner verification token |
+| **💻 Local Terminal CLI Simulator** | [`calculate.py`](#-6-command-line-interface-cli-tool) | Instant offline terminal simulation tool (Zero external dependencies) |
 | **💬 High-Volume Enterprise Line** | [Connect on Telegram (@adgrowth_lab)](https://t.me/adgrowth_lab) | Priority whitelisting for accounts spending >$10,000/month |
 
 ---
@@ -76,7 +78,82 @@ Before purchasing or opening an account through third-party brokers, watch for t
 
 ---
 
-## 🚀 6. How to Onboard & Claim the Match (Step-by-Step)
+## 💻 6. Command-Line Interface (CLI) Tool
+
+For developers and media buyers who prefer instant terminal calculations without opening a browser, this repository includes [`calculate.py`](calculate.py) (zero external dependencies, runs on any standard Python 3.8+):
+
+```bash
+# Calculate specific 30-day ad budget
+python3 calculate.py --spend 4500
+
+# Output raw JSON for automated budgeting workflows
+python3 calculate.py --spend 10000 --json
+```
+
+**Terminal Output Preview:**
+```text
+==============================================================
+ 🎯 TIKTOK ADS SPEND MATCH ESTIMATOR & BENEFIT AUDIT (2026)
+==============================================================
+ Target Monthly Budget:     USD $4,500.00
+ Qualifying Milestone:      Tier 3: Scale (Most Popular)
+--------------------------------------------------------------
+ ✅ Promotional Voucher:     +USD $3,000.00 (Direct Ads Manager Match)
+ 🚀 Total Ad Buying Power:   USD $7,500.00
+ 📈 Purchasing Multiplier:   1.67x Capital Leverage
+ 💸 Effective CPA Discount:  ~40.0% Cost Reduction
+--------------------------------------------------------------
+ 🎯 Strategic Focus:        Winning creative scaling & high-volume dropshipping
+==============================================================
+```
+
+---
+
+## 🔒 7. Security & URL Architecture: Why `partnerlinks.io`?
+
+A common question among security-conscious media buyers is: *Why does the official route use a `partnerlinks.io` domain?*
+
+1. **Official Infrastructure**: `partnerlinks.io` is the enterprise partnership tracking gateway operated by **Impact (Impact.com)**, the exclusive enterprise partner platform employed by **TikTok for Business** worldwide.
+2. **Instant 0.2s Handshake**: Clicking the partner link performs a direct 302 redirect straight to `ads.tiktok.com/marketing_api/auth` with the official partner token attached.
+3. **Zero Credentials Captured**: You never enter credentials on any third-party intermediary. All registrations, card additions, and campaign setups happen 100% on official **`ads.tiktok.com`** servers.
+
+---
+
+## ❓ 8. Hardcore FAQ for Media Buyers
+
+<details>
+<summary><b>Q1: Does VAT or local Sales Tax count toward qualifying net spend?</b></summary>
+<br>
+<b>No.</b> TikTok calculates milestone tiers strictly based on <b>Net Ad Spend</b> (actual ad delivery auction charges excluding tax fees, regulatory operating costs, or payment gateway surcharges).
+</details>
+
+<details>
+<summary><b>Q2: What happens if an ad creative is rejected or a spend refund occurs?</b></summary>
+<br>
+Only delivered impressions that resulted in settled billing charges count toward the 30-day milestone threshold. If budget is refunded before delivery, it does not count toward qualifying spend.
+</details>
+
+<details>
+<summary><b>Q3: Can I connect this to an existing TikTok Business Center (BC)?</b></summary>
+<br>
+<b>Yes.</b> Once registered via the official partner route, you can invite your primary Business Center as an agency partner admin or asset manager. Your existing Pixels, custom audience lookalikes, and historical conversion data remain completely untouched.
+</details>
+
+<details>
+<summary><b>Q4: What currencies are supported for the match?</b></summary>
+<br>
+While tiers are benchmarked in USD ($200 / $1,000 / $4,000 / $10,000), TikTok Ads Manager accounts denominated in GBP, EUR, CAD, or AUD qualify automatically based on real-time foreign exchange spot conversions at the time of milestone settlement.
+</details>
+
+<details>
+<summary><b>Q5: When and where do the promotional ad credits appear?</b></summary>
+<br>
+Vouchers disburse automatically into your Ads Manager under <b>Tools > Assets > Coupons / Promotional Credits</b> within 24 to 48 hours of meeting your 30-day milestone. Once applied, campaigns consume the promotional credit before charging your primary payment card.
+</details>
+
+---
+
+## 🚀 9. How to Onboard & Claim the Match (Step-by-Step)
 
 ```
 [ Step 1: Pre-qualification ] ➔ Verify your monthly spend target on the Interactive Calculator.
@@ -113,9 +190,10 @@ npx serve .
 
 ## ⚖️ Official Notice & Transparency Disclosure
 
-* **Compliance**: This repository is maintained as a free educational resource for international advertisers. 
+* **Compliance**: This repository is maintained as a free educational resource for international advertisers under the [MIT License](LICENSE). 
 * **Partner Disclosure**: Partner links provided in this documentation connect directly to official TikTok for Business registration routes and may yield referral attribution tokens to support public documentation maintenance at zero extra cost to the advertiser.
 * **Trademarks**: TikTok and TikTok for Business are registered trademarks of ByteDance Ltd. All subsidies, vouchers, and ad credit matches are disbursed and verified directly by TikTok Ads Manager.
+* **Changelog**: View historical policy audits in [`CHANGELOG.md`](CHANGELOG.md).
 
 ---
 
