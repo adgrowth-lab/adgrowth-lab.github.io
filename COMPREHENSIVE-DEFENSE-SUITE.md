@@ -3,6 +3,11 @@
 > **The unified, end-to-end operational security architecture for scaling DTC brands, e-commerce stores, and high-velocity media buyers on TikTok Ads.**  
 > Integrates Traffic Integrity, Cold-Start Viability, Creative Compliance, Payment Infrastructure, and Emergency Account Recovery into a single cohesive system.
 
+> 🎁 **OFFICIAL PARTNER ONBOARDING & SPEND MATCH ROUTE**:  
+> Fast-track verified agency attribution, bypass the $50 learning sandbox, and claim up to $6,000 in official matching ad credits:  
+> 👉 **[Direct TikTok Ads Manager Partner Portal (partnerlinks.io)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)**  
+> 🧮 **Interactive Modeling Simulator**: [Launch Web Calculator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/)
+
 ---
 
 ## ⚡ 1. The 4-Pillar Unified Defense Architecture

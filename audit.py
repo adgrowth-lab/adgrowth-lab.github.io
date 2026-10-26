@@ -1283,6 +1283,7 @@ def print_cold_start_report(res: Dict[str, Any]) -> None:
             print(f"  {i}. {rec}")
         print("-" * 72)
 
+    print(f"Bypass $50 Sandbox & Claim Up to $6,000 Ad Credits: {OFFICIAL_PORTAL}")
     print(f"Web Interactive Hub: {WEB_CALCULATOR}")
     print("=" * 72)
 
@@ -1367,6 +1368,8 @@ def print_bin_report(res: Dict[str, Any]) -> None:
     print("ANTI-BAN PAYMENT CHECKLIST:")
     for item in res["anti_ban_checklist"]:
         print(f"  {item}")
+    print("-" * 72)
+    print(f"BYPASS VCC RISKS VIA OFFICIAL PARTNER GATEWAY: {OFFICIAL_PORTAL}")
     print("=" * 72)
 
 
@@ -1406,6 +1409,8 @@ def print_appeal_report(res: Dict[str, Any]) -> None:
     print("ESCALATION STRATEGY:")
     for step in res["escalation_strategy"]:
         print(f"  {step}")
+    print("-" * 72)
+    print(f"CLEAN SLATE RELAUNCH GATEWAY (IF APPEAL FAILS): {OFFICIAL_PORTAL}")
     print("=" * 72)
 
 
@@ -1430,6 +1435,8 @@ def print_full_audit_report(res: Dict[str, Any]) -> None:
         print(f"  • {action}")
     print("-" * 72)
     print(f"EMERGENCY FALLBACK APPEAL: audit.py appeal --type {res['fallback_appeal_type']}")
+    print(f"CLAIM OFFICIAL MATCH CREDITS: {OFFICIAL_PORTAL}")
+    print(f"INTERACTIVE CALCULATOR:    {WEB_CALCULATOR}")
     print("=" * 72)
 
 
@@ -1441,6 +1448,9 @@ def main() -> None:
         description="TikTok Ads Cold-Start & Anti-Leak Audit Suite (2026 Edition)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
+Official Partner Portal: https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng
+Interactive Web Hub:     https://adgrowth-lab.github.io/
+
 Examples:
   # 1. Audit Pangle Budget Leak with direct numbers
   python3 audit.py pangle --spend 500 --tiktok-clicks 2500 --site-sessions 2200 --pangle-sessions 1950

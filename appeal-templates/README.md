@@ -79,3 +79,14 @@ When attaching bank statements or credit card photos:
    * Provide your Ticket ID and say: *"We have uploaded our complete corporate verification packet and bank statements under Ticket #[ID]. Could you kindly escalate this to a Tier-2 Risk Specialist for expedited review?"*
 3. **NEVER Churn and Burn**:
    * Do not immediately open a new ad account with the same domain name or credit card while an appeal is open. This will link the accounts and cause permanent hardware/domain blacklisting.
+
+---
+
+## 🔄 Clean-Slate Protocol (If Appeal is Permanently Rejected)
+
+If an old self-serve personal ad account is permanently disabled due to legacy policy flags, repeated bot appeals, or an unverified personal identity:
+
+1. **Do NOT reuse the same banned card, domain, or phone number** on another personal account.
+2. **Establish a Clean Enterprise Line**: Register a new, verified Business Center through the [Official TikTok Ads Manager Partner Gateway](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng).
+3. **Claim Official Spend Subsidies**: New business accounts onboarded via the partner portal qualify for **100%–60% Spend Matching up to $6,000 in official ad credits** to offset historical campaign disruption:  
+   👉 **[Official TikTok Partner Registration Portal](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)**

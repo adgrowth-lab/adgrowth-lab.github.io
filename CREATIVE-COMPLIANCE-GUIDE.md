@@ -3,6 +3,11 @@
 > **The definitive pre-flight advertising policy manual for DTC brands, e-commerce marketers, and video creators.**  
 > Built to bypass automated OCR/Whisper rejections, prevent ad group disapprovals, and protect your TikTok Business Center from algorithmic bans.
 
+> 🎁 **OFFICIAL TIKTOK PARTNER ONBOARDING & SPEND MATCH ROUTE**:  
+> Fast-track verified agency attribution, bypass the $50 learning sandbox, and claim up to $6,000 in official matching ad credits:  
+> 👉 **[Direct TikTok Ads Manager Partner Portal (partnerlinks.io)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)**  
+> 🧮 **Interactive Modeling Simulator**: [Launch Web Calculator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/)
+
 ---
 
 ## ⚡ The 3-Tier Automated Ad Review Architecture

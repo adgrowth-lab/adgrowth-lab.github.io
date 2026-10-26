@@ -109,7 +109,21 @@ The following table reflects empirical pass rates and account survival scores ac
 
 ---
 
-## 🛠️ CLI Quick Reference
+## 🚀 5. How to Bypass VCC Risk Entirely: The Official Partner Gateway
+
+If you are spending more than $500/month or tired of virtual card binding declines, the safest operational path is onboarding through the **Official TikTok Ads Manager Partner Gateway**:
+
+> 🎁 **OFFICIAL PARTNER ONBOARDING LINK**:  
+> 👉 **[https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng)**
+
+### Why This Bypasses VCC Sandboxes:
+* **Whitelisted Enterprise Line**: Registration through an accredited partner network tags the new Business Center with verified agency attribution.
+* **$50 Daily Spend Cap Lifted**: Skips the 14-day anti-fraud probation sandbox imposed on raw self-serve personal accounts.
+* **Automated Spend Match**: Unlocks **$200 to $6,000 in official ad credit subsidies** (100% to 60% matching) deposited directly into your Ads Manager balance.
+
+---
+
+## 🛠️ 6. CLI Quick Reference
 
 Check your card BIN instantly with `audit.py`:
 
