@@ -18,7 +18,7 @@
 | :--- | :--- | :--- |
 | **🧮 Live Interactive Match Calculator** | [Launch Web Simulator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Simulate exact ad purchasing power across custom spend targets (Zero sign-up required) |
 | **🎁 Official Direct Partner Route** | [Claim Verified Match ($6,000 Cap)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng) | Direct TikTok Ads Manager registration portal with embedded partner verification token |
-| **🛡️ Anti-Leak & Cold-Start Suite** | [`audit.py`](#-6-open-source-diagnostic--cli-suite-auditpy--calculatepy) | Audit Pangle bot leaks, test campaign viability, and evaluate spend match |
+| **🛡️ Standalone Troubleshooting Repo** | [adgrowth-lab/tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) | Dedicated open-source repository with full 2026 Field Guide & CLI diagnostic tools |
 | **📊 Reddit 30-Day Intel Report** | [`research-tiktok-ads-reddit-30days.md`](research-tiktok-ads-reddit-30days.md) | Empirical analysis of 64 Reddit threads across r/TikTokAds & r/PPC |
 | **💬 High-Volume Enterprise Line** | [Connect on Telegram (@adgrowth_lab)](https://t.me/adgrowth_lab) | Priority whitelisting for accounts spending >$10,000/month |
 

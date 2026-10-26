@@ -137,17 +137,20 @@ class TestSpendMatch(unittest.TestCase):
 
 class TestCliExecution(unittest.TestCase):
     def test_calculate_py_cli(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
         out = subprocess.check_output([
             sys.executable,
-            "calculate.py",
-            "--spend", "4500",
+            "calculate.py" if os.path.exists(os.path.join(repo_dir, "calculate.py")) else "audit.py",
+            "--spend" if os.path.exists(os.path.join(repo_dir, "calculate.py")) else "spend-match",
+            "4500",
             "--json"
-        ], cwd="/Users/han/Desktop/adgrowth-lab.github.io")
+        ], cwd=repo_dir)
         data = json.loads(out)
         self.assertEqual(data["credit_match"], 3000)
         self.assertEqual(data["total_ad_power"], 7500)
 
     def test_cli_pangle_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
         out = subprocess.check_output([
             sys.executable,
             "audit.py",
@@ -157,12 +160,13 @@ class TestCliExecution(unittest.TestCase):
             "--site-sessions", "2000",
             "--pangle-sessions", "1800",
             "--json"
-        ], cwd="/Users/han/Desktop/adgrowth-lab.github.io")
+        ], cwd=repo_dir)
         data = json.loads(out)
         self.assertEqual(data["verdict"], "CRITICAL HIJACK")
         self.assertEqual(data["wasted_spend"], 450.0)
 
     def test_cli_cold_start_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
         out = subprocess.check_output([
             sys.executable,
             "audit.py",
@@ -170,18 +174,19 @@ class TestCliExecution(unittest.TestCase):
             "--budget", "300",
             "--target-cpa", "25",
             "--json"
-        ], cwd="/Users/han/Desktop/adgrowth-lab.github.io")
+        ], cwd=repo_dir)
         data = json.loads(out)
         self.assertEqual(data["survival_score"], 100)
 
     def test_cli_spend_match_json(self):
+        repo_dir = os.path.dirname(os.path.abspath(__file__))
         out = subprocess.check_output([
             sys.executable,
             "audit.py",
             "spend-match",
             "4000",
             "--json"
-        ], cwd="/Users/han/Desktop/adgrowth-lab.github.io")
+        ], cwd=repo_dir)
         data = json.loads(out)
         self.assertEqual(data["credit_match"], 3000.0)
 
