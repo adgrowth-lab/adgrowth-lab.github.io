@@ -15,7 +15,7 @@
 
 | Resource | Direct Link | Purpose |
 | :--- | :--- | :--- |
-| **🧮 Live Interactive Match Calculator** | [Launch Web Simulator (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Simulate exact ad purchasing power across custom spend targets (Zero sign-up required) |
+| **🧮 Live Web Diagnostic Suite** | [Launch Web Suite (adgrowth-lab.github.io)](https://adgrowth-lab.github.io/) | Interactive spend match simulator, cold-start viability evaluator, Pangle bot leak auditor, Policy 5.1 linter, VCC BIN checker & appeal generator |
 | **🎁 Official Direct Partner Route** | [Claim Verified Match ($6,000 Cap)](https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng) | Direct TikTok Ads Manager registration portal with embedded partner verification token |
 | **🌐 Master Troubleshooting Repo** | [adgrowth-lab/tiktok-ads-troubleshooting](https://github.com/adgrowth-lab/tiktok-ads-troubleshooting) | Dedicated open-source repository with full 2026 Field Guide & CLI diagnostic tools |
 | **🛡️ Creative Compliance Linter (Scheme A)** | [adgrowth-lab/tiktok-creative-compliance-linter](https://github.com/adgrowth-lab/tiktok-creative-compliance-linter) | Pre-flight ad copy, transcript & hook sensitive word scanner |
