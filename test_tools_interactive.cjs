@@ -10,8 +10,19 @@ const { chromium } = require('playwright');
 
     await page.goto(process.argv[2] || 'http://127.0.0.1:18769/', { waitUntil: 'networkidle' });
 
-    // 1. Check Tool 1: Cold-Start Evaluator
-    console.log('Testing Tool 1: Cold-Start Evaluator...');
+    // 1. Check Tool 1: Voucher Calculator (Active on Load)
+    console.log('Testing Tool 1: Voucher Calculator...');
+    assert.ok(await page.locator('#panel-diag-calc').isVisible());
+    assert.equal(await page.locator('#display-credit-val').innerText(), '$3,000');
+    await page.locator('.tier-option').nth(0).click();
+    assert.equal(await page.locator('#display-credit-val').innerText(), '$200');
+    await page.locator('.tier-option').nth(2).click(); // restore to $3,000
+    assert.equal(await page.locator('#display-credit-val').innerText(), '$3,000');
+
+    // 2. Switch to Tool 2: Cold-Start Evaluator
+    console.log('Testing Tool 2: Cold-Start Evaluator...');
+    await page.locator('#tab-btn-coldstart').click();
+    assert.ok(await page.locator('#panel-diag-coldstart').isVisible());
     assert.equal(await page.locator('#cs-score-val').innerText(), '75/100');
     assert.equal(await page.locator('#cs-daily-conv').innerText(), '5.0 / day');
     await page.locator('#cs-budget').fill('20');
@@ -20,8 +31,8 @@ const { chromium } = require('playwright');
     const scoreText = await page.locator('#cs-score-val').innerText();
     assert.ok(parseInt(scoreText) < 50, 'Low budget should lower viability score');
 
-    // 2. Switch to Tool 2: Pangle Leak Auditor
-    console.log('Testing Tool 2: Pangle Leak Auditor...');
+    // 3. Switch to Tool 3: Pangle Leak Auditor
+    console.log('Testing Tool 3: Pangle Leak Auditor...');
     await page.locator('#tab-btn-pangle').click();
     assert.ok(await page.locator('#panel-diag-pangle').isVisible());
     assert.equal(await page.locator('#pangle-waste-val').innerText(), '$1,125.00');
@@ -29,8 +40,8 @@ const { chromium } = require('playwright');
     assert.equal(await page.locator('#pangle-waste-val').innerText(), '$0.00');
     assert.equal(await page.locator('#pangle-status-badge').innerText(), 'ZERO LEAKAGE (ISOLATED)');
 
-    // 3. Switch to Tool 3: Creative Compliance Linter
-    console.log('Testing Tool 3: Creative Compliance Linter...');
+    // 4. Switch to Tool 4: Creative Compliance Linter
+    console.log('Testing Tool 4: Creative Compliance Linter...');
     await page.locator('#tab-btn-linter').click();
     assert.ok(await page.locator('#panel-diag-linter').isVisible());
     assert.ok((await page.locator('#linter-count-badge').innerText()).includes('Warning'));
@@ -38,8 +49,8 @@ const { chromium } = require('playwright');
     await page.locator('button:has-text("Compliant Hook")').click();
     assert.ok((await page.locator('#linter-count-badge').innerText()).includes('100% Compliant'));
 
-    // 4. Switch to Tool 4: VCC BIN Evaluator
-    console.log('Testing Tool 4: VCC BIN Evaluator...');
+    // 5. Switch to Tool 5: VCC BIN Evaluator
+    console.log('Testing Tool 5: VCC BIN Evaluator...');
     await page.locator('#tab-btn-bin').click();
     assert.ok(await page.locator('#panel-diag-bin').isVisible());
     assert.equal(await page.locator('#bin-issuer-name').innerText(), 'Mercury Bank');
@@ -48,8 +59,8 @@ const { chromium } = require('playwright');
     assert.equal(await page.locator('#bin-issuer-name').innerText(), 'PST.net');
     assert.equal(await page.locator('#bin-risk-badge').innerText(), 'HIGH RISK');
 
-    // 5. Switch to Tool 5: Suspension Appeal Generator
-    console.log('Testing Tool 5: Suspension Appeal Generator...');
+    // 6. Switch to Tool 6: Suspension Appeal Generator
+    console.log('Testing Tool 6: Suspension Appeal Generator...');
     await page.locator('#tab-btn-appeal').click();
     assert.ok(await page.locator('#panel-diag-appeal').isVisible());
     const initialText = await page.locator('#appeal-output-text').inputValue();
@@ -95,7 +106,7 @@ const { chromium } = require('playwright');
     assert.deepEqual(oversized, [], 'No oversized elements at 320px');
 
     assert.deepEqual(errors, []);
-    console.log('ALL 5 INTERACTIVE TOOLS + MOBILE PROMINENCE PASSED 100%!');
+    console.log('ALL 6 WORKBENCH TOOLS + MOBILE PROMINENCE PASSED 100%!');
   } finally {
     await browser.close();
   }
