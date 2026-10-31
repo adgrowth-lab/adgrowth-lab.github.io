@@ -78,7 +78,7 @@ const { chromium } = require('playwright');
       const tiersIndex = sections.findIndex(s => s.id === 'tiers');
       return { toolsIndex, tiersIndex };
     });
-    assert.ok(sectionOrder.toolsIndex < sectionOrder.tiersIndex, '#tools must precede #tiers in DOM hierarchy');
+    assert.ok(sectionOrder.tiersIndex < sectionOrder.toolsIndex, '#tiers must precede #tools in DOM hierarchy');
     const chips = await page.locator('.quick-tool-chip').all();
     assert.equal(chips.length, 5, 'Must render 5 quick tool chips in hero');
     await page.locator('.quick-tool-chip:has-text("Pangle Leak")').click();
