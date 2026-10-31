@@ -59,8 +59,43 @@ const { chromium } = require('playwright');
     const updatedText = await page.locator('#appeal-output-text').inputValue();
     assert.ok(updatedText.includes('Test Super Brand LLC'));
 
+    // 6. Test Prominence & Hero Quick-Launch Chips
+    console.log('Testing Hero Quick-Launch Chips & DOM Placement...');
+    const sectionOrder = await page.evaluate(() => {
+      const sections = [...document.querySelectorAll('main > section, main > div')];
+      const toolsIndex = sections.findIndex(s => s.id === 'tools');
+      const tiersIndex = sections.findIndex(s => s.id === 'tiers');
+      return { toolsIndex, tiersIndex };
+    });
+    assert.ok(sectionOrder.toolsIndex < sectionOrder.tiersIndex, '#tools must precede #tiers in DOM hierarchy');
+    const chips = await page.locator('.quick-tool-chip').all();
+    assert.equal(chips.length, 5, 'Must render 5 quick tool chips in hero');
+    await page.locator('.quick-tool-chip:has-text("Pangle Leak")').click();
+    assert.ok(await page.locator('#panel-diag-pangle').isVisible());
+
+    // 7. Test Mobile Viewport Display (375px & 320px)
+    console.log('Testing Mobile Viewports & Touch Adaptation...');
+    await page.setViewportSize({ width: 375, height: 812 });
+    const tabStyles = await page.evaluate(() => {
+      const btn = document.querySelector('.diag-tab-btn');
+      const input = document.querySelector('#cs-budget');
+      return {
+        tabMinHeight: window.getComputedStyle(btn).minHeight,
+        inputFontSize: window.getComputedStyle(input).fontSize,
+      };
+    });
+    assert.ok(parseFloat(tabStyles.tabMinHeight) >= 38, 'Mobile tab min-height >= 38px');
+    assert.equal(tabStyles.inputFontSize, '16px', 'Input font-size must be 16px to prevent iOS auto-zoom');
+
+    await page.setViewportSize({ width: 320, height: 600 });
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '320px width has no horizontal scroll');
+    const oversized = await page.evaluate(() =>
+      [...document.querySelectorAll('main *')].filter(el => el.getBoundingClientRect().right > innerWidth + 1).map(el => el.className)
+    );
+    assert.deepEqual(oversized, [], 'No oversized elements at 320px');
+
     assert.deepEqual(errors, []);
-    console.log('ALL 5 INTERACTIVE TOOLS PASSED AUTOMATED TESTING 100%!');
+    console.log('ALL 5 INTERACTIVE TOOLS + MOBILE PROMINENCE PASSED 100%!');
   } finally {
     await browser.close();
   }

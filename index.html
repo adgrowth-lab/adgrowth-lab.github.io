@@ -351,6 +351,20 @@
     .diag-preset-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
     .diag-preset-btn { background: #1c2234; border: 1px solid #2c354e; color: #cbd5e1; font-size: 11.5px; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: background .18s, color .18s; }
     .diag-preset-btn:hover { background: #252c42; color: #fff; }
+    .tool-section-header { margin-bottom: 24px; }
+    .tool-badge-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .tool-badge-live { display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 4px 10px; border-radius: 20px; background: rgba(37,244,238,0.12); color: #25f4ee; border: 1px solid rgba(37,244,238,0.35); box-shadow: 0 0 12px rgba(37,244,238,0.15); }
+    .tool-badge-free { font-size: 11px; font-weight: 600; color: #9da6be; }
+    .hero-quick-tools { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .quick-tools-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin-bottom: 9px; }
+    .quick-tools-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-tool-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); color: #cbd5e1; font-family: inherit; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: all .18s; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+    .quick-tool-chip:hover { background: rgba(37,244,238,0.12); border-color: rgba(37,244,238,0.4); color: #25f4ee; transform: translateY(-1px); }
+    .nav-tools-pill { color: var(--accent) !important; font-weight: 700; background: rgba(37,244,238,0.08); border-radius: 6px; padding: 4px 8px !important; border: 1px solid rgba(37,244,238,0.25); }
+    .diag-qa-box { margin-top: 32px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    .diag-qa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .diag-qa-link { color: #25f4ee; text-decoration: none; font-size: 0.85rem; padding: 10px 12px; border: 1px solid rgba(37,244,238,0.2); border-radius: 8px; background: rgba(37,244,238,0.03); display: block; transition: all .18s; }
+    .diag-qa-link:hover { border-color: rgba(37,244,238,0.5); background: rgba(37,244,238,0.08); transform: translateY(-1px); }
     @media (min-width: 1500px) { .hero-section { padding-top: 82px; padding-bottom: 70px; } }
     @media (max-width: 1100px) {
       .nav-links { gap: 2px; }
@@ -451,8 +465,36 @@
       .cta-closing-headline { font-family: var(--display); font-size: 42px; }
       .cta-action-panel { padding: 24px; }
       .dialog-select { font-size: 16px; }
-      .diag-metrics-grid { grid-template-columns: 1fr; }
-      .diag-cta-banner { flex-direction: column; align-items: flex-start; }
+      .tool-section-header { margin-bottom: 20px; }
+      .tool-badge-row { gap: 6px; }
+      .tool-badge-live { font-size: 9.5px; padding: 3px 8px; }
+      .tool-badge-free { font-size: 10px; }
+      .diag-console { border-radius: 14px; margin-bottom: 28px; }
+      .diag-tabs-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 10px; background: #0c0f17; }
+      .diag-tab-btn { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 8px; font-size: 11.5px; line-height: 1.3; white-space: normal; border-radius: 8px; border: 1px solid #1f2638; background: #131724; color: #9da6be; min-height: 42px; border-bottom: 1px solid #1f2638; }
+      .diag-tab-btn.active { background: rgba(37,244,238,0.12); color: var(--accent); border-color: rgba(37,244,238,0.4); font-weight: 700; border-bottom-color: rgba(37,244,238,0.4); }
+      .diag-tab-btn:nth-child(5) { grid-column: span 2; }
+      .diag-panel { padding: 16px 14px; }
+      .diag-result-card { padding: 16px 14px; border-radius: 12px; }
+      .diag-score-header { flex-direction: row; align-items: center; gap: 8px; flex-wrap: wrap; }
+      .diag-input, .diag-select, .diag-textarea { font-size: 16px; padding: 10px 12px; }
+      .diag-metrics-grid { grid-template-columns: 1fr; gap: 8px; }
+      .diag-metric-box { padding: 10px 12px; }
+      .diag-metric-val { font-size: 15px; }
+      .diag-advice-box { padding: 10px 12px; font-size: 11.5px; margin-bottom: 12px; }
+      .diag-cta-banner { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 14px; font-size: 11.5px; }
+      .diag-cta-btn { width: 100%; justify-content: center; padding: 10px 14px; font-size: 12px; text-align: center; }
+      .diag-preset-btns { gap: 6px; }
+      .diag-preset-btn { font-size: 11px; padding: 5px 8px; }
+      .tool-card { padding: 18px 16px; border-radius: 14px; }
+      .tool-card h3 { font-size: 16px; }
+      .tool-card p { font-size: 12px; }
+      .diag-qa-box { padding: 16px 14px; margin-top: 24px; border-radius: 12px; }
+      .diag-qa-grid { grid-template-columns: 1fr; gap: 8px; }
+      .diag-qa-link { font-size: 11.5px; padding: 9px 10px; }
+      .hero-quick-tools { margin-top: 18px; padding-top: 14px; }
+      .quick-tools-chips { gap: 6px; }
+      .quick-tool-chip { font-size: 11px; padding: 5px 9px; }
       .site-footer { flex-direction: column; gap: 20px; padding: 27px var(--gutter); }
     }
     @media (max-width: 370px) {
@@ -460,6 +502,10 @@
       .nav-links { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .nav-links::-webkit-scrollbar { display: none; }
       .nav-link { font-size: 11px; padding: 4px 5px; white-space: nowrap; }
+      .diag-tabs-nav { grid-template-columns: 1fr; gap: 5px; padding: 8px; }
+      .diag-tab-btn:nth-child(5) { grid-column: span 1; }
+      .diag-tab-btn { font-size: 11px; padding: 8px; min-height: 38px; }
+      .quick-tool-chip { font-size: 10px; padding: 4px 7px; }
       .hero-actions { align-items: flex-start; flex-direction: column; gap: 15px; }
       .calculator-stage { padding: 18px; }
       .calc-title { font-size: 14px; }
@@ -485,10 +531,10 @@
     <div class="brand"><img src="assets/tiktok-mark.svg" alt="TikTok" width="24" height="24"><a href="#" class="brand-wordmark">TikTok Offers Hub</a></div>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#calculator" class="nav-link">Calculator</a>
+      <a href="#tools" class="nav-link nav-tools-pill">⚡ Tools</a>
       <a href="#tiers" class="nav-link">Tiers</a>
       <a href="#steps" class="nav-link">Steps</a>
       <a href="#cost-guide" class="nav-link">Guide</a>
-      <a href="#tools" class="nav-link">Tools</a>
       <a href="#faq" class="nav-link">FAQs</a>
     </nav>
     <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent" id="nav-cta-btn">Claim $3,000 Credit →</a>
@@ -514,6 +560,16 @@
           <span>4 TikTok ad credit tiers</span>
           <span>TikTok Shop &amp; Shopify traffic</span>
           <span>Stackable 50% TikTok promo code</span>
+        </div>
+        <div class="hero-quick-tools">
+          <span class="quick-tools-label">🛠️ Live Campaign Diagnostic Tools:</span>
+          <div class="quick-tools-chips">
+            <button type="button" class="quick-tool-chip" onclick="jumpToTool('coldstart')">⚡ Cold-Start</button>
+            <button type="button" class="quick-tool-chip" onclick="jumpToTool('pangle')">🕵️ Pangle Leak</button>
+            <button type="button" class="quick-tool-chip" onclick="jumpToTool('linter')">🛡️ Policy 5.1</button>
+            <button type="button" class="quick-tool-chip" onclick="jumpToTool('bin')">💳 VCC BINs</button>
+            <button type="button" class="quick-tool-chip" onclick="jumpToTool('appeal')">📨 Appeal Kit</button>
+          </div>
         </div>
       </div>
 
@@ -584,301 +640,18 @@
     <div><strong>$6,000</strong><span>Maximum listed promotional credit</span></div>
   </div>
 
-  <!-- Section 1: 4 Spend Tiers Overview (data-ui) -->
-  <section class="section tiers-section" id="tiers">
-    <h2 class="section-title">Compare 2026 TikTok Ad Credit Offers.</h2>
-    <p class="section-subhead">
-      Whether you are testing a small business TikTok ads budget or scaling a Shopify store, compare each TikTok ads credit offer and 30-day spend match side by side.
-    </p>
-
-    <div class="tiers-grid">
-      <!-- Tier 1 -->
-      <div class="tier-card">
-        <div>
-          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg></span>
-          <span class="tier-plan-name">Starter</span>
-          <p class="tier-caption">TikTok ads for beginners &amp; small business</p>
-          <div class="tier-main-credit">+$200<span class="credit-unit">TikTok ad credit</span></div>
-          <div class="tier-requirement-text">Spend $200 (100% Match)</div>
-          <div class="tier-specs-list">
-            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$400</strong></div>
-            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
-            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
-            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
-          </div>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $200 Credit →
-        </a>
-      </div>
-
-      <!-- Tier 2 -->
-      <div class="tier-card">
-        <div>
-          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 14l4-4 4 2 5-7m-5 0h5v5"/></svg></span>
-          <span class="tier-plan-name">Growth</span>
-          <p class="tier-caption">TikTok ads for Shopify &amp; ecommerce</p>
-          <div class="tier-main-credit">+$750<span class="credit-unit">TikTok ad credit</span></div>
-          <div class="tier-requirement-text">Spend $1,000 (75% Match)</div>
-          <div class="tier-specs-list">
-            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$1,750</strong></div>
-            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
-            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
-            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
-          </div>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $750 Credit →
-        </a>
-      </div>
-
-      <!-- Tier 3: Featured -->
-      <div class="tier-card featured">
-        <div>
-          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16v4h4M19 8V4h-4M4 10V4h6m4 16h6v-6M4 4l6 6m10 10-6-6m0-4 6-6M4 20l6-6"/></svg></span>
-          <span class="tier-plan-name">Scale <span class="tier-badge">Calculator default</span></span>
-          <p class="tier-caption">Best TikTok ads credit offer for scaling</p>
-          <div class="tier-main-credit">+$3,000<span class="credit-unit">TikTok ads credit</span></div>
-          <div class="tier-requirement-text">Spend $4,000 (75% Match)</div>
-          <div class="tier-specs-list">
-            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$7,000</strong></div>
-            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
-            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
-            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
-          </div>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
-          Claim $3,000 Voucher →
-        </a>
-      </div>
-
-      <!-- Tier 4 -->
-      <div class="tier-card">
-        <div>
-          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V8l6-4 6 4v12M10 20v-4h4v4M9 9h.01M15 9h.01M9 12h.01M15 12h.01"/></svg></span>
-          <span class="tier-plan-name">Enterprise</span>
-          <p class="tier-caption">Maximum $6,000 TikTok ads credit bonus</p>
-          <div class="tier-main-credit">+$6,000<span class="credit-unit">TikTok ads credit</span></div>
-          <div class="tier-requirement-text">Spend $10,000 (60% Match)</div>
-          <div class="tier-specs-list">
-            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$16,000</strong></div>
-            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
-            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
-            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
-          </div>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
-          Claim $6,000 Credit →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Ads Manager Dashboard Simulation (data-ui) -->
-  <section class="section simulator-section" id="dashboard">
-    <div class="sim-split">
-      <div class="sim-text-column">
-        <h2 class="section-title">How TikTok Ads Manager Credits Work.</h2>
-        <p class="sim-lead">
-          Your promotional TikTok ad credit deposits directly into your TikTok Ads Manager account balance once your 30-day qualifying ad spend clears.
-        </p>
-        <p class="sim-body">
-          No manual TikTok ad credit promo code entry is required at checkout. When you create a TikTok ads account through the verified partner route, the TikTok ads promotion and 50% coupon bind automatically to your Business Center ID.
-        </p>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="text-link">
-          Start TikTok Ads Manager sign up →
-        </a>
-      </div>
-
-      <!-- TikTok Dashboard Simulator Fragment (data-ui) -->
-      <div class="dashboard-preview" data-ui>
-        <div class="dash-topbar">
-          <span class="dash-account-title">TikTok Ads Manager</span>
-          <span class="dash-badge-active">Illustrative preview</span>
-        </div>
-
-        <div class="dash-balance-box">
-          <span class="dash-label">Example promotional balance</span>
-          <div class="dash-amount" id="dash-sim-amount">+$3,000.00 USD</div>
-          <span class="dash-voucher-desc" id="dash-sim-desc">Spend match example · not a live account</span>
-        </div>
-
-        <div class="dash-stats-row">
-          <div class="dash-stat-block">
-            <span class="dash-stat-label">Introductory Coupon</span>
-            <span class="dash-stat-val">50% Off ($50 Cap)</span>
-          </div>
-          <div class="dash-stat-block">
-            <span class="dash-stat-label">Disbursement</span>
-            <span class="dash-stat-val">Automated Deposit</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: 4-Step Claim Protocol -->
-  <section class="section steps-section" id="steps">
-    <h2 class="section-title">TikTok Ads Setup: How to Claim Your Ad Credit.</h2>
-    <p class="section-subhead">
-      Follow four simple steps to complete your TikTok ads sign up, activate your TikTok promo code, and unlock your matched TikTok ads credit.
-    </p>
-
-    <div class="steps-grid">
-      <div class="step-unit">
-        <div>
-          <span class="step-marker">Initial Setup</span>
-          <h3 class="step-heading">Create TikTok Ads account</h3>
-          <p class="step-text">
-            Complete your TikTok Ads Manager sign up via the authorized partner link with a new business email to lock in TikTok ad credit eligibility.
-          </p>
-        </div>
-      </div>
-
-      <div class="step-unit">
-        <div>
-          <span class="step-marker">Payment Stage</span>
-          <h3 class="step-heading">Configure TikTok Ads payment</h3>
-          <p class="step-text">
-            Add a valid commercial card or billing method in TikTok Ads Manager. Your introductory 50% TikTok ads coupon code attaches automatically.
-          </p>
-        </div>
-      </div>
-
-      <div class="step-unit">
-        <div>
-          <span class="step-marker">Delivery Stage</span>
-          <h3 class="step-heading">Run TikTok Ads campaigns</h3>
-          <p class="step-text">
-            Run TikTok ads for Shopify, web conversions, or TikTok Shop and reach your chosen spend tier ($200 to $10,000) within 30 days.
-          </p>
-        </div>
-      </div>
-
-      <div class="step-unit">
-        <div>
-          <span class="step-marker">Disbursement</span>
-          <h3 class="step-heading">Use your TikTok ad credit</h3>
-          <p class="step-text">
-            TikTok deposits up to $6,000 in free TikTok ad credit into your TikTok Ads Manager balance to cover future CPM and CPC billing.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Stackable Benefits & Official Appeal -->
-  <section class="section perks-section">
-    <h2 class="section-title">Stackable TikTok Promo Code &amp; Promotion Appeal.</h2>
-    <p class="section-subhead">
-      Combine your 2026 TikTok ad credit promo code with a 50% introductory discount, or restore a paused voucher through TikTok support.
-    </p>
-
-    <div class="perks-grid">
-      <div class="perk-panel" data-ui>
-        <div>
-          <span class="perk-tagline">Stackable Benefit</span>
-          <h3 class="perk-title">50% Off TikTok Ads Coupon Code</h3>
-          <p class="perk-body">
-            New TikTok for Business advertisers receive an automatic TikTok ads discount granting 50% off initial ad spend (up to $50 savings) during the first 7 days—stackable with the $200, $750, $3,000, or $6,000 TikTok ads credit offer.
-          </p>
-        </div>
-        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="perk-link">
-          Activate 50% TikTok ads coupon →
-        </a>
-      </div>
-
-      <div class="perk-panel">
-        <div>
-          <span class="perk-tagline appeal">Official Channel</span>
-          <h3 class="perk-title">TikTok Ads Promotion &amp; Voucher Appeal</h3>
-          <p class="perk-body">
-            If your TikTok ad credit coupon pauses during payment verification or regional IP checks, submit your TikTok Ads Manager account ID directly through the official TikTok payment promotion appeal portal.
-          </p>
-        </div>
-        <a href="https://ads.tiktok.com/i18n/account/payment_promotion" target="_blank" rel="noopener noreferrer" class="perk-link">
-          Open official TikTok appeal portal ↗
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4.5: TikTok Ads Cost, Minimum Budget & Vertical Playbook (SEO Content Engine) -->
-  <section class="section cost-section" id="cost-guide">
-    <h2 class="section-title">TikTok Ads Cost, Minimum Budget &amp; Credit Guide.</h2>
-    <p class="section-subhead">
-      Understand how much TikTok ads cost in 2026, how daily budgets map to each TikTok ad credit milestone, and how legacy offers compare.
-    </p>
-
-    <div class="cost-grid">
-      <article class="cost-card">
-        <div>
-          <span class="cost-tag">Pricing &amp; Minimum Budget</span>
-          <h3>How Much Do TikTok Ads Cost?</h3>
-          <p>
-            Evaluating the cost of TikTok ads and how much are TikTok ads per click? Standard TikTok ads pricing averages $0.50–$2.00 CPC and $3.20–$10.00 CPM, while the TikTok ads minimum budget starts at $20/day per ad group.
-          </p>
-        </div>
-        <div class="cost-metrics">
-          <div><span>TikTok ads cost per day (Campaign):</span><strong>$50 / day min</strong></div>
-          <div><span>TikTok ads price (Ad Group):</span><strong>$20 / day min</strong></div>
-          <div><span>Net cost with TikTok ad credit:</span><strong>Up to 50% off</strong></div>
-        </div>
-      </article>
-
-      <article class="cost-card">
-        <div>
-          <span class="cost-tag">Ecommerce &amp; TikTok Shop</span>
-          <h3>TikTok Ads for Shopify &amp; Ecommerce</h3>
-          <p>
-            Connect the TikTok channel app to claim Shopify TikTok ad credit. Run TikTok ads for ecommerce, TikTok ads for shop listings, and small business video campaigns using your matched balance.
-          </p>
-        </div>
-        <div class="cost-metrics">
-          <div><span>Recommended starter tier:</span><strong>Spend $1,000 → +$750</strong></div>
-          <div><span>Scale ecommerce tier:</span><strong>Spend $4,000 → +$3,000</strong></div>
-          <div><span>Supported formats:</span><strong>Spark, Shop &amp; Web</strong></div>
-        </div>
-      </article>
-
-      <article class="cost-card">
-        <div>
-          <span class="cost-tag">2026 Promo Comparison</span>
-          <h3>TikTok Promo Code 2026 vs. Legacy Offers</h3>
-          <p>
-            Searching for "TikTok ads spend 100 get 100", "TikTok ads credit $300 free", or "TikTok ad credit 1500"? TikTok consolidated those retired vouchers into the 2026 $200 to $6,000 TikTok ad credit bonus tiers.
-          </p>
-        </div>
-        <div class="cost-metrics">
-          <div><span>Old $100 / $300 voucher:</span><strong>Upgraded to $200 &amp; $750</strong></div>
-          <div><span>Old $1,500 ad credit:</span><strong>Upgraded to $3,000 &amp; $6,000</strong></div>
-          <div><span>Promo code required:</span><strong>Auto-applied via partner link</strong></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="keyword-glossary">
-      <div class="glossary-item">
-        <h3>How to get free TikTok ad credit &amp; how to claim TikTok ad credit</h3>
-        <p>
-          To get TikTok ad credit without typing an expired TikTok ad credit promo code, register a new TikTok Ads Manager account through an official partner portal. Once your 30-day spend threshold clears, the free TikTok ads credit rebate posts automatically to your billing summary.
-        </p>
-      </div>
-      <div class="glossary-item">
-        <h3>How to use TikTok ad credit &amp; how to pay for TikTok ads</h3>
-        <p>
-          Issued TikTok ads credit applies automatically toward In-Feed ads, Spark Ads, Lead Generation, and TikTok Shop GMV Max campaigns before charging your primary card, simplifying how to pay for TikTok ads after your initial qualifying spend.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4.8: Open Source TikTok Ads Diagnostic & Defense Suite (GitHub Ecosystem) -->
+  <!-- Section 1.5: Open Source TikTok Ads Diagnostic & Defense Suite (GitHub Ecosystem) -->
   <section class="section tools-section" id="tools">
-    <h2 class="section-title">Open-Source TikTok Ads Diagnostic Suite.</h2>
-    <p class="section-subhead">
-      Interactive browser diagnostics, policy linters, and payment benchmarks derived from 64 real advertiser cases across r/TikTokAds and r/PPC. Test your campaigns live in browser or access the open-source CLI repositories below.
-    </p>
+    <div class="tool-section-header">
+      <div class="tool-badge-row">
+        <span class="tool-badge-live">● Live In-Browser Tools</span>
+        <span class="tool-badge-free">100% Free · Client-Side · Zero Login Required</span>
+      </div>
+      <h2 class="section-title">Open-Source TikTok Ads Diagnostic Suite.</h2>
+      <p class="section-subhead">
+        Interactive browser diagnostics, policy linters, and payment benchmarks derived from 64 real advertiser cases across r/TikTokAds and r/PPC. Test your campaigns live in browser or access the open-source CLI repositories below.
+      </p>
+    </div>
 
     <!-- LIVE INTERACTIVE DIAGNOSTIC SUITE -->
     <div class="diag-console" id="diag-console">
@@ -1282,24 +1055,313 @@
       </a>
     </div>
 
-    <div style="margin-top: 32px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.02);">
+    <div class="diag-qa-box">
       <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">💬 Solved Media Buyer Cases &amp; Community Troubleshooting Threads</h3>
       <p style="font-size: 0.9rem; color: #888; margin-bottom: 16px;">
         Explore verified real-world troubleshooting cases, policy appeals, and BIN benchmarks documented by active media buyers:
       </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
-        <a href="https://github.com/adgrowth-lab/tiktok-ads-troubleshooting/issues/1" target="_blank" rel="noopener noreferrer" style="color: #25f4ee; text-decoration: none; font-size: 0.85rem; padding: 10px 12px; border: 1px solid rgba(37,244,238,0.2); border-radius: 8px; background: rgba(37,244,238,0.03); display: block;">
+      <div class="diag-qa-grid">
+        <a href="https://github.com/adgrowth-lab/tiktok-ads-troubleshooting/issues/1" target="_blank" rel="noopener noreferrer" class="diag-qa-link">
           ⚡ TikTok ads not spending: 0 impressions &amp; learning phase fix ↗
         </a>
-        <a href="https://github.com/adgrowth-lab/tiktok-ads-appeal-kit/issues/1" target="_blank" rel="noopener noreferrer" style="color: #25f4ee; text-decoration: none; font-size: 0.85rem; padding: 10px 12px; border: 1px solid rgba(37,244,238,0.2); border-radius: 8px; background: rgba(37,244,238,0.03); display: block;">
+        <a href="https://github.com/adgrowth-lab/tiktok-ads-appeal-kit/issues/1" target="_blank" rel="noopener noreferrer" class="diag-qa-link">
           📨 Account suspended for unusual activity: 4-Pillar appeal packet ↗
         </a>
-        <a href="https://github.com/adgrowth-lab/tiktok-creative-compliance-linter/issues/1" target="_blank" rel="noopener noreferrer" style="color: #25f4ee; text-decoration: none; font-size: 0.85rem; padding: 10px 12px; border: 1px solid rgba(37,244,238,0.2); border-radius: 8px; background: rgba(37,244,238,0.03); display: block;">
+        <a href="https://github.com/adgrowth-lab/tiktok-creative-compliance-linter/issues/1" target="_blank" rel="noopener noreferrer" class="diag-qa-link">
           🛡️ Policy 5.1 misleading claims: Compliant copy rephrasing ↗
         </a>
-        <a href="https://github.com/adgrowth-lab/tiktok-vcc-bin-database/issues/1" target="_blank" rel="noopener noreferrer" style="color: #25f4ee; text-decoration: none; font-size: 0.85rem; padding: 10px 12px; border: 1px solid rgba(37,244,238,0.2); border-radius: 8px; background: rgba(37,244,238,0.03); display: block;">
+        <a href="https://github.com/adgrowth-lab/tiktok-vcc-bin-database/issues/1" target="_blank" rel="noopener noreferrer" class="diag-qa-link">
           💳 Best VCC for TikTok Ads: 16 issuers tested for 3DS pass rate ↗
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: 4 Spend Tiers Overview (data-ui) -->
+  <section class="section tiers-section" id="tiers">
+    <h2 class="section-title">Compare 2026 TikTok Ad Credit Offers.</h2>
+    <p class="section-subhead">
+      Whether you are testing a small business TikTok ads budget or scaling a Shopify store, compare each TikTok ads credit offer and 30-day spend match side by side.
+    </p>
+
+    <div class="tiers-grid">
+      <!-- Tier 1 -->
+      <div class="tier-card">
+        <div>
+          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg></span>
+          <span class="tier-plan-name">Starter</span>
+          <p class="tier-caption">TikTok ads for beginners &amp; small business</p>
+          <div class="tier-main-credit">+$200<span class="credit-unit">TikTok ad credit</span></div>
+          <div class="tier-requirement-text">Spend $200 (100% Match)</div>
+          <div class="tier-specs-list">
+            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$400</strong></div>
+            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
+            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
+            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
+          </div>
+        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $200 Credit →
+        </a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="tier-card">
+        <div>
+          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 14l4-4 4 2 5-7m-5 0h5v5"/></svg></span>
+          <span class="tier-plan-name">Growth</span>
+          <p class="tier-caption">TikTok ads for Shopify &amp; ecommerce</p>
+          <div class="tier-main-credit">+$750<span class="credit-unit">TikTok ad credit</span></div>
+          <div class="tier-requirement-text">Spend $1,000 (75% Match)</div>
+          <div class="tier-specs-list">
+            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$1,750</strong></div>
+            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
+            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
+            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
+          </div>
+        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $750 Credit →
+        </a>
+      </div>
+
+      <!-- Tier 3: Featured -->
+      <div class="tier-card featured">
+        <div>
+          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16v4h4M19 8V4h-4M4 10V4h6m4 16h6v-6M4 4l6 6m10 10-6-6m0-4 6-6M4 20l6-6"/></svg></span>
+          <span class="tier-plan-name">Scale <span class="tier-badge">Calculator default</span></span>
+          <p class="tier-caption">Best TikTok ads credit offer for scaling</p>
+          <div class="tier-main-credit">+$3,000<span class="credit-unit">TikTok ads credit</span></div>
+          <div class="tier-requirement-text">Spend $4,000 (75% Match)</div>
+          <div class="tier-specs-list">
+            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$7,000</strong></div>
+            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
+            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
+            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
+          </div>
+        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-accent tier-action-btn">
+          Claim $3,000 Voucher →
+        </a>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="tier-card">
+        <div>
+          <span class="tier-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V8l6-4 6 4v12M10 20v-4h4v4M9 9h.01M15 9h.01M9 12h.01M15 12h.01"/></svg></span>
+          <span class="tier-plan-name">Enterprise</span>
+          <p class="tier-caption">Maximum $6,000 TikTok ads credit bonus</p>
+          <div class="tier-main-credit">+$6,000<span class="credit-unit">TikTok ads credit</span></div>
+          <div class="tier-requirement-text">Spend $10,000 (60% Match)</div>
+          <div class="tier-specs-list">
+            <div class="tier-spec-row"><span>Total Ad Budget:</span> <strong>$16,000</strong></div>
+            <div class="tier-spec-row"><span>Spend Window:</span> <strong>30 Days</strong></div>
+            <div class="tier-spec-row"><span>Objectives:</span> <strong>Shop / Web</strong></div>
+            <div class="tier-spec-row"><span>50% Coupon:</span> <strong>Stackable</strong></div>
+          </div>
+        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn btn-primary tier-action-btn">
+          Claim $6,000 Credit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Ads Manager Dashboard Simulation (data-ui) -->
+  <section class="section simulator-section" id="dashboard">
+    <div class="sim-split">
+      <div class="sim-text-column">
+        <h2 class="section-title">How TikTok Ads Manager Credits Work.</h2>
+        <p class="sim-lead">
+          Your promotional TikTok ad credit deposits directly into your TikTok Ads Manager account balance once your 30-day qualifying ad spend clears.
+        </p>
+        <p class="sim-body">
+          No manual TikTok ad credit promo code entry is required at checkout. When you create a TikTok ads account through the verified partner route, the TikTok ads promotion and 50% coupon bind automatically to your Business Center ID.
+        </p>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="text-link">
+          Start TikTok Ads Manager sign up →
+        </a>
+      </div>
+
+      <!-- TikTok Dashboard Simulator Fragment (data-ui) -->
+      <div class="dashboard-preview" data-ui>
+        <div class="dash-topbar">
+          <span class="dash-account-title">TikTok Ads Manager</span>
+          <span class="dash-badge-active">Illustrative preview</span>
+        </div>
+
+        <div class="dash-balance-box">
+          <span class="dash-label">Example promotional balance</span>
+          <div class="dash-amount" id="dash-sim-amount">+$3,000.00 USD</div>
+          <span class="dash-voucher-desc" id="dash-sim-desc">Spend match example · not a live account</span>
+        </div>
+
+        <div class="dash-stats-row">
+          <div class="dash-stat-block">
+            <span class="dash-stat-label">Introductory Coupon</span>
+            <span class="dash-stat-val">50% Off ($50 Cap)</span>
+          </div>
+          <div class="dash-stat-block">
+            <span class="dash-stat-label">Disbursement</span>
+            <span class="dash-stat-val">Automated Deposit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: 4-Step Claim Protocol -->
+  <section class="section steps-section" id="steps">
+    <h2 class="section-title">TikTok Ads Setup: How to Claim Your Ad Credit.</h2>
+    <p class="section-subhead">
+      Follow four simple steps to complete your TikTok ads sign up, activate your TikTok promo code, and unlock your matched TikTok ads credit.
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-unit">
+        <div>
+          <span class="step-marker">Initial Setup</span>
+          <h3 class="step-heading">Create TikTok Ads account</h3>
+          <p class="step-text">
+            Complete your TikTok Ads Manager sign up via the authorized partner link with a new business email to lock in TikTok ad credit eligibility.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-unit">
+        <div>
+          <span class="step-marker">Payment Stage</span>
+          <h3 class="step-heading">Configure TikTok Ads payment</h3>
+          <p class="step-text">
+            Add a valid commercial card or billing method in TikTok Ads Manager. Your introductory 50% TikTok ads coupon code attaches automatically.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-unit">
+        <div>
+          <span class="step-marker">Delivery Stage</span>
+          <h3 class="step-heading">Run TikTok Ads campaigns</h3>
+          <p class="step-text">
+            Run TikTok ads for Shopify, web conversions, or TikTok Shop and reach your chosen spend tier ($200 to $10,000) within 30 days.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-unit">
+        <div>
+          <span class="step-marker">Disbursement</span>
+          <h3 class="step-heading">Use your TikTok ad credit</h3>
+          <p class="step-text">
+            TikTok deposits up to $6,000 in free TikTok ad credit into your TikTok Ads Manager balance to cover future CPM and CPC billing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Stackable Benefits & Official Appeal -->
+  <section class="section perks-section">
+    <h2 class="section-title">Stackable TikTok Promo Code &amp; Promotion Appeal.</h2>
+    <p class="section-subhead">
+      Combine your 2026 TikTok ad credit promo code with a 50% introductory discount, or restore a paused voucher through TikTok support.
+    </p>
+
+    <div class="perks-grid">
+      <div class="perk-panel" data-ui>
+        <div>
+          <span class="perk-tagline">Stackable Benefit</span>
+          <h3 class="perk-title">50% Off TikTok Ads Coupon Code</h3>
+          <p class="perk-body">
+            New TikTok for Business advertisers receive an automatic TikTok ads discount granting 50% off initial ad spend (up to $50 savings) during the first 7 days—stackable with the $200, $750, $3,000, or $6,000 TikTok ads credit offer.
+          </p>
+        </div>
+        <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="perk-link">
+          Activate 50% TikTok ads coupon →
+        </a>
+      </div>
+
+      <div class="perk-panel">
+        <div>
+          <span class="perk-tagline appeal">Official Channel</span>
+          <h3 class="perk-title">TikTok Ads Promotion &amp; Voucher Appeal</h3>
+          <p class="perk-body">
+            If your TikTok ad credit coupon pauses during payment verification or regional IP checks, submit your TikTok Ads Manager account ID directly through the official TikTok payment promotion appeal portal.
+          </p>
+        </div>
+        <a href="https://ads.tiktok.com/i18n/account/payment_promotion" target="_blank" rel="noopener noreferrer" class="perk-link">
+          Open official TikTok appeal portal ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4.5: TikTok Ads Cost, Minimum Budget & Vertical Playbook (SEO Content Engine) -->
+  <section class="section cost-section" id="cost-guide">
+    <h2 class="section-title">TikTok Ads Cost, Minimum Budget &amp; Credit Guide.</h2>
+    <p class="section-subhead">
+      Understand how much TikTok ads cost in 2026, how daily budgets map to each TikTok ad credit milestone, and how legacy offers compare.
+    </p>
+
+    <div class="cost-grid">
+      <article class="cost-card">
+        <div>
+          <span class="cost-tag">Pricing &amp; Minimum Budget</span>
+          <h3>How Much Do TikTok Ads Cost?</h3>
+          <p>
+            Evaluating the cost of TikTok ads and how much are TikTok ads per click? Standard TikTok ads pricing averages $0.50–$2.00 CPC and $3.20–$10.00 CPM, while the TikTok ads minimum budget starts at $20/day per ad group.
+          </p>
+        </div>
+        <div class="cost-metrics">
+          <div><span>TikTok ads cost per day (Campaign):</span><strong>$50 / day min</strong></div>
+          <div><span>TikTok ads price (Ad Group):</span><strong>$20 / day min</strong></div>
+          <div><span>Net cost with TikTok ad credit:</span><strong>Up to 50% off</strong></div>
+        </div>
+      </article>
+
+      <article class="cost-card">
+        <div>
+          <span class="cost-tag">Ecommerce &amp; TikTok Shop</span>
+          <h3>TikTok Ads for Shopify &amp; Ecommerce</h3>
+          <p>
+            Connect the TikTok channel app to claim Shopify TikTok ad credit. Run TikTok ads for ecommerce, TikTok ads for shop listings, and small business video campaigns using your matched balance.
+          </p>
+        </div>
+        <div class="cost-metrics">
+          <div><span>Recommended starter tier:</span><strong>Spend $1,000 → +$750</strong></div>
+          <div><span>Scale ecommerce tier:</span><strong>Spend $4,000 → +$3,000</strong></div>
+          <div><span>Supported formats:</span><strong>Spark, Shop &amp; Web</strong></div>
+        </div>
+      </article>
+
+      <article class="cost-card">
+        <div>
+          <span class="cost-tag">2026 Promo Comparison</span>
+          <h3>TikTok Promo Code 2026 vs. Legacy Offers</h3>
+          <p>
+            Searching for "TikTok ads spend 100 get 100", "TikTok ads credit $300 free", or "TikTok ad credit 1500"? TikTok consolidated those retired vouchers into the 2026 $200 to $6,000 TikTok ad credit bonus tiers.
+          </p>
+        </div>
+        <div class="cost-metrics">
+          <div><span>Old $100 / $300 voucher:</span><strong>Upgraded to $200 &amp; $750</strong></div>
+          <div><span>Old $1,500 ad credit:</span><strong>Upgraded to $3,000 &amp; $6,000</strong></div>
+          <div><span>Promo code required:</span><strong>Auto-applied via partner link</strong></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="keyword-glossary">
+      <div class="glossary-item">
+        <h3>How to get free TikTok ad credit &amp; how to claim TikTok ad credit</h3>
+        <p>
+          To get TikTok ad credit without typing an expired TikTok ad credit promo code, register a new TikTok Ads Manager account through an official partner portal. Once your 30-day spend threshold clears, the free TikTok ads credit rebate posts automatically to your billing summary.
+        </p>
+      </div>
+      <div class="glossary-item">
+        <h3>How to use TikTok ad credit &amp; how to pay for TikTok ads</h3>
+        <p>
+          Issued TikTok ads credit applies automatically toward In-Feed ads, Spark Ads, Lead Generation, and TikTok Shop GMV Max campaigns before charging your primary card, simplifying how to pay for TikTok ads after your initial qualifying spend.
+        </p>
       </div>
     </div>
   </section>
@@ -1521,6 +1583,17 @@
       const targetPanel = document.getElementById('panel-diag-' + tabKey);
       if (targetPanel) {
         targetPanel.classList.add('active');
+      }
+    }
+
+    function jumpToTool(tabKey) {
+      const btn = document.getElementById('tab-btn-' + tabKey);
+      if (btn) {
+        switchDiagTab(tabKey, btn);
+      }
+      const target = document.getElementById('tools');
+      if (target) {
+        target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
       }
     }
 
