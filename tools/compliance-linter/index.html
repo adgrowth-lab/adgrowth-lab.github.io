@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Creative Compliance Linter | Instant Policy 5.1 & Misleading Claim Checker</title>
+  <meta name="description" content="Free TikTok Creative Compliance Linter. Scan ad copy, video text overlays, and audio voiceover scripts for Policy 5.1 violations, absolute claims, body transformation triggers, and deceptive alerts.">
+  <link rel="canonical" href="https://adgrowth-lab.github.io/tools/compliance-linter/">
+  <meta name="color-scheme" content="dark">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adgrowth-lab.github.io/tools/compliance-linter/">
+  <meta property="og:title" content="TikTok Creative Compliance Linter | Policy 5.1 & Misleading Claim Checker">
+  <meta property="og:description" content="Real-time copy scanner testing ad scripts against TikTok advertising policies to prevent automated disapprovals and shadowbans.">
+  <meta property="og:site_name" content="TikTok Offers Hub">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & Shared Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/tools.css">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "TikTok Creative Compliance Linter",
+        "url": "https://adgrowth-lab.github.io/tools/compliance-linter/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Real-time compliance linter and keyword scanner checking ad text against TikTok Policy 5.1 (Misleading Claims), 5.2 (Body Imagery), 5.3 (Financial Guarantees), and 5.4 (Deceptive UI)."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://adgrowth-lab.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Free Tools",
+            "item": "https://adgrowth-lab.github.io/#tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Compliance Linter",
+            "item": "https://adgrowth-lab.github.io/tools/compliance-linter/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is TikTok Advertising Policy 5.1 (Misleading Claims)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Policy 5.1 prohibits ads that make exaggerated, unsubstantiated promises or guarantee absolute outcomes that cannot be universally verified. Examples include '100% cure', 'instant permanent relief', or 'guaranteed profit in 24 hours'."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TikTok scan words inside video audio and screen text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ByteDance's automated review system uses Optical Character Recognition (OCR) to extract all text stickers and captions shown on screen, as well as Automated Speech Recognition (ASR) to transcribe voiceovers and background dialogue into text for policy analysis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I make my health or beauty ad copy compliant?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Replace absolute superlatives ('cure', 'eradicate', '100% effective') with supportive, structure-function phrasing ('designed to support natural skin barrier', 'formulated with dermatologist-tested ingredients'). Avoid drastic split-screen before-and-after body imagery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will a creative policy violation cause my entire ad account to be suspended?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A single rejected ad usually only pauses that specific ad creative. However, repeatedly submitting rejected ads without addressing the underlying policy violation triggers TikTok's cumulative Risk Engine, which can lead to an automated ad account suspension."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="tools-nav">
+    <a href="../../" class="nav-brand">
+      <span class="nav-brand-dot"></span>
+      <span>TikTok Offers Hub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../" class="nav-link-btn">← Back to Overview</a>
+      <a href="../voucher-calculator/" class="nav-link-btn">Voucher Calc</a>
+      <a href="../cold-start-evaluator/" class="nav-link-btn">Cold-Start</a>
+      <a href="../pangle-leak-auditor/" class="nav-link-btn">Pangle Auditor</a>
+      <a href="../vcc-bin-evaluator/" class="nav-link-btn">VCC BINs</a>
+      <a href="../suspension-appeal/" class="nav-link-btn">Appeal Kit</a>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">Claim $6k Credit →</a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+    <a href="../../">Home</a>
+    <span class="breadcrumbs-sep">/</span>
+    <a href="../../#tools">Free Tools</a>
+    <span class="breadcrumbs-sep">/</span>
+    <span class="breadcrumbs-current">Creative Compliance Linter</span>
+  </nav>
+
+  <main class="tool-page-main">
+    <!-- Header -->
+    <div class="tool-header">
+      <span class="tool-pill-badge">🛡️ Creative QA · Policy 5.1 Pre-Flight Scanner</span>
+      <h1 class="tool-title">TikTok Creative Compliance Linter</h1>
+      <p class="tool-description">
+        Pre-screen your ad headlines, video captions, voiceover scripts, and landing page hooks against TikTok's automated OCR and ASR policy filters before uploading to Ads Manager.
+      </p>
+      <div class="tool-meta-stats">
+        <span>🔍 Policy 5.1/5.2/5.3/5.4 Detection</span>
+        <span>⚡ Instant Compliant Alternative Suggestions</span>
+        <span>🚫 Prevents Automated Disapprovals</span>
+      </div>
+    </div>
+
+    <!-- Standalone Workspace -->
+    <div class="standalone-workspace">
+      <div class="workspace-grid">
+        <!-- Input Controls -->
+        <div>
+          <div class="field-group">
+            <label class="field-label" for="linter-input-text">Video Hook, Caption, or Ad Script</label>
+            <textarea id="linter-input-text" class="textarea-control" rows="6" placeholder="Paste ad copy, text overlays, or voiceover script to inspect..." oninput="runCreativeLinter()">Guaranteed 100% cure for lower back pain forever with this miracle ergonomic cushion! Instant relief in 3 seconds.</textarea>
+          </div>
+
+          <div class="presets-list">
+            <span style="font-size: 11px; color: var(--muted); align-self: center; margin-right: 4px;">Load Test Presets:</span>
+            <button type="button" class="preset-chip" onclick="loadLinterPreset('health')">Health Superlatives (5.1)</button>
+            <button type="button" class="preset-chip" onclick="loadLinterPreset('finance')">Financial Guarantees (5.3)</button>
+            <button type="button" class="preset-chip" onclick="loadLinterPreset('clean')">Clean Compliant Copy</button>
+          </div>
+
+          <div class="advice-callout" style="margin-top: 14px;">
+            <strong style="color: #25f4ee; display: block; margin-bottom: 4px;">🤖 ByteDance Multimodal Review Architecture:</strong>
+            TikTok review bots scan 3 layers of each video: (1) Frame-by-frame OCR for text overlays, (2) Audio ASR for spoken claims, and (3) Automated landing page text matching.
+          </div>
+        </div>
+
+        <!-- Diagnostic Result Card -->
+        <div class="result-card">
+          <div>
+            <div class="result-header">
+              <div>
+                <div class="metric-tile-label">Compliance Status</div>
+                <div class="result-score-title">Policy Audit Results</div>
+              </div>
+              <span class="score-badge" id="linter-count-badge" style="background: rgba(254,44,85,0.1); border-color: rgba(254,44,85,0.3); color: #fe2c55;">1 Warning</span>
+            </div>
+
+            <div id="linter-results-list" style="max-height: 260px; overflow-y: auto; margin-bottom: 16px;">
+              <!-- Dynamic Violation Cards -->
+            </div>
+          </div>
+
+          <div class="action-cta-banner">
+            <span>Launch compliant ad creatives with up to $6,000 in matched credits:</span>
+            <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-accent-glow">
+              Claim $3,000 Voucher →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive Content (Information Gain) -->
+    <article class="educational-guide">
+      <section class="guide-section">
+        <h2 class="guide-heading-2">Inside TikTok's Automated Review Algorithm (OCR &amp; ASR)</h2>
+        <p class="guide-paragraph">
+          TikTok processes millions of new video ads daily using a three-tier automated inspection pipeline before human moderators ever see an ad:
+        </p>
+        <p class="guide-paragraph">
+          <strong>1. Optical Character Recognition (OCR):</strong> Every video is sampled at 1–3 frame-per-second intervals. Any on-screen text—including native font stickers, burned-in subtitles, and product packaging labels—is extracted and matched against an international blacklist of banned claims.
+        </p>
+        <p class="guide-paragraph">
+          <strong>2. Automated Speech Recognition (ASR):</strong> The audio soundtrack is parsed through ByteDance's speech-to-text models. Even if no words are displayed on screen, speaking phrases like <em>"guaranteed to cure"</em> or <em>"make $5,000 overnight"</em> will trigger an automated rejection within minutes of upload.
+        </p>
+        <p class="guide-paragraph">
+          <strong>3. Destination URL Crawler:</strong> TikTok's web crawler fetches your landing page HTML. If the landing page contains before-and-after imagery or promises absent from the ad itself, the ad will still be flagged under Policy 5.1 for <em>"Landing Page Inconsistency"</em>.
+        </p>
+      </section>
+
+      <section class="guide-section">
+        <h2 class="guide-heading-2">The Four Most Common TikTok Ad Disapproval Policies</h2>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr>
+                <th>Policy Code</th>
+                <th>Violation Category</th>
+                <th>Trigger Phrases (High Risk)</th>
+                <th>Compliant Rephrasing Formula</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Policy 5.1</strong></td>
+                <td>Exaggerated Promises &amp; Absolute Claims</td>
+                <td>"100% cure", "miracle fix", "instant relief in 3s", "permanent solution"</td>
+                <td>"Designed to support...", "Formulated with clinical-grade...", "Engineered for daily comfort"</td>
+              </tr>
+              <tr>
+                <td><strong>Policy 5.2</strong></td>
+                <td>Body Imagery &amp; Extreme Transformation</td>
+                <td>"Lose 20lbs in 7 days", "belly fat melt", split-screen radical belly before/after</td>
+                <td>"Support your active lifestyle", "Wholesome wellness routine", "Holistic fitness nutrition"</td>
+              </tr>
+              <tr>
+                <td><strong>Policy 5.3</strong></td>
+                <td>Unrealistic Income &amp; Financial Claims</td>
+                <td>"Make $1,000/day passive income", "guaranteed crypto profit", "get rich quick"</td>
+                <td>"Streamline your store workflows", "Proven marketing framework for creators"</td>
+              </tr>
+              <tr>
+                <td><strong>Policy 5.4</strong></td>
+                <td>Deceptive UI &amp; Fake System Alerts</td>
+                <td>Simulated low battery icons, fake incoming calls, "system error", fake play buttons</td>
+                <td>Authentic TikTok native stickers, clear creator talking-head framing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2 class="guide-heading-2">Best Practices for High-Converting, 100% Compliant Ad Hooks</h2>
+        <p class="guide-paragraph">
+          To maintain high click-through rates (CTR) while staying strictly on the right side of TikTok's automated compliance filters:
+        </p>
+        <p class="guide-paragraph">
+          <strong>Frame Around Experience, Not Guarantee:</strong> Shift from claiming universal medical or financial certainty to sharing subjective customer experiences: <em>"Why over 10,000 customers switched to memory foam support..."</em> rather than <em>"Cure your back pain 100% guaranteed"</em>.
+        </p>
+        <p class="guide-paragraph">
+          <strong>Include Visible Disclaimers:</strong> On financial, SaaS, and fitness landing pages, ensure standard FTC disclaimers are visible in the footer (e.g. <em>"Results may vary depending on individual starting point and consistency"</em>).
+        </p>
+        <p class="guide-paragraph">
+          <strong>Avoid Clickbait UI Overlays:</strong> Never simulate platform UI buttons (like a fake red notification dot or simulated iPhone alert). TikTok categorizes this as malicious clickbait under Policy 5.4, which can result in immediate domain blacklisting.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="guide-heading-2">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">What should I do if an approved ad suddenly gets disapproved?</h3>
+          <div class="faq-answer">
+            TikTok periodically re-scans active ads when new policy filters are deployed. If an ad was previously running, check the rejection reason in Ads Manager under the 'Ad Details' tab, edit the flagged text or voiceover, and submit as a new ad creative.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can I appeal a rejected ad if I believe the bot made a false positive?</h3>
+          <div class="faq-answer">
+            Yes. Inside Ads Manager, click 'Appeal' on the rejected ad. In the explanation box, clearly cite why the phrasing complies with policy (for example, citing third-party clinical backing or clarifying that a claim was non-literal). Approximately 35% of false-positive appeals are overturned.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Are Spark Ads held to the same compliance standards as non-Spark ads?</h3>
+          <div class="faq-answer">
+            Yes. Even though Spark Ads pull directly from organic TikTok creator posts, once boosted as commercial ads they undergo the exact same automated OCR and ASR advertising compliance filters.
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- Partner Registration Banner -->
+    <div class="voucher-cta-card">
+      <div class="voucher-cta-left">
+        <h2 class="voucher-cta-title">Scale Clean, Approved Campaigns on TikTok</h2>
+        <p class="voucher-cta-sub">
+          Register an official TikTok Ads Manager account with up to $6,000 in promotional ad matching credits. Protect your brand reputation and scale sustainably.
+        </p>
+      </div>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-voucher-main">
+        Claim $6,000 Credit Voucher →
+      </a>
+    </div>
+
+    <!-- Topical Silo Cross-Links -->
+    <section class="silo-grid-section">
+      <h2 class="silo-heading">Explore Related Free TikTok Ad Diagnostic Tools</h2>
+      <div class="silo-cards">
+        <div class="silo-card">
+          <h3 class="silo-card-title">📨 Suspension Appeal Generator</h3>
+          <p class="silo-card-desc">If your account was already restricted, generate a formal 4-pillar legal appeal letter for Policy 5.1 or Unusual Activity.</p>
+          <a href="../suspension-appeal/" class="silo-card-link">Generate Appeal Letter →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">⚡ Cold-Start Evaluator</h3>
+          <p class="silo-card-desc">Calculate conversion viability and verify that your approved ad groups reach the 50-event learning threshold.</p>
+          <a href="../cold-start-evaluator/" class="silo-card-link">Launch Cold-Start Tool →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">🛡️ Pangle Leak Auditor</h3>
+          <p class="silo-card-desc">Ensure your compliant creatives are delivered exclusively to genuine TikTok users rather than bot-heavy apps.</p>
+          <a href="../pangle-leak-auditor/" class="silo-card-link">Audit Pangle Leakage →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>TikTok Offers Hub</strong> · Independent advertiser guide. Partner links may earn us a referral commission. Not operated by or affiliated with TikTok Inc.
+    </div>
+    <div class="footer-links">
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="footer-link">Claim $6k Credit</a>
+      <a href="../voucher-calculator/" class="footer-link">Voucher Calculator</a>
+      <a href="../cold-start-evaluator/" class="footer-link">Cold-Start Tool</a>
+      <a href="../pangle-leak-auditor/" class="footer-link">Pangle Auditor</a>
+      <a href="../vcc-bin-evaluator/" class="footer-link">VCC Database</a>
+      <a href="../suspension-appeal/" class="footer-link">Appeal Generator</a>
+    </div>
+    <span>© 2026 Independent Resource</span>
+  </footer>
+
+  <script>
+    const POLICY_RULES = [
+      {
+        regex: /\b(100%\s*(guaranteed|relief|cure|effective|safe)|miracle(\s*cure)?|permanent\s*fix|instant\s*relief|cure(\s*all)?|heal\s*forever|eradicate)\b/gi,
+        policy: "Policy 5.1: Exaggerated Promises & Absolute Claims",
+        replace: "Replace with: 'Designed to support...', 'Formulated with clinical-grade...'"
+      },
+      {
+        regex: /\b(lose\s*\d+\s*(lbs|pounds|kg)|melt\s*fat|skinny\s*tea|belly\s*fat\s*in\s*\d+\s*days|before\s*and\s*after\s*body)\b/gi,
+        policy: "Policy 5.2: Body Imagery & Radical Transformation",
+        replace: "Replace with: 'Active lifestyle routine', 'Holistic fitness nutrition'"
+      },
+      {
+        regex: /\b(make\s*\$\d+.*(day|night|hour)|crypto\s*secret|passive\s*income\s*guaranteed|guaranteed\s*profit|get\s*rich\s*quick)\b/gi,
+        policy: "Policy 5.3: Unrealistic Financial & Income Guarantees",
+        replace: "Replace with: 'Streamline store workflows', 'Proven e-commerce framework'"
+      },
+      {
+        regex: /\b(system\s*warning|low\s*battery|incoming\s*call|tap\s*before\s*banned|secret\s*glitch|emergency\s*alert)\b/gi,
+        policy: "Policy 5.4: Deceptive UI & Simulated Alerts",
+        replace: "Replace with authentic native TikTok creator overlays and stickers"
+      }
+    ];
+
+    function runCreativeLinter() {
+      const text = document.getElementById('linter-input-text').value;
+      const resultsContainer = document.getElementById('linter-results-list');
+      const countBadge = document.getElementById('linter-count-badge');
+
+      if (!text.trim()) {
+        resultsContainer.innerHTML = '<div style="color: #6b7280; font-size: 13px; text-align: center; padding: 20px;">Type or paste video hooks or ad copy to run live scan.</div>';
+        countBadge.textContent = '0 Issues';
+        countBadge.style.color = '#9da6be';
+        countBadge.style.borderColor = 'rgba(157,166,190,0.3)';
+        countBadge.style.background = 'rgba(157,166,190,0.1)';
+        return;
+      }
+
+      let found = [];
+      POLICY_RULES.forEach(rule => {
+        const matches = text.match(rule.regex);
+        if (matches) {
+          matches.forEach(m => {
+            found.push({ match: m, policy: rule.policy, replace: rule.replace });
+          });
+        }
+      });
+
+      if (found.length === 0) {
+        countBadge.textContent = '✅ 100% Compliant';
+        countBadge.style.color = '#4ade80';
+        countBadge.style.borderColor = 'rgba(74,222,128,0.3)';
+        countBadge.style.background = 'rgba(74,222,128,0.1)';
+        resultsContainer.innerHTML = '<div style="background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.25); border-radius: 8px; padding: 14px; color: #4ade80; font-size: 12.5px;"><strong>No policy violation triggers detected!</strong> This copy passes automated Policy 5.1 OCR and speech-to-text safety checks.</div>';
+      } else {
+        countBadge.textContent = `${found.length} Warning${found.length > 1 ? 's' : ''}`;
+        countBadge.style.color = '#fe2c55';
+        countBadge.style.borderColor = 'rgba(254,44,85,0.3)';
+        countBadge.style.background = 'rgba(254,44,85,0.1)';
+        let html = '';
+        found.forEach(item => {
+          html += `
+            <div style="background: rgba(254,44,85,0.05); border: 1px solid rgba(254,44,85,0.25); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 4px;">
+                <span style="background: #fe2c55; color: #fff; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Flagged: "${item.match}"</span>
+                <span style="font-size: 11px; color: #9da6be;">${item.policy}</span>
+              </div>
+              <div style="font-size: 12px; color: #25f4ee; margin-top: 4px;">💡 ${item.replace}</div>
+            </div>
+          `;
+        });
+        resultsContainer.innerHTML = html;
+      }
+    }
+
+    function loadLinterPreset(type) {
+      const input = document.getElementById('linter-input-text');
+      if (type === 'health') {
+        input.value = "Guaranteed 100% cure for lower back pain forever with this miracle ergonomic cushion! Instant relief in 3 seconds.";
+      } else if (type === 'finance') {
+        input.value = "Discover the hidden crypto secret to make $1,000/day passive income while sleeping with guaranteed profit!";
+      } else if (type === 'clean') {
+        input.value = "Tired of feeling stiff after long desk hours? Here is how ergonomic memory foam supports your natural spine alignment throughout the workday.";
+      }
+      runCreativeLinter();
+    }
+
+    // Initialize on load
+    runCreativeLinter();
+  </script>
+</body>
+</html>

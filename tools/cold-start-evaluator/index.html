@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Ads Cold-Start Pacing Evaluator | Fix 0 Impressions & Starved Auctions</title>
+  <meta name="description" content="Free TikTok Ads Cold-Start Pacing Evaluator. Diagnose why your TikTok ads have 0 impressions or are not spending. Calculate learning phase conversion viability and optimal bid-to-budget ratios.">
+  <link rel="canonical" href="https://adgrowth-lab.github.io/tools/cold-start-evaluator/">
+  <meta name="color-scheme" content="dark">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adgrowth-lab.github.io/tools/cold-start-evaluator/">
+  <meta property="og:title" content="TikTok Ads Cold-Start Pacing Evaluator | Fix 0 Impressions">
+  <meta property="og:description" content="Calculate your 50-event learning phase viability and diagnose zero-spend auctions on TikTok Ads Manager.">
+  <meta property="og:site_name" content="TikTok Offers Hub">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & Shared Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/tools.css">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "TikTok Ads Cold-Start Pacing Evaluator",
+        "url": "https://adgrowth-lab.github.io/tools/cold-start-evaluator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Diagnostic simulator calculating 7-day conversion pacing, auction bid starvation risk, and break-even ROAS requirements on TikTok Ads Manager."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://adgrowth-lab.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Free Tools",
+            "item": "https://adgrowth-lab.github.io/#tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cold-Start Evaluator",
+            "item": "https://adgrowth-lab.github.io/tools/cold-start-evaluator/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why are my TikTok ads not spending or stuck at 0 impressions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The most common causes for TikTok ads not spending are: (1) Setting a Cost Cap target lower than current auction market clearing rates; (2) Daily budget set below 2× to 5× your target CPA, causing auction bid starvation; (3) Targeting an overly narrow audience pool; (4) New account payment verification hold."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the 50-conversion threshold for TikTok's learning phase?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TikTok's recommendation engine requires approximately 50 conversion events per ad group within a continuous 7-day window to complete the learning phase. Once exited, the delivery algorithm stabilizes CPA and CPM fluctuations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use Cost Cap or Lowest Cost for new campaigns?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For initial cold-start testing, Lowest Cost (Maximum Delivery) is strongly recommended for the first 48 to 72 hours. This provides the auction algorithm with baseline conversion signals. Once baseline CPA is established, you can switch winning creatives to Cost Cap."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the minimum recommended daily budget for TikTok ad sets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard rule of thumb is setting daily budget to at least 5× your target CPA. For example, if your expected cost per purchase is $20, your daily budget per ad set should be at least $100."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="tools-nav">
+    <a href="../../" class="nav-brand">
+      <span class="nav-brand-dot"></span>
+      <span>TikTok Offers Hub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../" class="nav-link-btn">← Back to Overview</a>
+      <a href="../voucher-calculator/" class="nav-link-btn">Voucher Calc</a>
+      <a href="../pangle-leak-auditor/" class="nav-link-btn">Pangle Auditor</a>
+      <a href="../compliance-linter/" class="nav-link-btn">Policy Linter</a>
+      <a href="../vcc-bin-evaluator/" class="nav-link-btn">VCC BINs</a>
+      <a href="../suspension-appeal/" class="nav-link-btn">Appeal Kit</a>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">Claim $6k Credit →</a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+    <a href="../../">Home</a>
+    <span class="breadcrumbs-sep">/</span>
+    <a href="../../#tools">Free Tools</a>
+    <span class="breadcrumbs-sep">/</span>
+    <span class="breadcrumbs-current">Cold-Start Pacing Evaluator</span>
+  </nav>
+
+  <main class="tool-page-main">
+    <!-- Header -->
+    <div class="tool-header">
+      <span class="tool-pill-badge">⚡ Diagnostic Tool · Auction Pacing &amp; Learning Phase</span>
+      <h1 class="tool-title">TikTok Ads Cold-Start Pacing Evaluator</h1>
+      <p class="tool-description">
+        Diagnose 0-impression delivery bottlenecks, calculate 7-day conversion volume against TikTok's mandatory 50-event learning threshold, and prevent auction bid starvation.
+      </p>
+      <div class="tool-meta-stats">
+        <span>🎯 50-Conversion Learning Phase Model</span>
+        <span>⚖️ Bid-to-Budget Ratio Analysis</span>
+        <span>⚡ Cost Cap vs. Lowest Cost Simulator</span>
+      </div>
+    </div>
+
+    <!-- Standalone Workspace -->
+    <div class="standalone-workspace">
+      <div class="workspace-grid">
+        <!-- Input Form -->
+        <div>
+          <div class="field-group">
+            <label class="field-label" for="cs-budget">Daily Ad Set Budget ($ USD)</label>
+            <input type="number" id="cs-budget" class="input-control" value="100" min="5" step="10" oninput="runColdStartDiag()">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="cs-cpa">Target CPA / Cost Per Conversion ($ USD)</label>
+            <input type="number" id="cs-cpa" class="input-control" value="20" min="1" step="1" oninput="runColdStartDiag()">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="cs-aov">Average Order Value (AOV) ($ USD)</label>
+            <input type="number" id="cs-aov" class="input-control" value="65" min="1" step="5" oninput="runColdStartDiag()">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="cs-bidding">Bidding Strategy</label>
+            <select id="cs-bidding" class="select-control" onchange="runColdStartDiag()">
+              <option value="lowest_cost" selected>Lowest Cost (Recommended for Cold-Start)</option>
+              <option value="cost_cap">Cost Cap (Strict CPA Ceiling)</option>
+            </select>
+          </div>
+
+          <div class="presets-list">
+            <span style="font-size: 11px; color: var(--muted); align-self: center; margin-right: 4px;">Quick Presets:</span>
+            <button type="button" class="preset-chip" onclick="setPreset(50, 15, 55, 'lowest_cost')">DTC E-Com Standard</button>
+            <button type="button" class="preset-chip" onclick="setPreset(20, 25, 45, 'cost_cap')">Tight Budget / High CPA</button>
+            <button type="button" class="preset-chip" onclick="setPreset(250, 22, 85, 'lowest_cost')">Scale Ad Set ($250/d)</button>
+          </div>
+        </div>
+
+        <!-- Diagnostic Result Card -->
+        <div class="result-card">
+          <div>
+            <div class="result-header">
+              <div>
+                <div class="metric-tile-label">Viability Score</div>
+                <div style="font-size: 28px; font-weight: 800; color: #fff;" id="cs-score-val">75/100</div>
+              </div>
+              <span class="score-badge" id="cs-score-status" style="background: rgba(74,222,128,0.1); border-color: rgba(74,222,128,0.3); color: #4ade80;">HEALTHY PACING</span>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-tile">
+                <div class="metric-tile-label">Est. Conversions / Day</div>
+                <div class="metric-tile-val" id="cs-daily-conv">5.0 / day</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Est. Conversions / 7 Days</div>
+                <div class="metric-tile-val" id="cs-weekly-conv" style="color: #25f4ee;">35.0 / 7d</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Break-Even ROAS</div>
+                <div class="metric-tile-val" id="cs-roas-val">0.31×</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Budget-to-CPA Ratio</div>
+                <div class="metric-tile-val" id="cs-ratio-val">5.0× (Optimal)</div>
+              </div>
+            </div>
+
+            <div class="advice-callout">
+              <strong style="color: #25f4ee; display: block; margin-bottom: 6px;">📋 Algorithmic Diagnostics &amp; Recommendations:</strong>
+              <ul id="cs-advice-list">
+                <li>Budget satisfies standard auction entry thresholds.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="action-cta-banner">
+            <span>Boost your cold-start liquidity with TikTok's official $3,000 credit match:</span>
+            <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-accent-glow">
+              Claim $3,000 Ad Voucher →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive Content (Information Gain) -->
+    <article class="educational-guide">
+      <section class="guide-section">
+        <h2 class="guide-heading-2">Why Do TikTok Ads Stop Spending or Get 0 Impressions?</h2>
+        <p class="guide-paragraph">
+          Unlike Meta Ads, which frequently spends full daily budgets regardless of bid performance, TikTok's advertising auction engine operates on a strict <strong>eCPM (effective Cost Per Mille) pacing threshold</strong>:
+        </p>
+        <p class="guide-paragraph" style="text-align: center; font-family: monospace; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; border: 1px solid var(--line);">
+          <strong style="color: #25f4ee;">eCPM = Bid × Estimated Click-Through Rate (eCTR) × Estimated Conversion Rate (eCVR) × 1,000</strong>
+        </p>
+        <p class="guide-paragraph">
+          When an ad group is newly created, it has <strong>zero historical conversion data</strong>. The auction algorithm has no empirical proof of your ad's eCTR or eCVR. If your target CPA (in Cost Cap) or daily budget is too restrictive, the calculated eCPM drops below the auction floor of competing advertisers, and TikTok's bid engine automatically bids <strong>$0</strong>—resulting in 0 impressions.
+        </p>
+      </section>
+
+      <section class="guide-section">
+        <h2 class="guide-heading-2">The 50-Event Learning Phase Rule Explained</h2>
+        <p class="guide-paragraph">
+          TikTok's delivery algorithm requires approximately <strong>50 completed optimization events within 7 continuous days</strong> per ad group to successfully exit the initial learning phase.
+        </p>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr>
+                <th>Target Event</th>
+                <th>Avg. Industry CPA</th>
+                <th>Minimum Daily Budget (5× CPA)</th>
+                <th>7-Day Required Spend to Exit Learning Phase</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Complete Payment (Purchase)</strong></td>
+                <td>$20 – $35</td>
+                <td>$100 – $175 / day</td>
+                <td>$1,000 – $1,750 USD</td>
+              </tr>
+              <tr>
+                <td><strong>Initiate Checkout</strong></td>
+                <td>$8 – $15</td>
+                <td>$40 – $75 / day</td>
+                <td>$400 – $750 USD</td>
+              </tr>
+              <tr>
+                <td><strong>Add to Cart</strong></td>
+                <td>$4 – $8</td>
+                <td>$20 – $40 / day</td>
+                <td>$200 – $400 USD</td>
+              </tr>
+              <tr>
+                <td><strong>Lead Form Submission</strong></td>
+                <td>$6 – $14</td>
+                <td>$30 – $70 / day</td>
+                <td>$300 – $700 USD</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="guide-paragraph">
+          <strong>Strategic Takeaway:</strong> If you have a budget under $50/day and sell a high-ticket item with a $40 CPA, optimizing directly for Complete Payment will cause the ad group to stay perpetually trapped in the learning phase. In this case, either increase daily budget or optimize for an upper-funnel event (such as Initiate Checkout) during week 1.
+        </p>
+      </section>
+
+      <section class="guide-section">
+        <h2 class="guide-heading-2">Actionable Checklist: How to Kickstart a Frozen Ad Group</h2>
+        <p class="guide-paragraph">
+          If your campaign has delivered 0 impressions for over 12 hours after passing review, follow this sequential troubleshooting protocol:
+        </p>
+        <p class="guide-paragraph">
+          <strong>Step 1: Switch Bidding to Lowest Cost.</strong> If you are running Cost Cap, duplicate the ad group and switch to Lowest Cost. Let TikTok gather initial impression velocity for 24–48 hours before applying bid ceilings.
+        </p>
+        <p class="guide-paragraph">
+          <strong>Step 2: Check Daily Budget Multiplier.</strong> Ensure daily ad group budget is at least 5× your expected CPA. If CPA is $25, budget must be ≥ $125/day.
+        </p>
+        <p class="guide-paragraph">
+          <strong>Step 3: Broaden Targeting &amp; Turn Off Pangle.</strong> Remove tight interest layering or micro-geographic boundaries. Keep targeting broad (age, gender, country) and isolate placements strictly to the TikTok feed.
+        </p>
+        <p class="guide-paragraph">
+          <strong>Step 4: Check Account Daily Spend Cap.</strong> Unverified consumer TikTok accounts often have an automated $50/day global spend cap applied by the risk engine. Check your Business Center verification status or upgrade via partner whitelisted credits.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="guide-heading-2">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">How long does TikTok's ad review process typically take?</h3>
+          <div class="faq-answer">
+            Most ads pass automated review within 2 to 4 hours. However, if your ad mentions sensitive keywords (medical, financial, or branded names), it enters manual queue which may take up to 24 hours.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What does "Learning Phase Failed" mean in TikTok Ads Manager?</h3>
+          <div class="faq-answer">
+            It means the ad group failed to generate 50 conversions within 7 days. While the ad will continue to deliver, CPA and CPM volatility will be higher. The recommended action is testing fresh creative hooks with a higher budget.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Should I edit an active ad group during the learning phase?</h3>
+          <div class="faq-answer">
+            No. Significant edits (altering targeting, changing creative, or adjusting budget by more than 20% in a single day) will reset the learning phase back to 0 conversions.
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- Partner Registration Banner -->
+    <div class="voucher-cta-card">
+      <div class="voucher-cta-left">
+        <h2 class="voucher-cta-title">Need Extra Budget to Clear the 50-Event Learning Phase?</h2>
+        <p class="voucher-cta-sub">
+          Claim up to $6,000 in official 100% matched ad credits. Unlock sufficient runway to exit the learning phase and scale your winning campaigns.
+        </p>
+      </div>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-voucher-main">
+        Claim Matched Ad Voucher Now →
+      </a>
+    </div>
+
+    <!-- Topical Silo Cross-Links -->
+    <section class="silo-grid-section">
+      <h2 class="silo-heading">Explore Related Free TikTok Ad Diagnostic Tools</h2>
+      <div class="silo-cards">
+        <div class="silo-card">
+          <h3 class="silo-card-title">💰 Voucher Calculator</h3>
+          <p class="silo-card-desc">Calculate your official credit match across $200, $1k, $4k, and $10k spend tiers before launching.</p>
+          <a href="../voucher-calculator/" class="silo-card-link">Calculate Ad Credits →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">🛡️ Pangle Leak Auditor</h3>
+          <p class="silo-card-desc">Audit your placement settings to ensure budget isn't being drained by low-conversion app network placements.</p>
+          <a href="../pangle-leak-auditor/" class="silo-card-link">Audit Pangle Placements →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">⚖️ Policy Compliance Linter</h3>
+          <p class="silo-card-desc">Scan ad copy and video hooks against TikTok Policy 5.1 OCR rules to avoid rejection and shadowbans.</p>
+          <a href="../compliance-linter/" class="silo-card-link">Lint Creative Hooks →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>TikTok Offers Hub</strong> · Independent advertiser guide. Partner links may earn us a referral commission. Not operated by or affiliated with TikTok Inc.
+    </div>
+    <div class="footer-links">
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="footer-link">Claim $6k Credit</a>
+      <a href="../voucher-calculator/" class="footer-link">Voucher Calculator</a>
+      <a href="../pangle-leak-auditor/" class="footer-link">Pangle Auditor</a>
+      <a href="../compliance-linter/" class="footer-link">Compliance Linter</a>
+      <a href="../vcc-bin-evaluator/" class="footer-link">VCC Database</a>
+      <a href="../suspension-appeal/" class="footer-link">Appeal Generator</a>
+    </div>
+    <span>© 2026 Independent Resource</span>
+  </footer>
+
+  <script>
+    function runColdStartDiag() {
+      const budget = parseFloat(document.getElementById('cs-budget').value) || 0;
+      const targetCpa = parseFloat(document.getElementById('cs-cpa').value) || 0;
+      const aov = parseFloat(document.getElementById('cs-aov').value) || 0;
+      const bidding = document.getElementById('cs-bidding').value;
+
+      if (budget <= 0 || targetCpa <= 0) return;
+
+      const dailyConv = budget / targetCpa;
+      const weeklyConv = dailyConv * 7;
+      const breakEvenRoas = aov > 0 ? (targetCpa / aov).toFixed(2) : 'N/A';
+      const ratio = budget / targetCpa;
+
+      let score = 100;
+      let pacingStatus = "HEALTHY PACING";
+      let pacingColor = "#4ade80";
+      let advice = [];
+
+      if (ratio < 2) {
+        score -= 40;
+        advice.push("Budget is less than 2× Target CPA. Critical risk of 0 impressions or auction starvation.");
+      } else if (ratio < 5) {
+        score -= 20;
+        advice.push("Budget is tight (<5× CPA). Daily auction delivery may fluctuate significantly.");
+      }
+
+      if (weeklyConv < 50) {
+        score -= 25;
+        const recBudget = Math.ceil((50 / 7) * targetCpa);
+        advice.push(`Estimated 7-day conversions (${weeklyConv.toFixed(1)}) is below the 50-event threshold needed to exit TikTok's learning phase. Recommended budget: ≥ $${recBudget}/day.`);
+      } else {
+        advice.push(`Projected 7-day conversions (${weeklyConv.toFixed(1)}) comfortably satisfies TikTok's 50-conversion learning phase requirement.`);
+      }
+
+      if (bidding === 'cost_cap' && ratio < 5) {
+        score -= 20;
+        advice.push("Cost Cap bidding with a restrictive budget often causes TikTok's auction algorithm to bid $0. Switch to 'Lowest Cost' for initial 48h signal gathering.");
+      }
+
+      if (budget <= 50) {
+        advice.push("Standard personal ad accounts are capped at $50/day. Upgrade to an Agency whitelisted line to scale winning ads.");
+      }
+
+      score = Math.max(10, Math.min(100, score));
+      if (score < 50) {
+        pacingStatus = "CRITICAL ZERO-SPEND RISK";
+        pacingColor = "#fe2c55";
+      } else if (score < 75) {
+        pacingStatus = "MODERATE VOLATILITY";
+        pacingColor = "#ffbc25";
+      }
+
+      document.getElementById('cs-score-val').textContent = score + '/100';
+      const statusEl = document.getElementById('cs-score-status');
+      statusEl.textContent = pacingStatus;
+      statusEl.style.color = pacingColor;
+      statusEl.style.borderColor = pacingColor;
+      statusEl.style.background = pacingColor + '18';
+
+      document.getElementById('cs-daily-conv').textContent = dailyConv.toFixed(1) + ' / day';
+      document.getElementById('cs-weekly-conv').textContent = weeklyConv.toFixed(1) + ' / 7d';
+      document.getElementById('cs-roas-val').textContent = breakEvenRoas !== 'N/A' ? breakEvenRoas + '×' : 'N/A';
+      document.getElementById('cs-ratio-val').textContent = ratio.toFixed(1) + '× (' + (ratio >= 5 ? 'Optimal' : ratio >= 2 ? 'Tight' : 'Starved') + ')';
+
+      const adviceEl = document.getElementById('cs-advice-list');
+      adviceEl.innerHTML = advice.map(msg => `<li>${msg}</li>`).join('');
+    }
+
+    function setPreset(budget, cpa, aov, bidding) {
+      document.getElementById('cs-budget').value = budget;
+      document.getElementById('cs-cpa').value = cpa;
+      document.getElementById('cs-aov').value = aov;
+      document.getElementById('cs-bidding').value = bidding;
+      runColdStartDiag();
+    }
+
+    // Initialize on load
+    runColdStartDiag();
+  </script>
+</body>
+</html>

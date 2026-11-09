@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Ad Credit & Voucher Calculator 2026 | Free 100% Match Estimator</title>
+  <meta name="description" content="Calculate your 2026 TikTok ad credit match, promotional voucher spend multipliers, and 50% introductory coupon savings across $200, $1,000, $4,000, and $10,000 ad tiers.">
+  <link rel="canonical" href="https://adgrowth-lab.github.io/tools/voucher-calculator/">
+  <meta name="color-scheme" content="dark">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adgrowth-lab.github.io/tools/voucher-calculator/">
+  <meta property="og:title" content="TikTok Ad Credit & Voucher Calculator 2026 | Free 100% Match Estimator">
+  <meta property="og:description" content="Interactive 2026 calculator for official TikTok Ads Manager spend coupons and credit matches up to $6,000.">
+  <meta property="og:site_name" content="TikTok Offers Hub">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & Shared Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/tools.css">
+
+  <style>
+    .spend-tier-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 6px;
+      border-radius: 14px;
+      background: #070910;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 16px;
+    }
+    @media (max-width: 500px) {
+      .spend-tier-selector { grid-template-columns: repeat(2, 1fr); }
+    }
+    .tier-option {
+      min-width: 0;
+      min-height: 64px;
+      padding: 10px 4px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: #9aa5be;
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+      transition: all .18s;
+    }
+    .tier-option:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+    .tier-option.selected {
+      background: linear-gradient(135deg, rgba(37, 244, 238, 0.18) 0%, rgba(37, 244, 238, 0.05) 100%);
+      border-color: #25f4ee;
+      color: #ffffff;
+      box-shadow: 0 0 18px rgba(37, 244, 238, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    .tier-option.selected .tier-option-credit { color: #25f4ee; }
+    .tier-option-spend { display: block; font-size: 10.5px; opacity: .85; }
+    .tier-option-credit { display: block; font-size: 17px; font-weight: 700; }
+    .calc-budget-label { font-size: 11px; font-weight: 600; color: #8895b3; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+    .calc-value-large {
+      display: block;
+      color: var(--accent);
+      font-family: var(--display);
+      font-size: clamp(38px, 4.5vw, 54px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      text-shadow: 0 0 20px rgba(37, 244, 238, 0.35);
+    }
+    .budget-composition { margin: 14px 0 2px; }
+    .budget-bar { display: flex; gap: 0px; height: 9px; border-radius: 999px; overflow: hidden; background: #161b2c; }
+    .budget-paid { flex: 1; background: linear-gradient(90deg, #fe2c55, #ff4d73); border-radius: 999px; }
+    .budget-credit { width: 42.857143%; background: linear-gradient(90deg, #25f4ee, #4ef8f3); border-radius: 999px; transition: width .25s ease; box-shadow: 0 0 10px rgba(37, 244, 238, 0.5); }
+    .budget-legend { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11.5px; color: #cbd5e1; }
+    .budget-legend span:last-child { color: var(--accent); }
+    .budget-legend strong { font-weight: 600; margin-left: 4px; color: #fff; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "TikTok Ad Credit & Voucher Calculator 2026",
+        "url": "https://adgrowth-lab.github.io/tools/voucher-calculator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Calculate promotional ad credit matches, effective ROAS leverage, and stackable discount vouchers for TikTok Ads Manager."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://adgrowth-lab.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Free Tools",
+            "item": "https://adgrowth-lab.github.io/#tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Voucher Calculator",
+            "item": "https://adgrowth-lab.github.io/tools/voucher-calculator/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the TikTok Ads 100% credit match work in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When creating a new TikTok Ads Manager account via an official partner registration link, your first 30 days of qualifying ad spend are matched based on the selected promotional tier (up to $6,000 maximum). The credit attaches to your account billing center within 72 hours of reaching the qualifying spend threshold."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the four official TikTok ad spend match tiers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The four official tiers are: Tier 1: Spend $200, receive $200 (100% Match); Tier 2: Spend $1,000, receive $750 (75% Match); Tier 3: Spend $4,000, receive $3,000 (75% Match); Tier 4: Spend $10,000, receive $6,000 (60% Match)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the 50% introductory coupon stack with promotional spend credits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. First-time advertisers receive an introductory 50% off coupon capped at $50 for their initial 7 days of campaign delivery. This welcome coupon stacks concurrently with milestone spend match credits."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What commercial payment methods qualify for promotional ad credit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Valid corporate credit or commercial debit cards (such as Mercury, Relay, Brex, or business Visa/Mastercard) with 3DS 2.0 verification enabled are eligible. Prepaid anonymous consumer cards are generally excluded from promotional disbursement."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="tools-nav">
+    <a href="../../" class="nav-brand">
+      <span class="nav-brand-dot"></span>
+      <span>TikTok Offers Hub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../" class="nav-link-btn">← Back to Overview</a>
+      <a href="../cold-start-evaluator/" class="nav-link-btn">Cold-Start</a>
+      <a href="../pangle-leak-auditor/" class="nav-link-btn">Pangle Auditor</a>
+      <a href="../compliance-linter/" class="nav-link-btn">Policy Linter</a>
+      <a href="../vcc-bin-evaluator/" class="nav-link-btn">VCC BINs</a>
+      <a href="../suspension-appeal/" class="nav-link-btn">Appeal Kit</a>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">Claim $6k Credit →</a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+    <a href="../../">Home</a>
+    <span class="breadcrumbs-sep">/</span>
+    <a href="../../#tools">Free Tools</a>
+    <span class="breadcrumbs-sep">/</span>
+    <span class="breadcrumbs-current">TikTok Voucher & Credit Calculator</span>
+  </nav>
+
+  <main class="tool-page-main">
+    <!-- Header -->
+    <div class="tool-header">
+      <span class="tool-pill-badge">⚡ Interactive Promotional Estimator · 2026 Verified</span>
+      <h1 class="tool-title">TikTok Ad Credit &amp; Voucher Calculator</h1>
+      <p class="tool-description">
+        Model your 30-day advertising leverage across all four promotional tiers. Calculate your effective match percentage, total combined ad buying power, and stackable introductory coupons before launching campaigns.
+      </p>
+      <div class="tool-meta-stats">
+        <span>⏱️ Real-Time Calculation</span>
+        <span>🛡️ 100% Matching Algorithm</span>
+        <span>💵 Up to $6,000 Promotional Credit</span>
+      </div>
+    </div>
+
+    <!-- Standalone Workspace -->
+    <div class="standalone-workspace">
+      <div class="workspace-grid">
+        <!-- Input Controls -->
+        <div>
+          <label class="field-label">Select 30-Day Planned Ad Spend Tier</label>
+          <div class="spend-tier-selector" role="group" aria-label="Spend tier selector">
+            <button type="button" class="tier-option" onclick="selectTier(200, 200, '100% Match', this)" aria-pressed="false">
+              <span class="tier-option-spend">Spend $200</span>
+              <span class="tier-option-credit">+$200</span>
+            </button>
+            <button type="button" class="tier-option" onclick="selectTier(1000, 750, '75% Match', this)" aria-pressed="false">
+              <span class="tier-option-spend">Spend $1k</span>
+              <span class="tier-option-credit">+$750</span>
+            </button>
+            <button type="button" class="tier-option selected" onclick="selectTier(4000, 3000, '75% Match', this)" aria-pressed="true">
+              <span class="tier-option-spend">Spend $4k</span>
+              <span class="tier-option-credit">+$3,000</span>
+            </button>
+            <button type="button" class="tier-option" onclick="selectTier(10000, 6000, '60% Match', this)" aria-pressed="false">
+              <span class="tier-option-spend">Spend $10k</span>
+              <span class="tier-option-credit">+$6,000</span>
+            </button>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="manual-budget-input">Or Enter Custom Estimated Monthly Spend ($ USD)</label>
+            <input type="number" id="manual-budget-input" class="input-control" value="4000" min="50" step="50" oninput="handleManualSpendInput(this.value)">
+          </div>
+
+          <div class="advice-callout" style="margin-top: 20px;">
+            <strong style="color: #fff; display: block; margin-bottom: 4px;">💡 Milestone Disbursement Rule:</strong>
+            Promotional ad credits are disbursed automatically into your TikTok Ads Manager primary payment wallet once qualifying ad spend is verified within the designated 30-day onboarding window.
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div class="result-card">
+          <div>
+            <div class="result-header">
+              <div>
+                <div class="metric-tile-label">Eligible Promotional Credit</div>
+                <div class="calc-value-large" id="display-credit-val">$3,000</div>
+              </div>
+              <span class="score-badge" id="display-match-badge" style="background: rgba(37,244,238,0.12); border-color: rgba(37,244,238,0.3); color: #25f4ee;">75% MATCH</span>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-tile">
+                <div class="metric-tile-label">Required Qualifying Spend</div>
+                <div class="metric-tile-val" id="display-spend-val">$4,000</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Total Campaign Ad Power</div>
+                <div class="metric-tile-val" id="display-power-val" style="color: #25f4ee;">$7,000 Ad Spend</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Introductory Coupon</div>
+                <div class="metric-tile-val" style="color: #ffbc25;">50% Off ($50 Cap)</div>
+              </div>
+              <div class="metric-tile">
+                <div class="metric-tile-label">Spend Window</div>
+                <div class="metric-tile-val" style="color: #cbd5e1;">30 Qualifying Days</div>
+              </div>
+            </div>
+
+            <div class="budget-composition">
+              <div class="budget-bar" aria-hidden="true">
+                <span class="budget-paid" id="budget-paid-bar"></span>
+                <span class="budget-credit" id="budget-credit-bar"></span>
+              </div>
+              <div class="budget-legend">
+                <span>Direct Spend: <strong id="bar-spend-val">$4,000</strong></span>
+                <span>TikTok Credit: <strong id="bar-credit-val">$3,000</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-cta-banner">
+            <span>Register through official partner portal to lock in this tier:</span>
+            <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-accent-glow" id="calc-claim-button">
+              Claim $3,000 Voucher Now →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational Deep-Dive Content (Information Gain) -->
+    <article class="educational-guide">
+      <section class="guide-section">
+        <h2 class="guide-heading-2">Understanding the 2026 TikTok Ad Credit Match Structure</h2>
+        <p class="guide-paragraph">
+          TikTok's global SMB and Enterprise advertising incentive programs offer scaled credit matches for newly registered business accounts. Rather than a flat discount, TikTok employs a <strong>milestone-based spend matching architecture</strong> designed to support advertisers through the initial machine-learning phase.
+        </p>
+        <p class="guide-paragraph">
+          When an advertiser establishes an eligible Business Center and binds an unflagged commercial billing method, spend is tracked continuously across all active campaigns during the initial 30-day promotional window. Once cumulative qualifying spend reaches a tier threshold, the matching credit voucher is disbursed into the account payment center.
+        </p>
+
+        <h3 class="guide-heading-3">Milestone Tiers &amp; Capital Efficiency Comparison</h3>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr>
+                <th>Tier Level</th>
+                <th>Qualifying Spend</th>
+                <th>Promotional Credit</th>
+                <th>Effective Match %</th>
+                <th>Total Ad Exposure</th>
+                <th>Target Advertiser Profile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tier 1</strong></td>
+                <td>$200 USD</td>
+                <td><strong>+$200 USD</strong></td>
+                <td>100% Match</td>
+                <td>$400 Total Spend</td>
+                <td>Shopify Solo Founders &amp; Single-Product Tests</td>
+              </tr>
+              <tr>
+                <td><strong>Tier 2</strong></td>
+                <td>$1,000 USD</td>
+                <td><strong>+$750 USD</strong></td>
+                <td>75% Match</td>
+                <td>$1,750 Total Spend</td>
+                <td>Growing E-Commerce Stores (5–15 SKUs)</td>
+              </tr>
+              <tr>
+                <td><strong>Tier 3 (Most Popular)</strong></td>
+                <td>$4,000 USD</td>
+                <td><strong>+$3,000 USD</strong></td>
+                <td>75% Match</td>
+                <td>$7,000 Total Spend</td>
+                <td>Scaling DTC Brands &amp; Affiliate Media Buyers</td>
+              </tr>
+              <tr>
+                <td><strong>Tier 4</strong></td>
+                <td>$10,000 USD</td>
+                <td><strong>+$6,000 USD</strong></td>
+                <td>60% Match</td>
+                <td>$16,000 Total Spend</td>
+                <td>Agencies, Performance Networks &amp; App Install Scale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2 class="guide-heading-2">How to Maximize Your Ad Spend Multiplier</h2>
+        <p class="guide-paragraph">
+          To achieve maximum return on ad spend (ROAS) while leveraging promotional credits, professional media buyers follow three operational rules:
+        </p>
+        <p class="guide-paragraph">
+          <strong>1. Stack the 50% Introductory Coupon First:</strong> In the first 7 days, your account receives an automatic 50% off coupon capped at $50. Use this immediate buffer to run rapid creative split-tests (Spark Ads vs. Native UGC) at minimal net cost.
+        </p>
+        <p class="guide-paragraph">
+          <strong>2. Pace to Hit 50 Conversions:</strong> TikTok's auction algorithm requires approximately 50 conversion events per ad set within 7 days to exit the learning phase. Selecting Tier 3 ($4,000 spend for $3,000 credit) gives you enough liquidity to maintain optimal bid-to-budget ratios without starving auctions.
+        </p>
+        <p class="guide-paragraph">
+          <strong>3. Maintain Whitelisted Commercial VCCs:</strong> Avoid consumer prepaid cards. Binding an established commercial debit or corporate credit card (such as Mercury, Brex, or Relay) prevents sudden risk holds that freeze campaign pacing midway through your 30-day qualification window.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="guide-heading-2">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">Who is eligible for the 2026 TikTok ad credit match?</h3>
+          <div class="faq-answer">
+            New corporate or commercial advertisers registering a fresh TikTok Ads Manager account through an official partner link who have not previously claimed promotional credits on that specific business tax ID or corporate domain.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How soon are promotional credits applied after hitting the spend threshold?</h3>
+          <div class="faq-answer">
+            Promotional credits typically reflect in your Ads Manager payment wallet within 24 to 72 business hours after your qualifying spend is verified by the billing clearinghouse.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">What happens if my spend falls between two tiers?</h3>
+          <div class="faq-answer">
+            TikTok awards credit based on the highest completed tier threshold. For instance, if you spend $3,500 within 30 days, you will receive the Tier 2 credit ($750). To unlock Tier 3 ($3,000), you must reach the full $4,000 qualifying spend mark.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can existing TikTok ad accounts claim this offer?</h3>
+          <div class="faq-answer">
+            Existing accounts that have already spent funds or previously utilized promotional vouchers are not eligible. To claim, you must register a new advertising account within your Business Center using an authorized partner link.
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- Partner Registration Banner -->
+    <div class="voucher-cta-card">
+      <div class="voucher-cta-left">
+        <h2 class="voucher-cta-title">Ready to Claim Your $6,000 TikTok Ad Credit?</h2>
+        <p class="voucher-cta-sub">
+          Activate your eligible Business Center account today through the official partner onboarding gateway. Check eligibility and register in under 3 minutes.
+        </p>
+      </div>
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="btn-voucher-main">
+        Claim Up to $6,000 Voucher Now →
+      </a>
+    </div>
+
+    <!-- Topical Silo Cross-Links -->
+    <section class="silo-grid-section">
+      <h2 class="silo-heading">Explore Related Free TikTok Ad Diagnostic Tools</h2>
+      <div class="silo-cards">
+        <div class="silo-card">
+          <h3 class="silo-card-title">⚡ Cold-Start Evaluator</h3>
+          <p class="silo-card-desc">Diagnose 0-impression bottlenecks, check 50-event learning phase viability, and optimize bid-to-budget ratios.</p>
+          <a href="../cold-start-evaluator/" class="silo-card-link">Launch Cold-Start Tool →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">🛡️ Pangle Leak Auditor</h3>
+          <p class="silo-card-desc">Calculate wasted spend on low-quality third-party audience networks and learn how to exclude Pangle placements.</p>
+          <a href="../pangle-leak-auditor/" class="silo-card-link">Launch Pangle Auditor →</a>
+        </div>
+        <div class="silo-card">
+          <h3 class="silo-card-title">💳 VCC BIN Evaluator</h3>
+          <p class="silo-card-desc">Check your virtual card's 6-digit BIN against 2026 3DS acceptance benchmarks to prevent payment rejection bans.</p>
+          <a href="../vcc-bin-evaluator/" class="silo-card-link">Check Card BIN Risk →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>TikTok Offers Hub</strong> · Independent advertiser guide. Partner links may earn us a referral commission. Not operated by or affiliated with TikTok Inc.
+    </div>
+    <div class="footer-links">
+      <a href="https://getstartedtiktok.partnerlinks.io/apmgdhnv6eng" target="_blank" rel="noopener noreferrer" class="footer-link">Claim $6k Credit</a>
+      <a href="../cold-start-evaluator/" class="footer-link">Cold-Start Tool</a>
+      <a href="../pangle-leak-auditor/" class="footer-link">Pangle Auditor</a>
+      <a href="../compliance-linter/" class="footer-link">Compliance Linter</a>
+      <a href="../vcc-bin-evaluator/" class="footer-link">VCC Database</a>
+      <a href="../suspension-appeal/" class="footer-link">Appeal Generator</a>
+    </div>
+    <span>© 2026 Independent Resource</span>
+  </footer>
+
+  <script>
+    function selectTier(spend, credit, match, element) {
+      document.getElementById('display-credit-val').textContent = '$' + credit.toLocaleString();
+      const gross = spend + credit;
+      document.getElementById('display-spend-val').textContent = '$' + spend.toLocaleString();
+      document.getElementById('bar-spend-val').textContent = '$' + spend.toLocaleString();
+      document.getElementById('bar-credit-val').textContent = '$' + credit.toLocaleString();
+      document.getElementById('budget-credit-bar').style.width = (credit / gross * 100) + '%';
+      document.getElementById('display-power-val').textContent = '$' + gross.toLocaleString() + ' Ad Spend';
+      document.getElementById('display-match-badge').textContent = match.toUpperCase();
+
+      document.getElementById('calc-claim-button').textContent = 'Claim $' + credit.toLocaleString() + ' Voucher Now →';
+      const manualInput = document.getElementById('manual-budget-input');
+      if (manualInput) manualInput.value = spend;
+
+      if (element) {
+        document.querySelectorAll('.tier-option').forEach(el => {
+          el.classList.remove('selected');
+          el.setAttribute('aria-pressed', 'false');
+        });
+        element.classList.add('selected');
+        element.setAttribute('aria-pressed', 'true');
+      }
+    }
+
+    function handleManualSpendInput(val) {
+      const spend = parseFloat(val) || 0;
+      let credit = 0;
+      let match = 'Custom Match';
+
+      if (spend >= 10000) {
+        credit = 6000;
+        match = '60% Match';
+      } else if (spend >= 4000) {
+        credit = 3000;
+        match = '75% Match';
+      } else if (spend >= 1000) {
+        credit = 750;
+        match = '75% Match';
+      } else if (spend >= 200) {
+        credit = 200;
+        match = '100% Match';
+      } else {
+        credit = 0;
+        match = 'Below Minimum ($200)';
+      }
+
+      const gross = spend + credit;
+      document.getElementById('display-credit-val').textContent = '$' + credit.toLocaleString();
+      document.getElementById('display-spend-val').textContent = '$' + spend.toLocaleString();
+      document.getElementById('bar-spend-val').textContent = '$' + spend.toLocaleString();
+      document.getElementById('bar-credit-val').textContent = '$' + credit.toLocaleString();
+      const pct = gross > 0 ? (credit / gross * 100) : 0;
+      document.getElementById('budget-credit-bar').style.width = pct + '%';
+      document.getElementById('display-power-val').textContent = '$' + gross.toLocaleString() + ' Ad Spend';
+      document.getElementById('display-match-badge').textContent = match.toUpperCase();
+      document.getElementById('calc-claim-button').textContent = credit > 0 ? 'Claim $' + credit.toLocaleString() + ' Voucher Now →' : 'Register on TikTok Ads →';
+
+      // Sync button selection
+      document.querySelectorAll('.tier-option').forEach(el => {
+        el.classList.remove('selected');
+        el.setAttribute('aria-pressed', 'false');
+      });
+      if (spend === 200) document.querySelectorAll('.tier-option')[0].classList.add('selected');
+      else if (spend === 1000) document.querySelectorAll('.tier-option')[1].classList.add('selected');
+      else if (spend === 4000) document.querySelectorAll('.tier-option')[2].classList.add('selected');
+      else if (spend === 10000) document.querySelectorAll('.tier-option')[3].classList.add('selected');
+    }
+  </script>
+</body>
+</html>
