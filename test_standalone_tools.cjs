@@ -82,7 +82,8 @@ const TOOLS = [
       const errors = [];
       page.on('pageerror', err => errors.push(err.message));
 
-      const resp = await page.goto(url, { waitUntil: 'networkidle' });
+      const resp = await page.goto(url, { waitUntil: 'domcontentloaded' });
+      await page.waitForLoadState('load');
       assert.equal(resp.status(), 200, `Page ${url} must return HTTP 200`);
 
       // 1. Verify SEO Metadata
